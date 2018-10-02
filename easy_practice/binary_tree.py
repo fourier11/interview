@@ -13,7 +13,7 @@ class BTNode(object):
         self.right_child = None
 
 
-# 生成二叉树,而且是查找二叉树
+# 给一个列表，生成二叉树,而且是查找二叉树，递归方式
 def init_binary_tree(source_data, length):
     root = BTNode(source_data[0])
     for x in range(1, length):

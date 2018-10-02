@@ -15,8 +15,6 @@ class ListNode:
 def print_list_reversingly(phead):
     """
     从尾到头打印链表 P5
-    难度：*
-    :return:
     """
     stack = []
     while phead:

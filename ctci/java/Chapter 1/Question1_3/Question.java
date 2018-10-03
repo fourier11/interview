@@ -1,6 +1,7 @@
 package Question1_3;
 /**
  * 给定两个字符串，编写程序，确定其中一个字符串的字符重新排列后能否编程另一个字符串
+ * TODO:这道题解法还不理解
  */
 public class Question {	
 	public static String sort(String s) {

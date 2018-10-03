@@ -8,9 +8,11 @@
 
 import unittest
 
+
 def no_duplicates(str_):
     """ Determine if str_ has all unique characters,非常巧妙，用到了set数据结构 """
     return len(str_) == len(set(str_))
+
 
 def no_duplicates_no_structures(str_):
     """ Now without using additional data structures """

@@ -2,6 +2,9 @@ package Question1_4;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 将字符串中的空格全部替换为“%20”，假定知道字符串的真实长度
+ */
 public class Question {
 	// Assume string has sufficient free space at the end
 	public static void replaceSpaces(char[] str, int length) {

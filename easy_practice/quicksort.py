@@ -7,37 +7,13 @@
 
 
 def quicksort(lst, lo, hi):
-    if lo < hi:
-        p = partition_new(lst, lo, hi)
-        quicksort(lst, lo, p-1)
-        quicksort(lst, p+1, hi)
-    return
-
-
-def partition_new(lst, lo, hi):
     """
-    这个划分算法不是非常理解
-    :param lst:
-    :param lo:
-    :param hi:
-    :return:
+    注意：这里hi不是list最后一位的索引，而是length
     """
-    small = lo - 1
-    for j in range(lo, hi):
-        if lst[j] < lst[hi]:
-            small += 1
-            if small != j:
-                lst[small], lst[j] = lst[j], lst[small]
-    small +=1
-    lst[small], lst[hi] = lst[hi], lst[small]
-    return small
-
-
-def quicksort2(lst, lo, hi):
     if lo < hi:
         p = partition(lst, lo, hi)
-        quicksort2(lst, lo, p)
-        quicksort2(lst, p+1, hi)
+        quicksort(lst, lo, p)
+        quicksort(lst, p+1, hi)
     return
 
 
@@ -49,14 +25,14 @@ def partition(lst, lo, hi):
         if lst[j] < pivot:
             i += 1
             lst[i], lst[j] = lst[j], lst[i]
-    if lst[hi -1] < lst[i+1]:
+    if lst[hi-1] < lst[i+1]:
         lst[i+1], lst[hi-1] = lst[hi-1], lst[i+1]
     return i+1
 
 
 def quick_sort_from_baike(L, low, high):
     """
-    百度百科上的示例代码，感觉应该是最精简的快排代码，非常容易理解
+    百度百科上的示例代码，感觉应该是最精简的快排代码
     :param L:
     :param low:
     :param high:
@@ -79,8 +55,10 @@ def quick_sort_from_baike(L, low, high):
     return L
 
 
-a=[2,9,3,4,1,6,45,23,78,44,23,11]
-# quicksort2(a, 0, len(a)-1)
-# print(a)
+a = [2, 9, 3, 4, 1, 6, 45, 23, 78, 44, 23, 11]
+quicksort(a, 0, len(a))
+print(a)
+
+a = [2, 9, 3, 4, 1, 6, 45, 23, 78, 44, 23, 11]
 quick_sort_from_baike(a, 0, len(a)-1)
 print(a)

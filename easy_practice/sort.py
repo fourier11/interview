@@ -9,8 +9,6 @@
 def bubble(bubble_list):
     """
     冒泡排序
-    :param bubble_list:
-    :return:
     """
     for i in range(len(bubble_list)-1):
         for j in range(len(bubble_list)-1-i):
@@ -38,33 +36,43 @@ def merge_sort(alist):
     """
     # 最小的分组也要有 2 个元素
     if len(alist) > 1:
-        mid = len(alist)//2
+        mid = len(alist) // 2
         # 归并排序的缺点就是下面这两行，要申请额外的存储空间
-        lefthalf = alist[:mid]
-        righthalf = alist[mid:]
+        left_half = alist[:mid]
+        right_half = alist[mid:]
 
-        merge_sort(lefthalf)
-        merge_sort(righthalf)
+        merge_sort(left_half)
+        merge_sort(right_half)
 
-        i = 0; j = 0; k = 0
-        while i < len(lefthalf) and j < len(righthalf):
-            if lefthalf[i] < righthalf[j]:
-                alist[k] = lefthalf[i]
+        i = 0
+        j = 0
+        k = 0
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                alist[k] = left_half[i]
                 i += 1
             else:
-                alist[k] = righthalf[j]
+                alist[k] = right_half[j]
                 j += 1
             k += 1
 
-        while i < len(lefthalf):
-            alist[k] = lefthalf[i]
+        while i < len(left_half):
+            alist[k] = left_half[i]
             i += 1
             k += 1
-        while j < len(righthalf):
-            alist[k] = righthalf[j]
+        while j < len(right_half):
+            alist[k] = right_half[j]
             j += 1
+            k += 1
 
 
 if __name__ == '__main__':
     alist = [3, 4, 5, 2, 6, 8, 7]
+    print(bubble(alist))
+
+    alist = [3, 4, 5, 2, 6, 8, 7]
     print(insert_sort(alist))
+
+    alist = [3, 4, 5, 2, 6, 8, 7]
+    merge_sort(alist)
+    print(alist)

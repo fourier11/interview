@@ -29,6 +29,7 @@ def print_list_reversingly(phead):
 def merge_ordered_node(phead1, phead2):
     """
     合并两个有序的链表,递归解法（Java 中有道类似的题，合并有序数组，没有使用递归的方式）
+    会改变传入参数
     TODO: 对比java那道合并有序数组的题目
     """
     if phead1 is None:
@@ -42,17 +43,6 @@ def merge_ordered_node(phead1, phead2):
         merged_head = phead2
         merged_head.next = merge_ordered_node(phead1, phead2.next)
     return merged_head
-
-
-def length(phead):
-    """
-    返回链表的长度
-    """
-    length = 0
-    while phead.next:
-        length += 1
-        phead = phead.next
-    return length
 
 
 def reverse_list_node(phead):
@@ -157,14 +147,13 @@ if __name__ == '__main__':
     node6 = ListNode(6)
     node4.next = node5
     node5.next = node6
-    #merged = merge_ordered_node(node1, node4)
-    # while merged.next:
-    #     print(merged.val),
-    #     merged = merged.next
-    #print(length(node1))
-    #
-    # reversed_result = reverse_list_node(node1)
-    # while reversed_result:
-    #     print(reversed_result.val),
-    #     reversed_result = reversed_result.next
-    print_list_reversingly(node1)
+    merged = merge_ordered_node(node1, node4)
+    while merged:
+        print(merged.val, end=" |"),
+        merged = merged.next
+    print("\n" + str(get_list_length(node1)) + "\n")
+
+    reversed_result = reverse_list_node(node1)
+    while reversed_result:
+        print(reversed_result.val, end=" |"),
+        reversed_result = reversed_result.next

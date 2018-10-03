@@ -49,3 +49,9 @@ def dec_to_bin(dec_number):
     while not s.is_empty():
         bin_string += str(s.pop())
     return bin_string
+
+if __name__ == '__main__':
+    test_str = "abcdefg"
+    print(reverse_str(test_str))
+
+    print(dec_to_bin(64))

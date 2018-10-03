@@ -15,7 +15,6 @@ def swap_words(text):
     print("".join(char_list))
 
 
-# 和上面的是同一个题目
 def swap(arry_list, begin, end):
     while begin < end:
         arry_list[begin], arry_list[end] = arry_list[end], arry_list[begin]
@@ -25,11 +24,8 @@ def swap(arry_list, begin, end):
 
 def permutation(ss):
     """
-    把字符串的每种排列展示出来
+    把字符串的每种排列展示出来,排列是有顺序的
     注：还不理解
-    难度：***
-    :param ss:输入的字符串
-    :return:
     """
     if not len(ss):
         return []
@@ -65,16 +61,17 @@ def group(ss):
         tmp = group(''.join(char_list[i+1:]))
         for j in tmp:
             str_list.append(char_list[i]+j)
-        # TODO:弄明白为什么注释掉
-        # str_list=list(set(str_list))
-        # str_list.sort()
     return str_list
 
 
 if __name__ == "__main__":
     text = "Hello world abc"
     swap_words(text)
-    # ss = 'abc'
-    # print(group(ss))
+
+    ss = "abc"
+    print(permutation(ss))
+
+    ss = 'abc'
+    print(group(ss))
 
 

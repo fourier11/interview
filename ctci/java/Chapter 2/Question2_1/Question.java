@@ -5,7 +5,9 @@ import java.util.Hashtable;
 
 import CtCILibrary.AssortedMethods;
 import CtCILibrary.LinkedListNode;
-
+/**
+ * 移除未排序链表中的重复结点
+ */
 public class Question {
 	public static void deleteDupsA(LinkedListNode n) {
 		HashSet<Integer> set = new HashSet<Integer>();
@@ -44,7 +46,7 @@ public class Question {
 			/* If runner == current, then we didn't find any duplicate 
 			 * elements in the previous for loop.  We then need to 
 			 * increment current.  
-			 * If runner != current, then we must have hit the �break� 
+			 * If runner != current, then we must have hit the �break� 
 			 * condition, in which case we found a dup and current has
 			 * already been incremented.*/
 			if (runner == current) {

@@ -1,7 +1,9 @@
 package Question1_6;
 
 import CtCILibrary.*;
-
+/**
+ * N*N矩阵，每个像素4字节，编写方法，将图像旋转90度
+ */
 public class Question {
 
 	public static void rotate(int[][] matrix, int n) {

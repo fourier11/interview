@@ -1,5 +1,8 @@
 package Question1_5;
-
+/**
+ * 利用字符重复出现的次数，编写一个方法，实现基本字符串压缩功能。比如“aabbbcccc”变成“a2b3c4”
+ * TODO:暂时没有时间深入了解这道题
+ */
 public class Question {
 
 	public static int setChar(char[] array, char c, int index, int count) {

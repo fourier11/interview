@@ -2,6 +2,10 @@ package Question2_2;
 
 import CtCILibrary.*;
 
+/**
+ * 单向链表的倒数第k个结点，很常见的一道题，前面的解法没仔细看，感觉多余
+ */
+
 public class Question {
 
 	public static int nthToLastR1(LinkedListNode head, int n) {
@@ -50,6 +54,7 @@ public class Question {
 	}		
 	
 	public static LinkedListNode nthToLast(LinkedListNode head, int n) {
+		// 这个方法才是常见解法，两个指针，一快一慢
 		LinkedListNode p1 = head;
 		LinkedListNode p2 = head;
 		
@@ -58,7 +63,7 @@ public class Question {
 		// Move p2 n nodes into the list.  Keep n1 in the same position.
 		for (int i = 0; i < n - 1; i++) { 
 			if (p2 == null) {
-				return null; // Error: list is too small.
+				return null; // Error: list is too small.这个很关键，针对特殊异常场景做处理
 			}
 			p2 = p2.next;
 		}

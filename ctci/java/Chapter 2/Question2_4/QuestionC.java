@@ -2,6 +2,10 @@ package Question2_4;
 
 import CtCILibrary.LinkedListNode;
 
+/**
+ * 以给定值x，把链表分成两部分，所有小于x的结点排在大于或等于x的结点之前
+ */
+
 public class QuestionC {
 
 	public static LinkedListNode partition(LinkedListNode node, int x) {

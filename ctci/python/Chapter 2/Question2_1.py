@@ -1,7 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from classes.LinkedList import *
 
-
-# use a hash table, O(n)
+"""
+移除未排序链表中的重复结点
+"""
+# use a hash table, O(n)，只利用了key，也可以用set来实现
 def deleteDups(linkedlist):
     if (linkedlist.head != None):
         currNode = linkedlist.head
@@ -13,6 +18,17 @@ def deleteDups(linkedlist):
                 dic[currNode.next.value] = True
                 currNode = currNode.next
 
+def delete_dups(linkedlist):
+    if linkedlist.head is not None:
+        currNode = linkedlist.head
+        currNode_set = set()
+        currNode_set.add(currNode.value)
+        while currNode.next is not None:
+            if currNode.next.value in currNode_set:
+                currNode.next = currNode.next.next
+            else:
+                currNode_set.add(currNode.next.value)
+                currNode = currNode.next
 
 # use no data structure, O(n2)
 def deleteDups2(linkedlist):
@@ -39,3 +55,8 @@ L2 = randomLinkedList(9, 3, 7)
 print L2
 deleteDups2(L2)
 print L2
+print
+L3 = randomLinkedList(9, 3, 7)
+print L3
+delete_dups(L3)
+print L3

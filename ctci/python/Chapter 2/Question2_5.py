@@ -1,6 +1,6 @@
 from classes.LinkedList import *
 
-
+# TODO: wait for a moment
 #The digits are stored in reverse order
 def addLists_rev(L1, L2):
     p1 = L1.head

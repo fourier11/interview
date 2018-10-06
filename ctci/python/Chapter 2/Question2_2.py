@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from classes.LinkedList import *
 
 
@@ -6,6 +9,7 @@ def kth_to_last(linkedlist, k):
     if k <= 0:
         return "invalid k"
     pointer2 = linkedlist.head
+    # 注意，是从0到k-2,
     for i in range(k-1):
         if pointer2.next != None:
             pointer2 = pointer2.next

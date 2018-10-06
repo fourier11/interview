@@ -1,11 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from classes.LinkedList import *
 
+"""
+给定一个有环链表，返回环路的头结点
+"""
 
 def findBeginning(linkedlist):
     slow = linkedlist.head
     fast = linkedlist.head
 
-    # Find meetng point
+    # Find meetng point，一个快指针，一个慢指针
     while (fast != None) and (fast.next != None):
         slow = slow.next
         fast = fast.next.next

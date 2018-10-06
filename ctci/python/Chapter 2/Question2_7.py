@@ -1,4 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from classes.LinkedList import *
+
+"""
+检查链表是否回文（对称结构）
+"""
 
 # Iterative approch
 def isPalindrome_iter(linkedlist):

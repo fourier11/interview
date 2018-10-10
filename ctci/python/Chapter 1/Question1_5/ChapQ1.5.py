@@ -32,15 +32,15 @@ def simpleCompress(compstring):
 tocompress = "aabcccccaaa"
 
 if simpleCompress(tocompress) == "a2b1c5a3":
-    print "Test 1 Passed"
+    print("Test 1 Passed")
 else:
-    print "Test 1 Failed"
+    print("Test 1 Failed")
 
 tocompress2 = "aabca"
 if simpleCompress(tocompress2) == tocompress2:
-    print "Test 2 Passed"
+    print("Test 2 Passed")
 else:
-    print "Test 2 Failed"
+    print("Test 2 Failed")
 
 
 #Modulated version of the solution
@@ -66,4 +66,4 @@ def compress(string):
 	else:
 	    return string
 
-print compress("aabccc   ccaaa")
+print(compress("aabccc   ccaaa"))

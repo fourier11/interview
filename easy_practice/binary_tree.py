@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-
 """
 二叉树相关练习题，都是些比较简单的
 """
@@ -42,7 +40,7 @@ def insert_tree(root, node):
 # 前序 pre order（递归写法）
 def pre_order(root):
     if root:
-        print('%d | ' % root.data, end="")
+        print("%d | " % root.data, end="")
         pre_order(root.left_child)
         pre_order(root.right_child)
 

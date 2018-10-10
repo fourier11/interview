@@ -44,16 +44,16 @@ class MatrixProcessor:
         
 mat1= MatrixProcessor([[1,2,3],[4,5,0],[7,8,9],[0,11,12]])
 
-print "M by N matrix has dimensions " + str(mat1.m) + " by " + str(mat1.n)
+print("M by N matrix has dimensions " + str(mat1.m) + " by " + str(mat1.n))
 
-print "Visual representation of contents:"
-print str(mat1)                  
+print("Visual representation of contents:")
+print(str(mat1))                  
 
 
 mat1.zeroProcess()
 
-print "Visual representation of contents after zeroing all rows/columns containing a zero:"
-print str(mat1)                  
+print("Visual representation of contents after zeroing all rows/columns containing a zero:")
+print(str(mat1))                 
 
 
 #sample output

@@ -16,10 +16,10 @@ def rotatedStringHasSubstring(s1,s2):
 
 #testing
 if rotatedStringHasSubstring("waterbottle","erbottlewat"):
-    print "Test 1 Passed"
+    print("Test 1 Passed")
 
 if not rotatedStringHasSubstring("waterbottle","nope"):
-    print "Test 2 Passed"
+    print("Test 2 Passed")
 
 if not rotatedStringHasSubstring("waterbottlewater","waterbottle"):
-    print "Test 3 Passed"
+    print("Test 3 Passed")

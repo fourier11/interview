@@ -14,6 +14,6 @@ def replaceSpace(string):
 inputStr = " Smith    q m "
 expectOutput = "%20Smith%20%20%20%20q%20m%20"
 if replaceSpace(inputStr) == expectOutput:
-	print "test passed"
+	print("test passed")
 else:
-	print "test failed"
+	print("test failed")

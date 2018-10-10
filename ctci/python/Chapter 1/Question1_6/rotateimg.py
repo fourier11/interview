@@ -15,7 +15,7 @@ def rotate2(seq):
     import copy
     size = len(seq)
     matrix_new = copy.deepcopy(seq)
-    for i in xrange(size):
+    for i in range(size):
         for j in reversed(range(size)):
             matrix_new[i][size-1-j] = seq[j][i]
     return matrix_new

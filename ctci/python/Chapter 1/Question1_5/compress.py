@@ -24,7 +24,7 @@ def compress(str_):
 
 import itertools
 
-def compress(str_):
+def compress2(str_):
     """ Using itertools.groupby().
 
     There is a function in the standard library, itertools.groupby() (new in

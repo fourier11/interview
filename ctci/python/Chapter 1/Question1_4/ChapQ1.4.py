@@ -74,7 +74,7 @@ for char in expectedoutputstring:
     expectedoutstring = expectedoutstring+char
 
 if outstring == expectedoutstring:
-    print "Passed Test 1"
+    print("Passed Test 1")
 
 
 #edge case where string is all spaces, 2 that need to be replaced, and 4 for the expansion room, 6 spaces total
@@ -90,4 +90,4 @@ for char in expectedoutputstring:
     expectedoutstring = expectedoutstring+char
 
 if outstring == expectedoutstring:
-    print "Passed Test 2"
+    print("Passed Test 2")

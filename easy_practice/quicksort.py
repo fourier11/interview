@@ -18,8 +18,8 @@ def quicksort(lst, lo, hi):
 
 
 def partition(lst, lo, hi):
-    # 从右往左去 key 值
-    pivot = lst[hi-1]
+    # 以中间值为 key 值
+    pivot = lst[(lo + hi) // 2]
     i = lo - 1
     for j in range(lo, hi):
         if lst[j] < pivot:
@@ -44,10 +44,10 @@ def quick_sort_from_baike(L, low, high):
     key = L[i]  # 从头取 key 值
     while i < j:
         while i < j and L[j] >= key:
-            j = j-1
+            j -= 1
         L[i] = L[j]
         while i < j and L[i] <= key:
-            i = i+1
+            i += 1
         L[j] = L[i]
     L[i] = key
     quick_sort_from_baike(L, low, i-1)

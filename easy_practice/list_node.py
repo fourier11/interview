@@ -68,7 +68,7 @@ def reverse_list_node2(phead):
     反转单链表，递归
     :param phead:
     """
-    if phead or phead.next:
+    if not phead or not phead.next:
         return phead
     else:
         reversed_head = reverse_list_node2(phead.next)
@@ -153,7 +153,7 @@ if __name__ == '__main__':
         merged = merged.next
     print("\n" + str(get_list_length(node1)) + "\n")
 
-    reversed_result = reverse_list_node(node1)
+    reversed_result = reverse_list_node2(node1)
     while reversed_result:
         print(reversed_result.val, end=" |"),
         reversed_result = reversed_result.next

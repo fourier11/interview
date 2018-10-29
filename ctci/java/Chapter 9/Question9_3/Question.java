@@ -4,8 +4,14 @@ import java.util.Arrays;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 在数组A[0..n-1],所谓魔术索引，满足条件A[i]=i.
+ * 给定一个有序数组，元素值各不相同，编写方法找到魔术索引。
+ * 进阶：
+ * 如果元素有重复值，该如何处理
+ */
 public class Question {
-
+	// 蛮力法，一个个遍历。
 	public static int magicSlow(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			if (array[i] == i) {
@@ -15,6 +21,7 @@ public class Question {
 		return -1;
 	}
 	
+	// 类似二分查找，
 	public static int magicFast(int[] array, int start, int end) {
 		if (end < start || start < 0 || end >= array.length) {
 			return -1;

@@ -2,6 +2,9 @@ package Question9_4;
 
 import java.util.*;
 
+/**
+ * 编写一个方法，返回某集合的所有子集
+ */
 public class Question {
 
 	public static ArrayList<ArrayList<Integer>> getSubsets(ArrayList<Integer> set, int index) {

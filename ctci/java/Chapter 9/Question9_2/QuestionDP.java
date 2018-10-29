@@ -56,7 +56,7 @@ public class QuestionDP {
 			path.add(p);
 			success = true;
 		}
-		
+		// 记住先前访问过的 x-1 和 y-1，缓存结果。
 		cache.put(p, success); // Cache result
 		return success;
 	}

@@ -10,6 +10,7 @@ public class FibonacciFB {
 		if (i == 1) {
 			return 1;
 		}
+		// 返回先前缓存的结果
 		if (fib[i] != 0) {
 			return fib[i];
 		}

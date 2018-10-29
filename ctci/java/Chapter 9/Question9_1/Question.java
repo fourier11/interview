@@ -1,7 +1,9 @@
 package Question9_1;
 
-public class Question {
 
+// 小孩上楼梯，有n个台阶，小孩可以上1阶，2阶，3阶。计算小孩有多少种上楼梯方式。
+public class Question {
+	// 动态规划方式，效果更优。还需要多理解它是如何做的缓存？
 	public static int countWaysDP(int n, int[] map) {
 		if (n < 0) {
 			return 0;
@@ -17,6 +19,7 @@ public class Question {
 		}
 	}
 	
+	// 最简单方法，容易理解。但是对同一数值调用很多次。
 	public static int countWaysRecursive(int n) {
 		if (n < 0) {
 			return 0;

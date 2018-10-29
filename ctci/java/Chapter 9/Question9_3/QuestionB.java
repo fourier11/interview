@@ -3,7 +3,9 @@ package Question9_3;
 import java.util.Arrays;
 
 import CtCILibrary.AssortedMethods;
-
+/**
+ * 这里就是进阶解法，如果元素有重复值，该如何解决
+ */
 public class QuestionB {
 
 	public static int magicSlow(int[] array) {

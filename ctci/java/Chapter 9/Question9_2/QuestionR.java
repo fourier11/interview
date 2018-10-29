@@ -5,7 +5,10 @@ import java.util.Hashtable;
 import java.awt.*;
 
 import CtCILibrary.AssortedMethods;
-
+/**
+ * 有个机器人在X*Y的左上角，只能向右和向下移动，机器人从（0,0）到（X,Y）有多少种走法
+ * 进阶：有些点为禁区，机器人不能踏足。找出路径从左上角移动到右下角。
+ */
 public class QuestionR {
 	public static int[][] maze = new int[10][10];
 	
@@ -26,9 +29,11 @@ public class QuestionR {
 		boolean isAtOrigin = (x == 0) && (y == 0);
 		
 		// If there's a path from the start to my current location, add my location.
+		// x-1 向左走，y-1 向上走
 		if (isAtOrigin || getPath(x, y - 1, path) || getPath(x - 1, y, path)) { 
 			Point p = new Point(x, y);
 			path.add(p);
+			// 表示走成功了
 			return true;
 		}
 		

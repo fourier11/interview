@@ -1,7 +1,10 @@
 package Question9_6;
 
 import java.util.ArrayList;
-
+/**
+ * 只要左括号没有用完，就可以插入左括号
+ * 右括号，只要不造成语法错误，就可以插入右括号。（语法错误是右括号比左括号多）
+ */
 public class QuestionB {
 	
 	public static void addParen(ArrayList<String> list, int leftRem, int rightRem, char[] str, int count) {
@@ -15,7 +18,7 @@ public class QuestionB {
 				str[count] = '(';
 				addParen(list, leftRem - 1, rightRem, str, count + 1);
 			}
-			if (rightRem > leftRem) { // try a right paren, if there�s a matching left
+			if (rightRem > leftRem) { // try a right paren, if there�s a matching left
 				str[count] = ')';
 				addParen(list, leftRem, rightRem - 1, str, count + 1);
 			}

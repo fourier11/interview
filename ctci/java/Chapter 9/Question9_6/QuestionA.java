@@ -2,7 +2,10 @@ package Question9_6;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * 打印 n 对括号的全部有效组合。（即左右括号正确配对）
+ * A 解法效率不够高，需要排查重复字符串
+ */
 public class QuestionA {
 	public static String insertInside(String str, int leftIndex) {
 		String left = str.substring(0, leftIndex + 1);

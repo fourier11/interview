@@ -1,7 +1,10 @@
 package Question9_5;
 
 import java.util.*;
-
+/**
+ * 非常经典的全排列问题，非常容易考，给出一个字符串的所有排列组合。
+ * 问题：如果出现重复字符，这个解法有问题，会多数一些排列
+ */
 public class Question {
 
 	public static ArrayList<String> getPerms(String str) {
@@ -9,7 +12,7 @@ public class Question {
 			return null;
 		}
 		ArrayList<String> permutations = new ArrayList<String>();
-		if (str.length() == 0) { // base case
+		if (str.length() == 0) { // 终止条件
 			permutations.add("");
 			return permutations;
 		}
@@ -33,7 +36,7 @@ public class Question {
 	}
 	
 	public static void main(String[] args) {
-		ArrayList<String> list = getPerms("abcde");
+		ArrayList<String> list = getPerms("abcd");
 		System.out.println("There are " + list.size() + " permutations.");
 		for (String s : list) {
 			System.out.println(s);

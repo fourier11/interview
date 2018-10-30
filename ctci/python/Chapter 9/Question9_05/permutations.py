@@ -24,6 +24,9 @@ def permutations(str_):
     # letter in the string we need to concatenate to it the sub-permutations
     # that can be generated when the letter is removed from the string.
 
+    # 这种解法限制条件是字符串不能有重复字符
+    # TODO：yield 改为 return 是否可以？
+
     if len(str_) == 1:
         yield str_
 

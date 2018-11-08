@@ -69,7 +69,7 @@ class Stack(frozenset):
         """
 
         if __debug__:
-            for index in xrange(0, len(seq) - 1):
+            for index in range(0, len(seq) - 1):
                 assert seq[index] > seq[index + 1]
 
         return sum(box.height for box in seq)
@@ -98,7 +98,7 @@ class Stack(frozenset):
         # Find the box for which the total height (its own height plus that
         # of the tallest substack) is the highest, and use it as the bottom.
         total_height = lambda x: x[0].height + Stack.height(x[1])
-        bottom, stack_ = max(substacks.iteritems(), key=total_height)
+        bottom, stack_ = max(substacks.items(), key=total_height)
         return [bottom] + stack_
 
 

@@ -37,8 +37,8 @@ class ChessBoard(object):
 
         """
 
-        squares = [[' '] * self.size for _ in xrange(self.size)]
-        for x, y in self.queens.iteritems():
+        squares = [[' '] * self.size for _ in range(self.size)]
+        for x, y in self.queens.items():
             squares[x][y] = 'Q'
         rows = ('|'.join(r) for r in squares)
         return '\n'.join('|{0}|'.format(r) for r in rows)
@@ -97,7 +97,7 @@ class ChessBoard(object):
             return 1
 
         total = 0
-        for column in xrange(board.size):
+        for column in range(board.size):
             if board.is_free(row, column):
                 board_copy = copy.deepcopy(board)
                 board_copy.place(row, column)

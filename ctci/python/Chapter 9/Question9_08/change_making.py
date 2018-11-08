@@ -54,7 +54,7 @@ def make_change(n, coin=None):
 
     total = 0
     max_coins = n // coin
-    for ncoins in xrange(max_coins + 1):
+    for ncoins in range(max_coins + 1):
         remaining = n - (ncoins * coin)
         total += make_change(remaining, coin=next_)
     return total

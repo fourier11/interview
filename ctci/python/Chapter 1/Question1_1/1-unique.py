@@ -10,7 +10,7 @@ import unittest
 
 
 def no_duplicates(str_):
-    """ Determine if str_ has all unique characters,非常巧妙，用到了set数据结构 """
+    """ Determine if str_ has all unique characters """
     return len(str_) == len(set(str_))
 
 

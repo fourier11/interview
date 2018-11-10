@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from classes.LinkedList import *
+
+from classes.LinkedList import randomLinkedList
 
 """
 移除未排序链表中的重复结点
@@ -47,16 +48,14 @@ def deleteDups2(linkedlist):
 
 #---------------- test --------------------
 L1 = randomLinkedList(9, 3, 7)
-print L1
+print(L1)
 deleteDups(L1)
-print L1
-print
+print(L1)
 L2 = randomLinkedList(9, 3, 7)
-print L2
+print(L2)
 deleteDups2(L2)
-print L2
-print
+print(L2)
 L3 = randomLinkedList(9, 3, 7)
-print L3
+print(L3)
 delete_dups(L3)
-print L3
+print(L3)

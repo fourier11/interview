@@ -49,4 +49,4 @@ for i in range(nodes_number):
 current.next = None if nodes_in_loop <= 0 else store[nodes_number - nodes_in_loop]
 
 beginning = findBeginning(L)
-print beginning              # 80
+print(beginning)              # 80

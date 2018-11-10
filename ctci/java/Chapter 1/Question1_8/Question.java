@@ -1,6 +1,14 @@
 package Question1_8;
-
+/**
+ *  编写代码检查 s2 是否为 s1 旋转而成，只能调用一次 isSubstring()
+ */
 public class Question {
+	/**
+	 * 检查一个单词是否为其他字符串的子串
+	 * @param big 长字符串
+	 * @param small 短字符串
+	 * @return
+	 */
 	public static boolean isSubstring(String big, String small) {
 		if (big.indexOf(small) >= 0) {
 			return true;

@@ -24,6 +24,9 @@ public class Question {
 	}
 	
 	public static void deleteDupsC(LinkedListNode head) {
+		/**
+		 * 不采用散列表删除重复节点
+		 */
 		if (head == null) return;
 		LinkedListNode previous = head;
 		LinkedListNode current = previous.next;

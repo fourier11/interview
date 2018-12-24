@@ -4,6 +4,7 @@ import CtCILibrary.LinkedListNode;
 
 /**
  * 以给定值x，把链表分成两部分，所有小于x的结点排在大于或等于x的结点之前
+ * 分成两个链表，分别是比x小的，比x大的，最后合并链表。一个是往头部插入，一个是往尾部插入
  */
 
 public class QuestionC {

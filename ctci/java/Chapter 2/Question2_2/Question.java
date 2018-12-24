@@ -18,7 +18,9 @@ public class Question {
 		}
 		return k;
 	}
-	
+
+	//IntWrapper是包裹类，在递归的时候模拟按引用传递。
+	//方案缺点：递归调用，需要占用O(n)空间
 	public static LinkedListNode nthToLastR2(LinkedListNode head, int n, IntWrapper i) {
 		if (head == null) {
 			return null;

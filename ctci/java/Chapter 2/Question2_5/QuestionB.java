@@ -1,6 +1,9 @@
 package Question2_5;
 import CtCILibrary.LinkedListNode;
 
+/**
+ * 进阶形式：这些数位是正向存放的
+ */
 public class QuestionB {
 	private static int length(LinkedListNode l) {
 		if (l == null) {

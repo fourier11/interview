@@ -1,7 +1,11 @@
 package Question2_7;
 
 import CtCILibrary.LinkedListNode;
-
+/**
+ * 编写一个函数，检查链表是否为回文
+ * 回文定义：0->1->2->1->0
+ * 这个解法是递归方式，暂时还没有细看
+ */
 public class Question {
 	public class Result {
 		public LinkedListNode node;

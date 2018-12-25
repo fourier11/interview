@@ -3,7 +3,9 @@ package Question2_7;
 import CtCILibrary.LinkedListNode;
 
 import java.util.Stack;
-
+/**
+ * 迭代法，链表的长度未知，快慢指针的方式找到链表中间位置，然后前半部分放入栈中
+ */
 public class QuestionB {
 	public static boolean isPalindrome(LinkedListNode head) {
 		LinkedListNode fast = head;

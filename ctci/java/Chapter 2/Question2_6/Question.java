@@ -1,14 +1,20 @@
 package Question2_6;
 
 import CtCILibrary.LinkedListNode;
-
+/**
+ * 给定一个有环链表，实现一个算法返回环路的开头结点
+ * 1.检测链表是否存在环路(快慢指针是否会碰到一起)
+ * 2.什么时候碰到一起
+ * 3.如何找到环路起始
+ * 4.整合
+ */
 public class Question {
 
 	public static LinkedListNode FindBeginning(LinkedListNode head) {
 		LinkedListNode slow = head;
 		LinkedListNode fast = head; 
 		
-		// Find meeting point
+		// Find meeting point，处于链表中LOOP_SIZE-k步的位置
 		while (fast != null && fast.next != null) { 
 			slow = slow.next; 
 			fast = fast.next.next;

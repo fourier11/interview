@@ -2,6 +2,9 @@ package Question3_1;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 第二种做法允许栈块的大小灵活可变。当超出初始容量，就将这个栈扩容至许可容量，必要时搬移元素。
+ */
 public class QuestionB {
 	static int number_of_stacks = 3;
 	static int default_size = 4;

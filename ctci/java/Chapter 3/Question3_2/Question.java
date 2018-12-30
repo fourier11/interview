@@ -2,6 +2,9 @@ package Question3_2;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 设计一个栈，除pop与push方法，还支持min方法，可返回栈元素中的最小值。每个方法的复杂度为O（1）
+ */
 public class Question {
 	public static void main(String[] args) {
 		StackWithMin stack = new StackWithMin();

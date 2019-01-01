@@ -1,7 +1,10 @@
 package Question3_5;
 
 import java.util.Stack;
-
+/**
+ * 用两个栈实现一个队列
+ * @param <T>
+ */
 public class MyQueue<T> {
 	Stack<T> stackNewest, stackOldest;
 	

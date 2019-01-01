@@ -1,7 +1,12 @@
 package Question3_4;
 
 import java.util.Stack;
-
+/**
+ * 汉诺塔
+ * 1.每次只能移动一个盘子
+ * 2.盘子只能从柱子顶端滑出移到下一个柱子
+ * 3.盘子只能叠在比它大的盘子上
+ */
 public class Tower {
 	private Stack<Integer> disks;
 	private int index;
@@ -15,6 +20,7 @@ public class Tower {
 	}
 	
 	public void add(int d) {
+		//d要大于栈顶的值
 		if (!disks.isEmpty() && disks.peek() <= d) {
 			System.out.println("Error placing disk " + d);
 		} else {

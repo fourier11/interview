@@ -1,7 +1,11 @@
 package Question3_3;
 
 import java.util.ArrayList;
-
+/**
+ * SetOfStacks由多个栈组成，并且在前一个栈填满时新建一个栈
+ * 此外 SetOfStacks.push() 和 SetOfStacks.pop() 与普通栈的操作方法相同
+ * TODO：这个问题待定
+ */
 public class SetOfStacks {
 	ArrayList<Stack> stacks = new ArrayList<Stack>();
 	public int capacity;

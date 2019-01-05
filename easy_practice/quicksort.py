@@ -45,10 +45,6 @@ def quicksort_for_python(array):
         return quicksort_for_python(less) + [pivot] + quicksort_for_python(greater)
 
 a = [2, 9, 3, 4, 1, 6, 45, 23, 78, 44, 23, 11]
-quicksort(a, 0, len(a))
-print(a)
-
-a = [2, 9, 3, 4, 1, 6, 45, 23, 78, 44, 23, 11]
 quick_sort_from_baike(a, 0, len(a)-1)
 print(a)
 

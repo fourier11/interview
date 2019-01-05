@@ -6,36 +6,9 @@
 """
 
 
-def quicksort(lst, lo, hi):
-    """
-    注意：这里hi不是list最后一位的索引，而是length
-    """
-    if lo < hi:
-        p = partition(lst, lo, hi)
-        quicksort(lst, lo, p)
-        quicksort(lst, p+1, hi)
-    return
-
-
-def partition(lst, lo, hi):
-    # 以中间值为 key 值
-    pivot = lst[(lo + hi) // 2]
-    i = lo - 1
-    for j in range(lo, hi):
-        if lst[j] < pivot:
-            i += 1
-            lst[i], lst[j] = lst[j], lst[i]
-    if lst[hi-1] < lst[i+1]:
-        lst[i+1], lst[hi-1] = lst[hi-1], lst[i+1]
-    return i+1
-
-
 def quick_sort_from_baike(L, low, high):
     """
     百度百科上的示例代码，感觉应该是最精简的快排代码
-    :param L:
-    :param low:
-    :param high:
     """
     i = low
     j = high
@@ -54,6 +27,22 @@ def quick_sort_from_baike(L, low, high):
     quick_sort_from_baike(L, j+1, high)
     return L
 
+def quicksort_for_python(array):
+    '''
+    更加精简的快排，利用了Python的列表表达式,问题是用到了额外的存储空间，
+    如果列表很大，这个解法就非常不合适了。
+    '''
+    if len(array) < 2:
+        # base case, arrays with 0 or 1 element are already "sorted"
+        return array
+    else:
+        # recursive case
+        pivot = array[0]
+        # sub-array of all the elements less than the pivot
+        less = [i for i in array[1:] if i <= pivot]
+        # sub-array of all the elements greater than the pivot
+        greater = [i for i in array[1:] if i > pivot]
+        return quicksort_for_python(less) + [pivot] + quicksort_for_python(greater)
 
 a = [2, 9, 3, 4, 1, 6, 45, 23, 78, 44, 23, 11]
 quicksort(a, 0, len(a))
@@ -62,3 +51,6 @@ print(a)
 a = [2, 9, 3, 4, 1, 6, 45, 23, 78, 44, 23, 11]
 quick_sort_from_baike(a, 0, len(a)-1)
 print(a)
+
+a = [2, 9, 3, 4, 1, 6, 45, 23, 78, 44, 23, 11]
+print(quicksort_for_python(a))

@@ -149,7 +149,7 @@ if __name__ == '__main__':
     node5.next = node6
     merged = merge_ordered_node(node1, node4)
     while merged:
-        print(merged.val, end=" |"),
+        print(merged.val, end=" |")
         merged = merged.next
     print("\n" + str(get_list_length(node1)) + "\n")
 

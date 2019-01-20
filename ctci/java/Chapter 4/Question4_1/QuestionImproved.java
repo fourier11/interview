@@ -1,14 +1,18 @@
 package Question4_1;
 import CtCILibrary.TreeNode;
-
+/**
+ * 更高效的解法：递归向下检查每棵子树的高度，如果平衡，返回树的实际高度。如果不平衡，返回-1，中断执行
+ */
 public class QuestionImproved {
 		
 	public static int checkHeight(TreeNode root) {
 		if (root == null) {
 			return 0;
 		}
+		// 检查左子树是否平衡
 		int leftHeight = checkHeight(root.left);
 		if (leftHeight == -1) {
+			//表示不平衡
 			return -1;
 		}
 		int rightHeight = checkHeight(root.right);

@@ -2,9 +2,13 @@ package Question4_1;
 
 import CtCILibrary.AssortedMethods;
 import CtCILibrary.TreeNode;
-
+/**
+ * 实现一个函数，检查二叉树是否平衡。（平衡的定义是两棵子树的高度差不超过1）
+ */
 public class QuestionBrute {
-	
+	/**
+	 * 递归获取树的高度
+	 */
 	public static int getHeight(TreeNode root) {
 		if (root == null) {
 			return 0;

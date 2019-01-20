@@ -2,7 +2,13 @@ package Question4_2;
 
 import java.util.LinkedList;
 
+/**
+ * 给定有向图，设计一个算法，找出两个结点之间是否存在一条路径。(广度优先遍历的具体实现还不是很理解，需要手动实现一遍)
+ */
 public class Question {
+	/**
+	 * 枚举的状态，这种写法比较好，比直接命名整型常量好
+	 */
 	public enum State {
 		Unvisited, Visited, Visiting;
 	} 
@@ -39,15 +45,24 @@ public class Question {
 		return g;
 	}
 
+	/**
+	 * 目前的示例采用的是广度优先搜索（其实也可以用深度优先搜索）
+	 * @param g
+	 * @param start 起始节点
+	 * @param end 终止节点
+	 * @return
+	 */
     public static boolean search(Graph g,Node start,Node end) {  
         LinkedList<Node> q = new LinkedList<Node>();
         for (Node u : g.getNodes()) {
+			// 标记这个节点没有访问过
             u.state = State.Unvisited;
         }
         start.state = State.Visiting;
         q.add(start);
         Node u;
         while(!q.isEmpty()) {
+			// 也即 dequeue()
             u = q.removeFirst();
             if (u != null) {
 	            for (Node v : u.getAdjacent()) {

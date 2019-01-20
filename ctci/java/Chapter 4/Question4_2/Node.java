@@ -10,7 +10,10 @@ class Node {
         adjacentCount = 0;        
         adjacent = new Node[adjacentLength];
     }
-    
+    /**
+     * 这里限制了一个结点最多指向30个相邻结点，
+     * @param x
+     */
     public void addAdjacent(Node x) {
         if (adjacentCount < 30) {
             this.adjacent[adjacentCount] = x;

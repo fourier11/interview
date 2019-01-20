@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+/**
+ * 对广度优先搜索稍加修改，从根节点开始迭代
+ * 两者的时间复杂度都是O(N)，广度优先这个的空间效率更高一点
+ * TODO:没理解。。。。
+ */
 public class QuestionBFS {
 
 	public static ArrayList<LinkedList<TreeNode>> createLevelLinkedList(TreeNode root) {

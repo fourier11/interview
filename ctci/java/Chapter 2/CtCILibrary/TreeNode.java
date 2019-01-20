@@ -82,7 +82,9 @@ public class TreeNode {
 		}
 		return null;
 	}
-	
+	/**
+	 * 这种做法效率比较高，递归方式调用。数组中间位置插入树中，左边元素插入左子树，右边元素插入右子树
+	 */
 	private static TreeNode createMinimalBST(int arr[], int start, int end){
 		if (end < start) {
 			return null;

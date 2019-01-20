@@ -6,15 +6,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+/**
+ * 给定一个二叉树，设计一个算法，创建含有某一深度上所有结点的链表（比如树的深度为D，创建出D个列表）
+ * 这个示例使用的是深度优先搜索的实现代码
+ * TODO：这个例子没有理解
+ */
 public class QuestionDFS {
 
 	public static void createLevelLinkedList(TreeNode root, ArrayList<LinkedList<TreeNode>> lists, int level) {
+		// 终止条件
 		if (root == null) return;
 		LinkedList<TreeNode> list = null;
 		if (lists.size() == level) { // Level not contained in list
 			list = new LinkedList<TreeNode>();
-			/* Levels are always traversed in order. So, if this is the first time we've visited level i,
-			 * we must have seen levels 0 through i - 1. We can therefore safely add the level at the end. */
+			/* 以中序遍历所有层级，若这是第一次访问第i层，表示已经访问过0~i-1层，因此可以将这一层加到链表末端 */
 			lists.add(list);  
 		} else {
 			list = lists.get(level);

@@ -2,6 +2,9 @@ package Question4_5;
 
 import CtCILibrary.TreeNode;
 
+/**
+ * 实现一个函数，检查一棵二叉树是否为二叉查找树
+ */
 public class Question {
 	public static Integer last_printed = null;
 	public static boolean checkBST(TreeNode n) {

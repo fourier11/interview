@@ -1,5 +1,3 @@
-package javapractice;
-
 public class OnlyNum {
 	
 	//我自己的答案

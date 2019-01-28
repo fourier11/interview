@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
  * 用于计算文件 MD5
  * TODO:把工程规范化，用maven管理包，添加《算法》中的示例代码
  */
-public class Test3 {
+public class Md5Utils {
     private static MessageDigest md5 = null;
     static {
         try {

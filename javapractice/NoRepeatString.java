@@ -5,7 +5,7 @@ import java.util.List;
 
 public class NoRepeatString {
     
-    public static List getNoRepeatString (String str){
+    public static List<String> getNoRepeatString (String str){
             //存放可能多个的最长子串  
             List<String> longlists=new ArrayList<String>();  
             //存放无重复字符所在的最后位置  

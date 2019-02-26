@@ -24,7 +24,7 @@ public class Md5Utils {
         FileInputStream in = null;
         try {
             in = new FileInputStream(file);
-            MappedByteBuffer byteBuffer = in.getChannel().map(FileChannel.MapMode.READ_ONLY, 0, file.length());
+            MappedByteBuffer byteBuffer = in.getChannel().map(FileChannel.MapMode.READ_ONLY, 0, file.length()/2);
             md5.update(byteBuffer);
             BigInteger bi = new BigInteger(1, md5.digest());
             value = bi.toString(16);

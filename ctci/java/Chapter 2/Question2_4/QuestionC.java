@@ -3,8 +3,8 @@ package Question2_4;
 import CtCILibrary.LinkedListNode;
 
 /**
- * 以给定值x，把链表分成两部分，所有小于x的结点排在大于或等于x的结点之前
- * 分成两个链表，分别是比x小的，比x大的，最后合并链表。一个是往头部插入，一个是往尾部插入
+ * 以给定值x为基准，把链表分成两部分，所有小于x的结点排在大于或等于x的结点之前
+ * 解法：分成两个链表，分别是比x小的，比x大的，最后合并链表。一个是往头部插入，一个是往尾部插入
  */
 
 public class QuestionC {
@@ -24,7 +24,8 @@ public class QuestionC {
 				/* Insert node at tail. */
 				tail.next = node;
 				tail = node;
-			}	
+			}
+			// 这里相当于移动指针了，node是用来存放当前node引用的一个变量	
 			node = next;
 		}
 		tail.next = null;

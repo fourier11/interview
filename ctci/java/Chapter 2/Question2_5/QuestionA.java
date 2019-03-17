@@ -5,14 +5,15 @@ import CtCILibrary.LinkedListNode;
 /**
  * 给定两个用链表表示的整数，每个结点包含一个数位。这些数位是反向存放的，也就是个位排在链表首部。
  * 编写函数对这两个整数求和，并用链表形式返回结果
- * 用到递归
+ * 解法：用到递归，
  */
 public class QuestionA {
 
 	private static LinkedListNode addLists(
 			LinkedListNode l1, LinkedListNode l2, int carry) {
+		// 这种对输入进行判空，异常处理非常有价值
 		if (l1 == null && l2 == null && carry == 0) {
-             return null;
+        	return null;
 		}
 		
 		LinkedListNode result = new LinkedListNode();
@@ -25,6 +26,7 @@ public class QuestionA {
 		}
 		result.data = value % 10;
 		if (l1 != null || l2 != null) {
+			// 这里用到递归了，比较巧妙。改变了头结点
 			LinkedListNode more = addLists(l1 == null ? null : l1.next, 
 										   l2 == null ? null : l2.next, 
 										   value >= 10 ? 1 : 0);

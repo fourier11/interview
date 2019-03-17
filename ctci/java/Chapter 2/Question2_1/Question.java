@@ -10,6 +10,7 @@ import CtCILibrary.LinkedListNode;
  */
 public class Question {
 	public static void deleteDupsA(LinkedListNode n) {
+		// 借助集合来去重
 		HashSet<Integer> set = new HashSet<Integer>();
 		LinkedListNode previous = null;
 		while (n != null) {
@@ -23,10 +24,10 @@ public class Question {
 		}
 	}
 	
+	/**
+	 * 适用于双向列表，往前找
+	 */
 	public static void deleteDupsC(LinkedListNode head) {
-		/**
-		 * 不采用散列表删除重复节点
-		 */
 		if (head == null) return;
 		LinkedListNode previous = head;
 		LinkedListNode current = previous.next;
@@ -59,12 +60,16 @@ public class Question {
 		}
 	}
 	
+	/**
+	 * 不借助任何缓冲区，用两个指针来迭代，current迭代访问整个链表，runner用于检查后续节点是否重复
+	 * 需要两层循环
+	 */
 	public static void deleteDupsB(LinkedListNode head) {
 		if (head == null) return;
 		
 		LinkedListNode current = head;
 		while (current != null) {
-			/* Remove all future nodes that have the same value */
+			/* 移除后续值相同的所有终点，要一直走到尾部 */
 			LinkedListNode runner = current;
 			while (runner.next != null) { 
 				if (runner.next.data == current.data) {

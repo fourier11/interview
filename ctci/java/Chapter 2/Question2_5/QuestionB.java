@@ -3,6 +3,7 @@ import CtCILibrary.LinkedListNode;
 
 /**
  * 进阶形式：这些数位是正向存放的
+ * TODO：这部分解法没有细看
  */
 public class QuestionB {
 	private static int length(LinkedListNode l) {
@@ -29,6 +30,7 @@ public class QuestionB {
 	private static LinkedListNode addLists(LinkedListNode l1, LinkedListNode l2) {
 		int len1 = length(l1);
 		int len2 = length(l2);
+		// 用0填充较短的链表
 		if (len1 < len2) {
 			l1 = padList(l1, len2 - len1);
 		} else {

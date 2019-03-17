@@ -3,10 +3,12 @@ package Question2_6;
 import CtCILibrary.LinkedListNode;
 /**
  * 给定一个有环链表，实现一个算法返回环路的开头结点
+ * TODO:抽空再看看
+ * 解法过程：
  * 1.检测链表是否存在环路(快慢指针是否会碰到一起)
  * 2.什么时候碰到一起
  * 3.如何找到环路起始
- * 4.整合
+ * 4.整合（FastPointer的移动速度是SlowPointer的两倍，当SlowPointer走了k个结点进入环路时，FastPointer已经进入链表环路 k个结点，也就是说FastPointer和SlowPointer相距 LOOP_SIZE-k 个结点，接下来，每走一次，距离会更近一个结点，走了LOOP_SIZE-k次后，两个结点它们会碰在一起）
  */
 public class Question {
 

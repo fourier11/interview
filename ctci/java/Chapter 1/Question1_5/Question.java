@@ -1,7 +1,6 @@
 package Question1_5;
 /**
- * 利用字符重复出现的次数，编写一个方法，实现基本字符串压缩功能。比如“aabbbcccc”变成“a2b3c4”
- * TODO:暂时没有时间深入了解这道题
+ * 字符串压缩功能，利用字符重复出现的次数，编写一个方法，实现基本字符串压缩功能。比如“aabbbcccc”变成“a2b3c4”
  */
 public class Question {
 
@@ -34,6 +33,9 @@ public class Question {
 		return size;
 	}
 	
+	/**
+	 * 最容易理解的解法，但是效率偏低。
+	 */
 	public static String compressBad(String str) {
 		int size = countCompression(str);
 		if (size >= str.length()) {
@@ -48,6 +50,7 @@ public class Question {
 			} else {
 				mystr += last + "" + count;
 				last = str.charAt(i);
+				//对count进行重置
 				count = 1;
 			}
 		}
@@ -59,6 +62,7 @@ public class Question {
 		if (size >= str.length()) {
 			return str;
 		}
+		// 其实推荐用 StringBuilder，效率更高一点
 		StringBuffer mystr = new StringBuffer();
 		char last = str.charAt(0);
 		int count = 1;
@@ -66,18 +70,24 @@ public class Question {
 			if (str.charAt(i) == last) {
 				count++;
 			} else {
+				// 插入字符的数目，更新last字符
 				mystr.append(last);
 				mystr.append(count);
 				last = str.charAt(i);
 				count = 1;
 			}
 		}
+		// 最后一组重复字符还未放入压缩字符串中，需要额外放入一下
 		mystr.append(last);
 		mystr.append(count);
 		return mystr.toString();
 	}	
 	
+	/**
+	 * 不用StringBuffer的版本，也比较高效
+	 */
 	public static String compressAlternate(String str) {
+		// 检查压缩后的字符串是否会变得更长
 		int size = countCompression(str);
 		if (size >= str.length()) {
 			return str;
@@ -95,6 +105,7 @@ public class Question {
 				count = 1;
 			}
 		}
+		// 以最后一组重复字符更新字符串
 		index = setChar(array, last, index, count);
 		return String.valueOf(array);
 	}

@@ -1,6 +1,8 @@
 package Question1_8;
 /**
  *  编写代码检查 s2 是否为 s1 旋转而成，只能调用一次 isSubstring()
+ * isSubstring方法用于检查一个单词是否为其他字符串的子串
+ * 解法比较巧妙，把两个s1拼接成大串，s2总是大串的子串
  */
 public class Question {
 	/**

@@ -3,6 +3,7 @@ package Question1_6;
 import CtCILibrary.*;
 /**
  * N*N矩阵，每个像素4字节，编写方法，将图像旋转90度
+ * 注意内存占用，不要把四个边都放到数组中，而是应该按照索引一个个交换
  */
 public class Question {
 

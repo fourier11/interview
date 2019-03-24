@@ -1,5 +1,8 @@
 package Question3_4;
 
+/**
+ * 经典汉诺塔
+ */
 public class Question {
 	public static void main(String[] args) {
 		// Set up code.

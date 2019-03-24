@@ -4,7 +4,7 @@ import java.util.EmptyStackException;
 
 /**
  * 只用一个数组实现三个栈
- * 数组平分三等分
+ * 解法一：数组平分三等分
  */
 public class Question {
 	static int stackSize = 10;

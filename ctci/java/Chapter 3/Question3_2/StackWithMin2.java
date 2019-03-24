@@ -2,7 +2,7 @@ package Question3_2;
 
 import java.util.Stack;
 /**
- * 第二种解法更省空间
+ * 第二种解法更省空间，利用额外的栈S2来存储最小值
  */
 public class StackWithMin2 extends Stack<Integer> {
 	Stack<Integer> s2;

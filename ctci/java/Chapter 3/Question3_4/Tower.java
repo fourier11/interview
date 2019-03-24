@@ -37,7 +37,10 @@ public class Tower {
 		System.out.println("Contents of Tower " + index() + ": " + disks.toString());
 	}
 	
-    public void moveDisks(int n, Tower destination, Tower buffer){
+	/**
+	 * 这里是移动盘子的关键，用到递归的思想。
+	 */
+  public void moveDisks(int n, Tower destination, Tower buffer){
 		if (n > 0) {
 			String tag = "move_" + n + "_disks_from_" + this.index + "_to_" + destination.index + "_with_buffer_" + buffer.index; 
 			System.out.println("<" + tag + ">");

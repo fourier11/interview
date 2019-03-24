@@ -4,6 +4,8 @@ import CtCILibrary.AssortedMethods;
 import CtCILibrary.TreeNode;
 /**
  * 实现一个函数，检查二叉树是否平衡。（平衡的定义是两棵子树的高度差不超过1）
+ * 解法1：计算每个节点两棵子树的高度
+ * 缺点：效率不够高
  */
 public class QuestionBrute {
 	/**

@@ -83,6 +83,7 @@ public class TreeNode {
 		return null;
 	}
 	
+	// 创建平衡二叉树
 	private static TreeNode createMinimalBST(int arr[], int start, int end){
 		if (end < start) {
 			return null;

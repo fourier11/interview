@@ -26,23 +26,31 @@ def print_list_reversingly(phead):
         print(node.val,)
 
 
-def merge_ordered_node(phead1, phead2):
+def merge_ordered_node(l1, l2):
     """
     合并两个有序的链表,递归解法（Java 中有道类似的题，合并有序数组，没有使用递归的方式）
     会改变传入参数
-    TODO: 对比java那道合并有序数组的题目
+    注意：代码不够精简
     """
-    if phead1 is None:
-        return phead2
-    if phead2 is None:
-        return phead1
-    if phead1.val < phead2.val:
-        merged_head = phead1
-        merged_head.next = merge_ordered_node(phead1.next, phead2)
+    # if phead1 is None:
+    #     return phead2
+    # if phead2 is None:
+    #     return phead1
+    # if phead1.val < phead2.val:
+    #     merged_head = phead1
+    #     merged_head.next = merge_ordered_node(phead1.next, phead2)
+    # else:
+    #     merged_head = phead2
+    #     merged_head.next = merge_ordered_node(phead1, phead2.next)
+    # return merged_head
+    if not l1 or not l2:
+        return l1 or l2
+    if l1.val < l2.val:
+        l1.next = merge_ordered_node(l1.next, l2)
+        return l1
     else:
-        merged_head = phead2
-        merged_head.next = merge_ordered_node(phead1, phead2.next)
-    return merged_head
+        l2.next = merge_ordered_node(l1, l2.next)
+        return l2
 
 
 def reverse_list_node(phead):

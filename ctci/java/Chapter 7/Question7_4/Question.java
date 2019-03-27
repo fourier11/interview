@@ -1,7 +1,10 @@
 package Question7_4;
 
+/**
+ * 编写方法，实现整数的乘法、减法和除法运算，只允许使用加号
+ */
 public class Question {
-	/* Flip a positive sign to negative, or a negative sign to pos */
+	/* 正号变负号，负号变正号 */
 	public static int negate(int a) {
 		int neg = 0;
 		int d = a < 0 ? 1 : -1;

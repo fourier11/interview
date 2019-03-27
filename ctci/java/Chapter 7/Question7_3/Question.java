@@ -1,5 +1,8 @@
 package Question7_3;
 
+/**
+ * 给定直角坐标系上的两条线，确定这两条线会不会相交
+ */
 public class Question {	
 	public static int randomInt(int n) {
 		return (int) (Math.random() * n);

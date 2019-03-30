@@ -2,6 +2,9 @@ package Question8_1;
 
 import java.util.ArrayList;
 
+/**
+ * 请设计用于通用扑克牌的数据结构，并说明你会如何创建该数据结构的子类，实现“二十一点”游戏
+ */
 public class Question {
 
 	

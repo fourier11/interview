@@ -3,6 +3,10 @@ package Question7_7;
 import java.util.Queue;
 import java.util.LinkedList;
 
+/**
+ * 有些数的素因子只有3，5，7，请设计一个算法，找出其中第k个数
+ * OS：这道题对数学功底要求有点强，暂定……
+ */
 public class QuestionA {
 
 	public static int removeMin(Queue<Integer> q) {

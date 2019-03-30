@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import CtCILibrary.AssortedMethods;
 
 public class Deck <T extends Card> {
-	private ArrayList<T> cards;
-	private int dealtIndex = 0; // marks first undealt card
+	// 所有牌，包括已经发出去的，还未发出去的
+	private ArrayList<T> cards; 
+	private int dealtIndex = 0; // 标示第一张还未发出的牌
 	
 	public Deck() {
 	}

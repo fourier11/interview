@@ -1,5 +1,9 @@
 package Question7_5;
 
+/**
+ * 在二维平面上，有两个正方形，请找出一条直线，能够将这两个正方形对半分。假定正方形的上下两条边与x轴平行
+ * 对解决方案还不是特别理解？？
+ */
 public class Question {
 
 	public static int randomInt(int n) {

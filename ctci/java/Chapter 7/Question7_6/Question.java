@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * 在二维平面上，有一些点，请找出经过点数最多的那条线
+ * 方案：在任意两点之间画一条无限长的直线，并利用散列表追踪哪条直线出现次数最多。
+ */
 public class Question {	
 	
 	/* Count lines within an array of lines which are "equivalent" (slope and y-intercept are within an epsilon value) to a given line */

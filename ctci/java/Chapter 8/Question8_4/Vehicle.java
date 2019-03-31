@@ -15,13 +15,13 @@ public abstract class Vehicle {
 	public VehicleSize getSize() {
 		return size;
 	}
-
-	/* Park vehicle in this spot (among others, potentially) */
+	
+	/* 将车辆停放在这个车位，也可能包含其他车位 */
 	public void parkInSpot(ParkingSpot spot) {
 		parkingSpots.add(spot);
 	}
 	
-	/* Remove car from spot, and notify spot that it's gone */
+	/* Remove car from spot（车位）, and notify spot that it's gone */
 	public void clearSpots() {
 		for (int i = 0; i < parkingSpots.size(); i++) {
 			parkingSpots.get(i).removeVehicle();
@@ -29,6 +29,7 @@ public abstract class Vehicle {
 		parkingSpots.clear();
 	}
 	
+	// 检查车位是小车位还是大车位
 	public abstract boolean canFitInSpot(ParkingSpot spot);
 	public abstract void print();
 }

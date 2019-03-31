@@ -1,5 +1,8 @@
 package Question8_3;
 
+/**
+ * CD播放器只能放一张CD
+ */
 public class CDPlayer {
 	private Playlist p;
 	private CD c;

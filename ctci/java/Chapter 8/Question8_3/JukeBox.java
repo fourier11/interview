@@ -2,6 +2,9 @@ package Question8_3;
 
 import java.util.Set;
 
+/**
+ * 运用面向对象原则，设计一款音乐点唱机
+ */
 public class JukeBox {
 	private CDPlayer cdPlayer;
 	private User user;

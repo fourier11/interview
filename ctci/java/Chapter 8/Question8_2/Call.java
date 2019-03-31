@@ -4,10 +4,10 @@ package Question8_2;
  * first employee who can handle that call.
  */
 public class Call {
-	/* Minimal rank of employee who can handle this call. */
+	/* 可处理此来电的最低层级员工 */
 	private Rank rank;
 
-	/* Person who is calling. */
+	/* 拨号方 */
 	private Caller caller;
 
 	/* Employee who is handling call. */

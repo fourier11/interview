@@ -1,5 +1,8 @@
 package Question8_5;
 
+/**
+ * User 和 Book类只是存放数据，没有什么真正的功能
+ */
 public class User {
 	private int userId;
 	private String details;

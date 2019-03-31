@@ -4,6 +4,10 @@ import java.io.*;
 import java.util.*;
 import java.awt.Point;
 
+/**
+ * 设计一个黑白棋
+ * TODO:这道题有点难度啊
+ */
 public class Question {
 	
 	public static void main(String[] args) {

@@ -11,7 +11,7 @@ import java.util.Queue;
 public class CallHandler {
 	private static CallHandler instance;
 	
-	/* We have 3 levels of employees: respondents, managers, directors. */
+	/* We have 3 levels of employees: respondents（接线员）, managers（主管）, directors（经理）. */
     private final int LEVELS = 3; 
     
     /* Initialize with 10 respondents, 4 managers, and 2 directors. */
@@ -26,7 +26,7 @@ public class CallHandler {
      */
     List<List<Employee>> employeeLevels;
 
-	/* queues for each call�s rank */
+	/* queues for each call�s rank */
     List<List<Call>> callQueues; 
 
     protected CallHandler() {
@@ -59,7 +59,7 @@ public class CallHandler {
     	return instance;
     }
     
-    /* Gets the first available employee who can handle this call. */
+    /* 抽出第一个接电话的人 */
     public Employee getHandlerForCall(Call call) {
         for (int level = call.getRank().getValue(); level < LEVELS - 1; level++) {
             List<Employee> employeeLevel = employeeLevels.get(level);

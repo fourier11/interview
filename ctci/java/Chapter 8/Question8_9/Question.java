@@ -1,5 +1,8 @@
 package Question8_9;
 
+/**
+ * 设计并实现一个散列表，使用链表处理碰撞冲突
+ */
 public class Question {
 
 	public static void main(String[] args) {

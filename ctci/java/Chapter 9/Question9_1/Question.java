@@ -19,7 +19,10 @@ public class Question {
 		}
 	}
 	
-	// 最简单方法，容易理解。但是对同一数值调用很多次。
+	/**
+	 * 最简单方法，容易理解。但是对同一数值调用很多次
+	 * 最后一步可能是从第 n-1 阶往上走 1 阶，从第n-2阶往上走2阶，从第n-3阶往上走3阶
+	 */
 	public static int countWaysRecursive(int n) {
 		if (n < 0) {
 			return 0;

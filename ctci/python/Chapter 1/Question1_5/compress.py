@@ -47,4 +47,4 @@ def compress2(str_):
 if __name__ == '__main__':
     words = ('aabcccccaaa', 'aaabbbbcccccdee', 'abc', 'a', '', ' ', 'aabccdde', 'aab', 'aaabb')
     for w in words:
-        print('compress({}): {}'.format(w, compress(w)))
+        print('compress({}): {}'.format(w, compress2(w)))

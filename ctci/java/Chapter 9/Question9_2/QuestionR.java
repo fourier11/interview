@@ -29,7 +29,6 @@ public class QuestionR {
 		boolean isAtOrigin = (x == 0) && (y == 0);
 		
 		// If there's a path from the start to my current location, add my location.
-		// x-1 向左走，y-1 向上走
 		if (isAtOrigin || getPath(x, y - 1, path) || getPath(x - 1, y, path)) { 
 			Point p = new Point(x, y);
 			path.add(p);

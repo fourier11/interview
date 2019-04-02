@@ -11,6 +11,7 @@
 import functools
 import unittest
 
+# 这块关于装饰器的使用很值得学习，KS面试遇到过两次关于装饰器的使用
 def memoize(f):
     """ Minimalistic memoization decorator (*args / **kwargs)
     Based on: http://code.activestate.com/recipes/577219/ """
@@ -24,6 +25,7 @@ def memoize(f):
         return cache[args, fkwargs]
     return memf
 
+# max_steps这个参数可配置，更加灵活
 @memoize
 def nways(steps, max_steps = 3):
     """ Return in how many possible ways we can run up the stairs """
@@ -41,7 +43,7 @@ def nways(steps, max_steps = 3):
         return 0
     else:
         total = 0
-        for n in xrange(1, min(steps, max_steps) + 1):
+        for n in range(1, min(steps, max_steps) + 1):
             total += nways(steps - n, max_steps = max_steps)
         return total
 

@@ -8,6 +8,7 @@ import CtCILibrary.AssortedMethods;
 /**
  * 有个机器人在X*Y的左上角，只能向右和向下移动，机器人从（0,0）到（X,Y）有多少种走法
  * 进阶：有些点为禁区，机器人不能踏足。找出路径从左上角移动到右下角。
+ * 解法：总步数是X+Y步，从X+Y项中选出X项
  */
 public class QuestionR {
 	public static int[][] maze = new int[10][10];

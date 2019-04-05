@@ -54,6 +54,7 @@ public class QuestionB {
 	public static void main(String[] args) {
 		for (int i = 0; i < 1000; i++) {
 			int size = AssortedMethods.randomIntInRange(5, 20);
+			// System.out.println(size);
 			int[] array = getSortedArray(size);
 			int v2 = magicFast(array);
 			if (v2 == -1 && magicSlow(array) != -1) {

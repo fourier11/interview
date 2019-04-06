@@ -17,8 +17,8 @@ public class Question {
 			return permutations;
 		}
 	            
-		char first = str.charAt(0); // get the first character
-		String remainder = str.substring(1); // remove the first character
+		char first = str.charAt(0); // 取得第一个字符
+		String remainder = str.substring(1); // 移除第一个字符
 		ArrayList<String> words = getPerms(remainder);
 		for (String word : words) {
 			for (int j = 0; j <= word.length(); j++) {

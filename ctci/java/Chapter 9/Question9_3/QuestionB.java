@@ -26,7 +26,7 @@ public class QuestionB {
 		if (midValue == midIndex) {
 			return midIndex;
 		}
-		/* Search left */
+		/* Search left ，这里缩小了查找范围，可以举一个具体的例子就能理解*/
 		int leftIndex = Math.min(midIndex - 1, midValue);
 		int left = magicFast(array, start, leftIndex);
 		if (left >= 0) {

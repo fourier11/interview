@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 /**
  * 打印 n 对括号的全部有效组合。（即左右括号正确配对）
+ * 解法：
+ * 运用递归，从 n-1 的解答找到 n的解答
+ * 在字符串最前面以及原有的每对括号里面插入一对括号。末尾不能插入，因为会跟之前重复
  * A 解法效率不够高，需要排查重复字符串
  */
 public class QuestionA {

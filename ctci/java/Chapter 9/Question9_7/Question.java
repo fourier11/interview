@@ -1,5 +1,9 @@
 package Question9_7;
 
+/**
+ * 编写一个函数，实现许多图片编辑软件都支持的“颜色填充”功能，给定一个屏幕（以二维数组表示，元素为颜色值）、一个点
+ * 和一个新的颜色值，将新颜色值填入这个点的周围区域，直到原来的颜色值全都改变
+ */
 public class Question {
 
 	public enum Color {
@@ -39,6 +43,7 @@ public class Question {
 		if (x < 0 || x >= screen[0].length || y < 0 || y >= screen.length) {
 			return false;
 		}
+		// 注意y和x的顺序，因为x表示水平轴，自左向右，实际上对应于列数而非行数，y的值对应行数
 		if (screen[y][x] == ocolor) {
 			screen[y][x] = ncolor;
 			PaintFill(screen, x - 1, y, ocolor, ncolor); // left

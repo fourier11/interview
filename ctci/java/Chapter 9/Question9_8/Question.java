@@ -2,6 +2,10 @@ package Question9_8;
 
 import java.util.Arrays;
 
+/**
+ * 给定数量不限的硬币，币值为25分，10分，5分，1分
+ * 编写代码计算n分有几种表示法
+ */
 public class Question {	
 	public static int makeChange(int amount, int[] denoms, int index) {
 		if (index >= denoms.length - 1) return 1; // one denom remaining -> one way to do it

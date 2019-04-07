@@ -10,7 +10,7 @@ public class QuestionB {
 	public static void addParen(ArrayList<String> list, int leftRem, int rightRem, char[] str, int count) {
 		if (leftRem < 0 || rightRem < leftRem) return; // invalid state
 		
-		if (leftRem == 0 && rightRem == 0) { /* all out of left and right parentheses */
+		if (leftRem == 0 && rightRem == 0) { /* 没有括号可用了 */
 			String s = String.copyValueOf(str);
 			list.add(s);
 		} else {

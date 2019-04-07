@@ -2,6 +2,10 @@ package Question9_9;
 
 import java.util.ArrayList;
 
+/**
+ * 经典八皇后问题
+ * 打印八皇后在8*8棋盘上的各种摆法，其中每个皇后都不同行，不同列，也不在对角线上。
+ */
 public class Question {
 	public static int GRID_SIZE = 8;
 	
@@ -20,7 +24,7 @@ public class Question {
 				return false;
 			}
 			
-			/* Check diagonals: if the distance between the columns equals the distance
+			/* Check diagonals(对角线): if the distance between the columns equals the distance
 			 * between the rows, then they're in the same diagonal.
 			 */
 			int columnDistance = Math.abs(column2 - column1); 

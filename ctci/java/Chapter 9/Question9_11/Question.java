@@ -2,6 +2,12 @@ package Question9_11;
 
 import java.util.HashMap;
 
+/**
+ * 给定一个布尔表达式，由0,1,&,|,^等符号组成，以及一个想要的布尔结果result，实现一个函数，算出
+ * 有几种括号的放法可使该表达式得出result值
+ * 解法：
+ * 关键在于找出问题与子问题之间的关系
+ */
 public class Question {
 	public enum Term {
 		True,
@@ -166,6 +172,7 @@ public class Question {
 		return count;
 	}
 	
+	// 普通递归方法
 	public static int countR(String exp, boolean result, int start, int end) {
 		if (start == end) {
 			if (exp.charAt(start) == '1' && result) {
@@ -208,6 +215,7 @@ public class Question {
 		return c;
 	}	
 	
+	// 动态规划方式
 	public static int countDP(String exp, boolean result, int start, int end, HashMap<String, Integer> cache) {
 		String key = "" + result + start + end;
 		if (cache.containsKey(key)) {

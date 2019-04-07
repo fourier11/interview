@@ -3,6 +3,9 @@ package Question10_3;
 import java.io.*;
 import java.util.*;
 
+/**
+ * 进阶解法：如果只有10MB内存怎么办
+ */
 public class QuestionB {
 	public static int bitsize = 1048576; // 2^20 bits (2^17 bytes)
 	public static int blockNum = 4096; // 2^12
@@ -29,7 +32,7 @@ public class QuestionB {
 		in = new Scanner(new FileReader("Chapter 10/Question10_3/input_file_q10_3.txt"));
 		while (in.hasNextInt()) {
 			int n = in.nextInt();
-			/* If the number is inside the block that�s missing 
+			/* If the number is inside the block that�s missing 
 			 * numbers, we record it */
 			if (n >= starting && n < starting + bitfield.length * 8) {
 				bitfield [(n-starting) / 8] |= 1 << ((n - starting) % 8);

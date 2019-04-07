@@ -1,5 +1,8 @@
 package Question10_7;
 
+/**
+ * 实现简化版搜索引擎，还要设计缓存机制，缓存最近几次查询的结果
+ */
 public class Question {
 	
 	public static String[] generateResults(int i) {

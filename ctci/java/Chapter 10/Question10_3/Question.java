@@ -5,6 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * 给定一个输入文件，包含40亿的非负整数，请设计一种算法，产生一个不在该文件中的整数。
+ * TODO:解法没有真正理解
+ */
 public class Question {
 	public static long numberOfInts = ((long) Integer.MAX_VALUE) + 1;
 	public static byte[] bitfield = new byte [(int) (numberOfInts / 8)];
@@ -22,8 +26,7 @@ public class Question {
 
 		for (int i = 0; i < bitfield.length; i++) {
 			for (int j = 0; j < 8; j++) {
-				/* Retrieves the individual bits of each byte. When 0 bit
-				 * is found, finds the corresponding value. */
+				/* 取回每个字节的各个比特，当发现某个比特为0时，即找到对应的值 */
 				if ((bitfield[i] & (1 << j)) == 0) {
 					System.out.println (i * 8 + j);
 					return;

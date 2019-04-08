@@ -6,6 +6,9 @@ import java.util.LinkedList;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 实际不需要对整个数组排序，只需要将变位词分组放在一起即可
+ */
 public class QuestionB {
 	public static String sortChars(String s) {
 		char[] content = s.toCharArray();

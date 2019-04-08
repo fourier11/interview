@@ -2,6 +2,12 @@ package Question11_1;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 给定两个排序后的数组A和B，A的末端有足够的缓存容纳B，将B合入A并排序
+ * 解法：
+ * 关键点是从数组的末端开始插入，减少移动的元素个数
+ * 这个结果应该不对吧？？？
+ */
 public class Question {
 
 

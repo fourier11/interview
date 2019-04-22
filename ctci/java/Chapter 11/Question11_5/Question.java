@@ -1,6 +1,10 @@
 package Question11_5;
 
+/**
+ * 有个排序后的字符串数组，其中散布着一些空字符串，编写一个方法，找出给定字符串的位置
+ */
 public class Question {
+	// 迭代方式
 	public static int searchI(String[] strings, String str, int first, int last) {
 		while (first <= last) {
 			/* Move mid to the middle */
@@ -37,6 +41,7 @@ public class Question {
 		return -1;
 	}	
 	
+	// 递归方式
 	public static int searchR(String[] strings, String str, int first, int last) {
 		if (first > last) {
 			return -1;

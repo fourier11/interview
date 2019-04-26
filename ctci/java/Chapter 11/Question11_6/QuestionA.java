@@ -1,6 +1,9 @@
 package Question11_6;
 import CtCILibrary.*;
 
+/**
+ * 给定一个M*N矩阵，每一行，每一列都按升序排列，请编写代码找出某元素
+ */
 public class QuestionA {
 
 	public static boolean findElement(int[][] matrix, int elem) {

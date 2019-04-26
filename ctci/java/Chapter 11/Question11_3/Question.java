@@ -1,5 +1,12 @@
 package Question11_3;
 
+/**
+ * 给定一个排序后的数组，包含n个整数，但这个数组已被旋转过很多次，次数不详。请编写代码找出数组中的某个元素。
+ * 可以假定数组元素原先是按照从小到大的顺序排列。
+ * 解法：
+ * 二分查找法
+ * 如果有很多重复元素，左半边和右半边都要查
+ */
 public class Question {
 	public static int search(int a[], int left, int right, int x) {
 		int mid = (left + right) / 2;

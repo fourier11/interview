@@ -3,6 +3,11 @@ package Question11_7;
 import java.util.ArrayList;
 import java.util.*;
 
+/**
+ * 原问题：马戏团设计叠罗汉表演节目，一个人要站在另一个人肩上，要求上面的人比下面的人矮一点，轻一点
+ * 给定一个列表，每个元素由一对项目组成，找出最长的子序列，其中第一项和第二项，均以非递减的顺序排列。
+ * 此算法复杂度为O(n^2),实际还有O(nlog(n))复杂度的，但是解法过于复杂，后续可以找一下。
+ */
 public class Question {
 
 	// Returns longer sequence

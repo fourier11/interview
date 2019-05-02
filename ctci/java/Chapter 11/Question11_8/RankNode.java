@@ -25,7 +25,8 @@ public class RankNode {
 			}
 		}
 	}
-	
+
+	//递归算法，求这个数字的秩（比它小的数字的数目）
 	public int getRank(int d) {
 		if (d == data) {
 			return left_size;

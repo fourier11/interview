@@ -11,7 +11,7 @@ def binary_search(mylist, key):
     start = 0
     end = len(mylist) - 1
     while start <= end:
-        mid = (end + start) // 2
+        mid = start + (end - start) // 2
         if mylist[mid] > key:
             end = mid - 1
         elif mylist[mid] < key:
@@ -21,5 +21,5 @@ def binary_search(mylist, key):
 
 
 if __name__ == '__main__':
-    mylist = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    print(binary_search(mylist, 4))
+    mylist = [1, 2, 3, 4, 5, 6, 7, 8]
+    print(binary_search(mylist, 6))

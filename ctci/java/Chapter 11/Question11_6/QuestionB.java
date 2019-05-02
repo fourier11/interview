@@ -1,6 +1,9 @@
 package Question11_6;
 import CtCILibrary.*;
 
+/**
+ * 解法二：更像是二分查找算法，
+ */
 public class QuestionB {
 	
 	public static Coordinate partitionAndSearch(int[][] matrix, Coordinate origin, Coordinate dest, Coordinate pivot, int elem) {

@@ -3,11 +3,13 @@ import CtCILibrary.*;
 
 /**
  * 给定一个M*N矩阵，每一行，每一列都按升序排列，请编写代码找出某元素
+ * 解法一：排除掉灰色区域
  */
 public class QuestionA {
 
 	public static boolean findElement(int[][] matrix, int elem) {
 		int row = 0;
+		// 从右上角开始排除
 		int col = matrix[0].length - 1; 
 		while (row < matrix.length && col >= 0) {
 			if (matrix[row][col] == elem) {

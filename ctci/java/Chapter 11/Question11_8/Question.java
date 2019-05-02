@@ -5,6 +5,11 @@ import java.util.Collections;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 假设你正在读取一串整数，每隔一段时间，你希望能找出数字x的秩（小于x的数字数目）
+ * TODO: 这道题还要细看
+ */
+
 public class Question {
 	private static RankNode root = null;
 	

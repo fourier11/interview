@@ -1,5 +1,8 @@
 package Question16_4;
 
+/**
+ * 设计一个类只有在不可能发生死锁的情况下，才会提供锁
+ */
 public class Question {
 
 	public static void main(String[] args) {

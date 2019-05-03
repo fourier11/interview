@@ -2,6 +2,11 @@ package Question17_5;
 
 import java.util.Random;
 
+/**
+ * 计算机有四个槽，每个槽放一个球，颜色有R，Y，G，B。要是猜对某个槽的颜色，则算一次“猜中”
+ * 要是只猜对颜色，但是槽位猜错了，则算一次“伪猜中”
+ * 编写一个方法，返回猜中和伪猜中的次数
+ */
 public class Question {
 
 	public static class Result {

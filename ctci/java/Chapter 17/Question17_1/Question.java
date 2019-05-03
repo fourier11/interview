@@ -1,5 +1,8 @@
 package Question17_1;
 
+/**
+ * 编写个函数，不用临时变量，直接交换两个数
+ */
 public class Question {
 
 	public static void swap(int a, int b) {
@@ -12,6 +15,7 @@ public class Question {
 		System.out.println("b: " + b);
 	}
 	
+	// 位操作方法的好处是适用的数据类型更多，不仅限于整数
 	public static void swap_opt(int a, int b) {
 		a = a^b; 
 		b = a^b; 

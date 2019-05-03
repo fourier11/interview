@@ -1,5 +1,10 @@
 package Question17_3;
 
+/**
+ * 设计一个算法，算出n阶乘有多少个尾随零
+ * 思路：
+ * 为了算出尾随零的数量，只需计算有多少对5和2倍数。2倍数总比5多，所以只需要算有多少5倍数
+ */
 public class QuestionA {
 	public static int factorsOf5(int i) {
 		int count = 0;

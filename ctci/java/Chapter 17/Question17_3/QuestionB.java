@@ -1,5 +1,8 @@
 package Question17_3;
 
+/**
+ * 方法二：直接数5的因数，比如有几个5的倍数，然后数一数25的倍数，接着125的倍数
+ */
 public class QuestionB {
 	public static int countFactZeros(int num) {
 		int count = 0;

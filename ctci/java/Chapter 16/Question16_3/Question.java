@@ -1,5 +1,8 @@
 package Question16_3;
 
+/**
+ * 使用线程和锁，编写代码模拟哲学家就餐问题的死锁现象。
+ */
 public class Question {
 	public static int size = 3;
 	

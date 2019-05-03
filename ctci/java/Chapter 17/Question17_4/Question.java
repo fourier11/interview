@@ -1,5 +1,8 @@
 package Question17_4;
 
+/**
+ * 编写一个方法，找出两个数字中最大的那一个，不得使用if-else或其他比较运算符
+ */
 public class Question {
 	/* Flips a 1 to a 0 and a 0 to a 1 */
 	public static int flip(int bit) {

@@ -1,7 +1,11 @@
 package Question17_2;
 
+/**
+ * 设计一种算法，判断玩家是否赢了井字游戏
+ */
 public class Question {
 
+	//要将一个棋盘转出int，可以用3进位表示法。至此，要判断谁是赢家，只需要查询散列表。优点是查询效率高。
 	public static int convertBoardToInt(char[][] board) {
 		int factor = 1;
 		int sum = 0;

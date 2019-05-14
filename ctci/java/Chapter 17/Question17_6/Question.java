@@ -1,5 +1,9 @@
 package Question17_6;
 
+/**
+ * 给定一个整数数组，编写一个函数，找出索引m和n，只要将m和n之间的元素排好，整个数组就是有序
+ * 注意：n-m越小越好，也就是说找出符合条件的最短序列
+ */
 public class Question {
 
 	public static int findEndOfLeftSubsequence(int[] array) {

@@ -2,6 +2,9 @@ package Question17_7;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 给定一个整数，打印该整数的英文描述
+ */
 public class Question {
 	public static String[] digits = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
 	public static String[] teens = {"Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};

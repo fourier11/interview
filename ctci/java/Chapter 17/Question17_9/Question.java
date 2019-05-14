@@ -4,6 +4,9 @@ import java.util.*;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 设计一个方法，找出任意指定单词在一本书中的出现频率
+ */
 public class Question {
 	public static Hashtable<String, Integer> setupDictionary(String[] book) {
 		Hashtable<String, Integer> table = new Hashtable<String, Integer>();

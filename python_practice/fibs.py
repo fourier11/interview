@@ -14,6 +14,6 @@ def fibs(max):
         n = n + 1
 
 if __name__ == "__main__":
-    f = fibs(10)
+    f = fibs(10000)
     for i in f:
-        print i,
+       print(i)

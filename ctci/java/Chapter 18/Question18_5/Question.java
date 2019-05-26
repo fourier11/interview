@@ -2,6 +2,10 @@ package Question18_5;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 有个内含单词的超大文本文件，给定任意两个单词，找出这个文件中这两个单词的最短距离。
+ * 有办法在O(1)时间里完成搜索操作吗？解法的空间复杂度是多少？
+ */
 public class Question {
 
 	public static int shortest(String[] words, String word1, String word2) {

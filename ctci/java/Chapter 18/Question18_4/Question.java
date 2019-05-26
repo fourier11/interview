@@ -1,5 +1,10 @@
 package Question18_4;
 
+/**
+ * 编写一个方法，数出0到n(含)中数字2出现了几次
+ * 方法1：
+ * 蛮力法
+ */
 public class Question {	
 	public static int count2sInRangeAtDigit(int number, int d) {
 		int powerOf10 = (int) Math.pow(10, d);

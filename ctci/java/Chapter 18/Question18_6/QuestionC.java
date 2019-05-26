@@ -4,6 +4,15 @@ import java.util.Arrays;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 设计一个算法，给定10亿个数字，找出最小的100万个数字
+ * 假定计算机内存足以容纳全部10亿个数字
+ * 此题有多种解法：
+ * 1.排序 时间复杂度O(nlogn)
+ * 2.小顶堆，首先为前100万个元素创建一个大顶堆，然后，遍历整个数列，将每个元素插入大顶堆，并删除最大的元素
+ *   遍历结束后，将得到一个队，刚好包含最小的100万个数字
+ * 3.选择排序法（假设可以修改原始数组）
+ */
 public class QuestionC {
 
 	public static int rankB(int[] array, int rank) {
@@ -78,6 +87,7 @@ public class QuestionC {
 		return randomInt(max + 1 - min) + min;
 	}
 	
+	// 选择排序解法
 	public static int partition(int[] array, int left, int right, int pivot) {
 		while (true) {
 			while (left <= right && array[left] <= pivot) {

@@ -1,5 +1,9 @@
 package Question17_13;
 
+/**
+ * 编写一个方法，将二叉查找树转换为双向链表，要求所有数值的排序不变，
+ * 转换操作不得引入其他数据结构（即直接操作原先数据结构）
+ */
 public class QuestionA {
 	private static class NodePair {
 		BiNode head;
@@ -11,6 +15,7 @@ public class QuestionA {
 		}
 	}
 	
+	//借助存储结构 NodePair
 	public static NodePair convert(BiNode root) {
 		if (root == null) {
 			return null;

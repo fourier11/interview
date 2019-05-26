@@ -2,6 +2,9 @@ package Question17_12;
 
 import java.util.Arrays;
 
+/**
+ * 设计一个算法，找出数组中两数之和为指定值的所有整数对
+ */
 public class Question {	
 	public static void printPairSums(int[] array, int sum) {
 		Arrays.sort(array);

@@ -48,7 +48,7 @@ public class Md5Utils {
     }
 
     public static void main(String[] args) {
-        File fileTest = new File("/tmp/test.txt");
+        File fileTest = new File("/Users/zheyangzhang/campaign.info");
         String md5 = fileMd5(fileTest);
         System.out.println(md5);
     }

@@ -10,6 +10,12 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+/**
+ * 给定两个字典里的单词，长度相等。编写一个方法，将一个单词变换成另一个单词，一次只改动一个字母。
+ * 在变换过程中，每一步得到的新单词都必须是字典里存在的。
+ * 解法：
+ * 将广度优先搜索稍作修改。
+ */
 public class Question {
 
 	public static LinkedList<String> transform(String startWord, String stopWord, Set<String> dictionary) {

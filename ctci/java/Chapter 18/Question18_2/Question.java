@@ -2,6 +2,14 @@ package Question18_2;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 经典题目
+ * 编写一个方法，洗一副牌。要求做到完美洗牌，换言之，这副牌的52!种排列组合出现的概率相同
+ * 假设给定一个完美的随机数发生器
+ * 
+ * 算法：
+ * 先打乱前n-1个元素的次序，然后取出第n个元素，将它与数组中的元素随机交换
+ */
 public class Question {
 
 	/* Random number between lower and higher, inclusive */

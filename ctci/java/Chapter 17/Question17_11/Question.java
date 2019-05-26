@@ -1,5 +1,8 @@
 package Question17_11;
 
+/**
+ * 给定rand5(),实现一个方法rand7(),即给定一个产生0到4随机数的方法，编写一个产生0到6随机数的方法
+ */
 public class Question {
 	public static int rand7() {
 		while (true) {

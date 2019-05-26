@@ -3,6 +3,9 @@ package Question18_7;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/**
+ * 给定一组单词，编写一个程序，找出其中的最长单词，并且该单词由这组单词中其他单词组合而成
+ */
 public class Question {
 	public static String printLongestWord(String arr[]) {
 		HashMap<String, Boolean> map = new HashMap<String, Boolean>();

@@ -2,6 +2,13 @@ package Question18_12;
 
 import CtCILibrary.*;
 
+/**
+ * 给定一个正整数和负整数组成的N*N矩阵，编写代码找出元素总和最大的子矩阵。
+ * 解决方法：
+ * 1.蛮力法O(N^6)
+ * 2.动态规划法O(N^4)
+ * 3.优化后的解法O(N^3)
+ */
 public class QuestionB {
 	public static int getMaxMatrix(int[][] original) {
 		int maxArea = Integer.MIN_VALUE; // Important! Max could be < 0

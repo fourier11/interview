@@ -2,6 +2,9 @@ package Question18_11;
 
 import CtCILibrary.AssortedMethods;
 
+/**
+ * 给定一个方阵，其中每个单元（像素）非黑即白。设计一个算法，找出四条边皆为黑色像素的最大子方阵。
+ */
 public class Question {	
 	public static Subsquare findSquareWithSize(int[][] matrix, int squareSize) {
 		// On an edge of length N, there are (N - sz + 1) squares of length sz.

@@ -6,6 +6,10 @@ import java.util.LinkedList;
 import CtCILibrary.AssortedMethods;
 import CtCILibrary.Trie;
 
+/**
+ * 给定一份几百万个单词的清单，设计一个算法，创建由字母组成的最大矩形，
+ * 其中每一行组成一个单词（自左向右），每一列也组成一个单词（自上而下）
+ */
 public class Question {
 	private int maxWordLength;
 	private WordGroup[] groupList ;

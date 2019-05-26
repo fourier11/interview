@@ -21,6 +21,7 @@ public class QuestionB {
 		return part1 == null ? root : part1;
 	}	
 	
+	// 这种解法效率不是很高
 	public static BiNode getTail(BiNode node) {
 		if (node == null) {
 			return null;

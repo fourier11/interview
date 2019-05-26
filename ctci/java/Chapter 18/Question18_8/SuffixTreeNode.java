@@ -3,6 +3,9 @@ package Question18_8;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * 后缀树？？
+ */
 public class SuffixTreeNode {
 	HashMap<Character, SuffixTreeNode> children = new HashMap<Character, SuffixTreeNode>();
 	

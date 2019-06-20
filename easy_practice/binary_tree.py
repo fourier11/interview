@@ -92,7 +92,7 @@ def layer_order(root, length):
 
 def reConstructBinaryTree(pre, tin):
     """
-    重建二叉树 P6
+    重建二叉树 剑指offer P6
     输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。
     假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
     :param pre:前序遍历
@@ -105,7 +105,6 @@ def reConstructBinaryTree(pre, tin):
 
     proot = BTNode(pre[0])  # 先拿到根节点
     i = tin.index(pre[0])
-    # 下面这段递归是我个人很难想到,还是比较巧妙的，注意i+1
     proot.left_child = reConstructBinaryTree(pre[1:i+1], tin[:i])
     proot.right_child = reConstructBinaryTree(pre[i+1:], tin[i+1:])
     return proot

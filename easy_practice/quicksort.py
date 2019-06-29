@@ -16,7 +16,7 @@ def quick_sort_from_baike(L, low, high):
         return L
     key = L[i]  # 从头取 key 值
     while i < j:
-        while i < j and L[j] >= key:
+        while i < j and L[j] >= key: 
             j -= 1
         L[i] = L[j]
         while i < j and L[i] <= key:

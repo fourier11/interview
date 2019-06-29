@@ -14,7 +14,7 @@ import java.util.concurrent.locks.StampedLock;
 import java.util.stream.IntStream;
 
 public class Java8Concurrent {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         // sleepTest();
         // executorsPractice();
         // callablePractice();
@@ -137,12 +137,10 @@ public class Java8Concurrent {
     }
 
     /**
-     * ReadWriteLock接口规定了锁的另一种类型，包含用于读写访问的一对锁。
-     * 读写锁的理念是，只要没有任何线程写入变量，并发读取可变变量通常是安全的。
+     * ReadWriteLock接口规定了锁的另一种类型，包含用于读写访问的一对锁。 读写锁的理念是，只要没有任何线程写入变量，并发读取可变变量通常是安全的。
      * 所以读锁可以同时被多个线程持有，只要没有线程持有写锁。这样可以提升性能和吞吐量，因为读取比写入更加频繁。
      * 
-     * 当你执行这一代码示例时，你会注意到两个读任务需要等待写任务完成。
-     * 在释放了写锁之后，两个读任务会同时执行，并同时打印结果。
+     * 当你执行这一代码示例时，你会注意到两个读任务需要等待写任务完成。 在释放了写锁之后，两个读任务会同时执行，并同时打印结果。
      */
     private static void readWriteLockPractice() {
         ExecutorService executor = Executors.newFixedThreadPool(2);
@@ -178,8 +176,7 @@ public class Java8Concurrent {
     /**
      * StampedLock，它同样支持读写锁，
      * 就像上面的例子那样。与ReadWriteLock不同的是，StampedLock的锁方法会返回表示为long的标记。
-     * 你可以使用这些标记来释放锁，或者检查锁是否有效。此外，StampedLock支持另一种叫做乐观锁（optimistic
-     * locking）的模式。
+     * 你可以使用这些标记来释放锁，或者检查锁是否有效。此外，StampedLock支持另一种叫做乐观锁（optimistic locking）的模式。
      */
     private static void StampedLockPractice1() {
         ExecutorService executor = Executors.newFixedThreadPool(2);
@@ -212,7 +209,6 @@ public class Java8Concurrent {
         stop(executor);
     }
 
-
     private static void StampedLockPractice2() {
         ExecutorService executor = Executors.newFixedThreadPool(2);
         StampedLock lock = new StampedLock();
@@ -244,8 +240,6 @@ public class Java8Concurrent {
 
         stop(executor);
     }
-
-
 
     private static void stop(ExecutorService executor) {
         try {

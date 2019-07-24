@@ -29,5 +29,65 @@ class Solution {
         max = Math.max(max, right - left);
         return max;
     }
-}
 
+    public int lengthOfLongestSubstring2(String s) {
+        int len = 0;
+
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        if (s.length() == 1) {
+            return 1;
+        }
+
+        int firstPoint = 0;
+        int nextPoint = 0;
+
+        boolean[] exist = new boolean[255];
+
+        while (nextPoint < s.length() && firstPoint < s.length()) {
+
+            int currMax = 0;
+            int index = s.charAt(nextPoint) - 0;
+            while (exist[index] == false && nextPoint < s.length()) {
+                exist[s.charAt(nextPoint) - 0] = true;
+                nextPoint++;
+                if (nextPoint < s.length()) {
+                    index = s.charAt(nextPoint) - 0;
+                }
+
+            }
+
+            currMax = Math.max(currMax, nextPoint - firstPoint);
+            firstPoint++;
+            nextPoint = firstPoint;
+            len = Math.max(len, currMax);
+            for (int i = 0; i < 255; i++) {
+                exist[i] = false;
+            }
+
+        }
+
+        return len;
+    }
+
+    public static int lengthOfLongestSubstring3(String s) {
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        int maxLength = 0;
+        int now = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (map.containsKey(s.charAt(i))) {
+                now = Math.max(map.get(s.charAt(i)) + 1, now);
+                if ((i - now + 1) > maxLength) {
+                    maxLength = i - now + 1;
+                }
+            } else {
+                if ((i - now + 1) > maxLength) {
+                    maxLength = i - now + 1;
+                }
+            }
+            map.put(s.charAt(i), i);
+        }
+        return maxLength;
+    }
+}

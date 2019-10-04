@@ -1,4 +1,4 @@
-public class HeapSort {
+public class HeapSort2 {
     
     public static int[] heapSort(int[] array) {
         // 这里元素的索引是从0开始的,所以最后一个非叶子结点array.length/2 - 1

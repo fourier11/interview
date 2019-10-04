@@ -3,7 +3,7 @@ package Question2_2;
 import CtCILibrary.*;
 
 /**
- * 单向链表的倒数第k个结点，很常见的一道题，前面的解法没仔细看，感觉多余
+ * 找出单向链表的倒数第k个结点
  */
 
 public class Question {

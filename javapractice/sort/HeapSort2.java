@@ -1,3 +1,5 @@
+package sort;
+
 public class HeapSort2 {
     
     public static int[] heapSort(int[] array) {

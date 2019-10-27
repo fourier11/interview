@@ -37,8 +37,6 @@ public class TreeTraversal {
     /**
      * 之字形遍历
      * 
-     * @param pRoot
-     * @return
      */
     public static ArrayList<ArrayList<Integer>> Print2(TreeNode pRoot) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();

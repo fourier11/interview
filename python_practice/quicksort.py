@@ -5,16 +5,12 @@
 快速排序的几种写法，非常经典的算法。
 """
 
-
 def quick_sort_from_baike(L, low, high):
-    """
-    百度百科上的示例代码，感觉应该是最精简的快排代码
-    """
     i = low
     j = high
     if i >= j:
         return L
-    key = L[i]  # 从头取 key 值
+    key = L[i]
     while i < j:
         while i < j and L[j] >= key: 
             j -= 1
@@ -25,6 +21,25 @@ def quick_sort_from_baike(L, low, high):
     L[i] = key
     quick_sort_from_baike(L, low, i-1)
     quick_sort_from_baike(L, j+1, high)
+    return L
+
+def quick_sort(L, low, high):
+    i = low
+    j = high
+    if i >= j:
+        return L
+    key = L[i]
+    while i <= j:
+        while L[j] >= key:
+            j -= 1
+        while L[i] <= key:
+            i += 1
+        if i < j:
+            L[i], L[j] = L[j], L[i]
+        else:
+            i += 1
+    quick_sort_from_baike(L, low, j)
+    quick_sort_from_baike(L, i, high)
     return L
 
 def quicksort_for_python(array):
@@ -44,9 +59,9 @@ def quicksort_for_python(array):
         greater = [i for i in array[1:] if i > pivot]
         return quicksort_for_python(less) + [pivot] + quicksort_for_python(greater)
 
-a = [2, 9, 3, 4, 1, 6, 45, 23, 78, 44, 23, 11]
-quick_sort_from_baike(a, 0, len(a)-1)
+a = [2, 9, 3, 4, 1, 6, 45, 23, 3, 78, 44, 23, 11]
+quick_sort(a, 0, len(a)-1)
 print(a)
 
-a = [2, 9, 3, 4, 1, 6, 45, 23, 78, 44, 23, 11]
+a = [2, 9, 3, 4, 1, 6, 45, 23, 3, 78, 44, 23, 11]
 print(quicksort_for_python(a))

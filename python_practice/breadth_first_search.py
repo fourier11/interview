@@ -5,7 +5,7 @@ from collections import deque
 广度优先算法可以用于找到最短路径
 '''
 def person_is_seller(name):
-      return name[-1] == 'm'
+    return name[-1] == 'm'
 
 graph = {}
 graph["you"] = ["alice", "bob", "claire"]

@@ -20,7 +20,7 @@ public class Solution {
         queue.add(root);
         while(!queue.isEmpty()) {
             int cnt = queue.size();
-            while(cnt -- > 0) {
+            while(cnt-- > 0) {
                 TreeNode t = queue.poll();
                 if (t == null) {
                     continue;

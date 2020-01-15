@@ -12,20 +12,6 @@ class ListNode:
         self.next = None
 
 
-def print_list_reversingly(phead):
-    """
-    从尾到头打印链表 P5
-    """
-    stack = []
-    while phead:
-        stack.append(phead)
-        phead = phead.next
-
-    while stack:
-        node = stack.pop()
-        print(node.val,)
-
-
 def merge_ordered_node(l1, l2):
     """
     合并两个有序的链表,递归解法（Java 中有道类似的题，合并有序数组，没有使用递归的方式）

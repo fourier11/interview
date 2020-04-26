@@ -19,6 +19,7 @@ class Solution {
     private void backtrack(int[] nums, LinkedList<Integer> track) {
         if (track.size() == nums.length) {
             res.add(new LinkedList<>(track));
+            String tmp = track.stream().collect(Collectors.joining(""));
             return;
         }
 

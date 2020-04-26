@@ -1,4 +1,4 @@
-
+package snowflake;
 
 /**
  * Created by again on 2018/3/5.

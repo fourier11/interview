@@ -6,6 +6,9 @@
 
 // @lc code=start
 class Solution {
+    /**
+     * 动态规划
+     */
     public int maxSubArray(int[] nums) {
         int n = nums.length;
         int maxSum = nums[0];

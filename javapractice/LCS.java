@@ -1,5 +1,6 @@
 /**
  * 动态规划，求最长公共子序列的长度（注意，不同于求最长公共子串的长度）
+ * 公共子序列不需要保证连续position
  * 下面的方案是最基础的方案，也是效率最低的方案。
  * https://www.techiedelight.com/longest-common-subsequence/
  */

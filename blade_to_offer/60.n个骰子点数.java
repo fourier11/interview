@@ -1,7 +1,6 @@
 
 /**
  * 扔 n 个骰子，向上面的数字之和为 S。给定 n，请列出所有可能的 S 值及其相应的概率。
- * (这道题还是比较有难度的，目前暂时没空深入理解)
  */
 public class Solution {
     /**
@@ -9,24 +8,29 @@ public class Solution {
      * 
      * 空间复杂度：O(N^2)
      */
-    public List<Map.Entry<Integer, Double>> dicesSum(int n) {
+    public double[] twoSum(int n) {
         final int face = 6;
-        final int pointNum = face*n;
-        long[][] dp = new long[n+1][pointNum + 1];
-        for (int i = 1; i < face; i++) {
+        final int pointNum = face * n;
+        long[][] dp = new long[n + 1][pointNum + 1];
+        final double totalNum = Math.pow(6, n);
+        double[] res = new double[pointNum - n + 1];
+
+        for (int i = 1; i <= face; i++) {
             dp[1][i] = 1;
         }
-        for (int i = 2; i <= n; i++)
-            for (int j = i; j <= pointNum; j++) /* 使用 i 个骰子最小点数为 i */
-                for (int k = 1; k <= face && k <= j; k++)
+        for (int i = 2; i <= n; i++) {
+            // 使用 i 个骰子最小点数为 i,所以j从i开始计算
+            for (int j = i; j <= pointNum; j++) {
+                // k表示第i个骰子投出的点数
+                for (int k = 1; k <= face && k <= j; k++) {
                     dp[i][j] += dp[i - 1][j - k];
-
-        final double totalNum = Math.pow(6, n);
-        List<Map.Entry<Integer, Double>> ret = new ArrayList<>();
-        for (int i = n; i <= pointNum; i++)
-            ret.add(new AbstractMap.SimpleEntry<>(i, dp[n][i] / totalNum));
-
-        return ret;
+                }
+            }
+        }
+        for (int i = n; i <= pointNum; i++) {
+            res[i - n] = dp[n][i] / totalNum;
+        }
+        return res;
     }
 
     /**

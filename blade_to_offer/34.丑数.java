@@ -5,9 +5,6 @@
  */
 public class Solution {
     public int GetUglyNumber_Solution(int index) {
-        if (index < 6) {
-            return index;
-        }
         int i2 = 0;
         int i3 = 0;
         int i5 = 0;

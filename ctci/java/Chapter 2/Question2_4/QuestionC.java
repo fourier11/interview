@@ -10,6 +10,9 @@ import CtCILibrary.LinkedListNode;
 public class QuestionC {
 
 	public static LinkedListNode partition(LinkedListNode node, int x) {
+		if (node == null) {
+			return null;
+		}
 		LinkedListNode head = node;
 		LinkedListNode tail = node;
 		

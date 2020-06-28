@@ -23,4 +23,19 @@ public class Solution {
         }
         return ret;
     }
+
+    /**
+     * 另一种解法，采用了java8 Stream
+     */
+    public String minNumber(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return "";
+        }
+
+        return Arrays.stream(nums)
+        .boxed()
+        .map(String::valueOf)
+        .sorted((o1, o2) -> (o1 + o2).compareTo(o2 + o1))
+        .collect(Collectors.joining());
+    }
 }

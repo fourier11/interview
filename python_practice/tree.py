@@ -10,22 +10,6 @@ class TreeNode:
 
 
 class Solution:
-    def mirror(self, root):
-        """
-        生成一个镜像树，并返回镜像树的根节点，优先考虑递归方案
-        :param root:
-        :return:
-        """
-        if not root:
-            return None
-        if root.left is None and root.right is None:
-            return root
-
-        root.left, root.right = root.right, root.left
-        if root.left:
-            self.mirror(root.left)
-        if root.right:
-            self.mirror(root.right)
 
     @staticmethod
     def get_deep_node(root):

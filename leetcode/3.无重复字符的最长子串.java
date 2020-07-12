@@ -90,4 +90,27 @@ class Solution {
         }
         return maxLength;
     }
+
+    /**
+     * 滑动窗口模板
+     */
+    public static int lengthOfLongestSubstring4(String s) {
+        int[] window = new int[128];
+        int left = 0;
+        int right = 0;
+        int res = 0;
+        while (right < s.length()) {
+            char c = s.charAt(right);
+            right++;
+            window[c]++;
+            // 判断左侧是否需要收缩，大于1表示已经有重复字符了
+            while(window[c] > 1) {
+                char d = s.charAt(left);
+                left++;
+                window[d]--;
+            }
+            res = Math.max(res, right - left);
+        }
+        return res;
+    } 
 }

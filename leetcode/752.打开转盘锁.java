@@ -12,7 +12,8 @@ import java.util.Set;
 
 // @lc code=start
 class Solution {
-    public int openLock(String[] deadends, String target) {
+    //单向 BFS
+    public int openLock2(String[] deadends, String target) {
         Set<String> deads = new HashSet<>();
         for (String s : deadends) {
             deads.add(s);
@@ -48,6 +49,52 @@ class Solution {
                 }
             }
             step++;
+        }
+        return -1;
+    }
+
+    /**
+     * 双向 BFS
+     */
+    public int openLock(String[] deadends, String target) {
+        Set<String> deads = new HashSet<>();
+        for (String s : deadends) {
+            deads.add(s);
+        }
+        Set<String> q1 = new HashSet<>();
+        Set<String> q2 = new HashSet<>();
+        Set<String> visited = new HashSet<>();
+        q1.add("0000");
+        visited.add("0000");
+        int step = 0;
+        q2.add(target);
+        while (!q1.isEmpty() && !q2.isEmpty()) {
+            // 哈希集合在遍历的过程中不能修改，用 temp 存储扩散结果
+            Set<String> temp = new HashSet<>();
+            for (String cur : q1) {
+                if (deads.contains(cur)) {
+                    continue;
+                }
+                if (q2.contains(cur)) {
+                    return step;
+                }
+                visited.add(cur);
+                for (int j = 0; j < 4; j++) {
+                    String up = plusOne(cur, j);
+                    if (!visited.contains(up)) {
+                        temp.add(up);
+                    }
+                    String down = minusOne(cur, j);
+                    if (!visited.contains(down)) {
+                        temp.add(down);
+                    }
+                }
+            }
+            step++;
+            // temp 相当于 q1
+            // 这里交换 q1 q2，下一轮 while 就是扩散 q2
+            q1 = q2;
+            q2 = temp;
         }
         return -1;
     }

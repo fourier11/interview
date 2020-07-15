@@ -3,7 +3,7 @@ import java.util.HashMap;
 /*
  * @lc app=leetcode.cn id=322 lang=java
  *
- * [322] 零钱兑换
+ * [322] 零钱兑换,凑硬币
  */
 
 // @lc code=start

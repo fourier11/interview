@@ -32,6 +32,7 @@ public class MergeSortFromWiki {
 
     public static void mergeSort(int[] arr) {
         int len = arr.length;
+        // 这里result变量命名有点问题，实际结果仍然是原数组
         int[] result = new int[len];
         mergeSortRecursive(arr, result, 0, len - 1);
     }

@@ -61,11 +61,10 @@ public class KnapsackProblem {
      * @param wt  各个物品的重量
      * @param val 各个物品的价值
      * @return 背包能携带的最大价值
-     * 
-     * 注意：对于dp数组而言，i是从1开始的，所以wt和val取值要是i-1
      */
     private static int knapsack(int N, int W, int[] wt, int[] val) {
         int[][] dp = new int[N + 1][W + 1];
+        // 注意：对于dp数组而言，i是从1开始的，w也是从1开始，所以wt和val取值要是i-1
         for (int i = 1; i <= N; i++) {
             for (int w = 1; w <= W; w++) {
                 if (w - wt[i - 1] < 0) {

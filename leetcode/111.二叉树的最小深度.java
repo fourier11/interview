@@ -4,7 +4,10 @@ import java.util.Queue;
 /*
  * @lc app=leetcode.cn id=111 lang=java
  *
- * [111] 二叉树的最小深度
+ * [111] 二叉树的最小深度（二叉树最小高度）
+ * 
+ * BFS框架套路
+ * https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g
  */
 
 // @lc code=start

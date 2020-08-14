@@ -8,6 +8,7 @@ import java.util.Set;
  * @lc app=leetcode.cn id=752 lang=java
  *
  * [752] 打开转盘锁
+ * https://mp.weixin.qq.com/s/WH_XGm1-w5882PnenymZ7g
  */
 
 // @lc code=start

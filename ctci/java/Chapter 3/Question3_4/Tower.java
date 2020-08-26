@@ -41,6 +41,7 @@ public class Tower {
 	 * 这里是移动盘子的关键，用到递归的思想。
 	 */
   public void moveDisks(int n, Tower destination, Tower buffer){
+		// n表示移动顶端的n个盘子
 		if (n > 0) {
 			String tag = "move_" + n + "_disks_from_" + this.index + "_to_" + destination.index + "_with_buffer_" + buffer.index; 
 			System.out.println("<" + tag + ">");

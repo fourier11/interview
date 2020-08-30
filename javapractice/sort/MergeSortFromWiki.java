@@ -2,6 +2,9 @@ package sort;
 
 import java.util.Arrays;
 
+/**
+ * 归并排序，更加简洁的版本，就是临时变量有点多
+ */
 public class MergeSortFromWiki {
     private static void mergeSortRecursive(int[] arr, int[] result, int start, int end) {
         if (start >= end) {

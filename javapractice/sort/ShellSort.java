@@ -1,35 +1,39 @@
 package sort;
 
+import java.util.Arrays;
+
+/**
+ * 希尔排序
+ */
 public class ShellSort {
-    public static void main(String[] args) {
-        int[] array = { 49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 1 };
-        System.out.println("排序之前：");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
-        // 希尔排序
-        int gap = array.length;
+
+    public static void shellSort(int[] arr) {
+        int gap = arr.length;
         while (true) {
             gap /= 2; // 增量每次减半
             for (int i = 0; i < gap; i++) {
-                for (int j = i + gap; j < array.length; j += gap) {// 这个循环里其实就是一个插入排序
-                    int temp = array[j];
+                for (int j = i + gap; j < arr.length; j += gap) {// 这个循环里其实就是一个插入排序
+                    int temp = arr[j];
                     int k = j - gap;
-                    while (k >= 0 && array[k] > temp) {
-                        array[k + gap] = array[k];
+                    while (k >= 0 && arr[k] > temp) {
+                        arr[k + gap] = arr[k];
                         k -= gap;
                     }
-                    array[k + gap] = temp;
+                    arr[k + gap] = temp;
                 }
             }
-            if (gap == 1)
+            if (gap == 1) {
                 break;
+            }
         }
+    }
 
-        System.out.println();
-        System.out.println("排序之后：");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
+    public static void main(String[] args) {
+        int[] arr = { 49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 1 };
+        System.out.println("排序前:");
+        System.out.println(Arrays.toString(arr));
+        shellSort(arr);
+        System.out.println("排序后:");
+        System.out.println(Arrays.toString(arr));
     }
 }

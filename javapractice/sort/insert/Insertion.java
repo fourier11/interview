@@ -1,5 +1,7 @@
-package sort;
-
+package sort.insert;
+/**
+ * 插入排序
+ */
 public class Insertion<T extends Comparable<T>> extends Sort<T> {
 
     @Override

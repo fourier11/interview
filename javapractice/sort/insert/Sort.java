@@ -1,4 +1,4 @@
-package sort;
+package sort.insert;
 
 public abstract class Sort<T extends Comparable<T>> {
 

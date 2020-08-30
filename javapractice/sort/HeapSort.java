@@ -1,8 +1,10 @@
 package sort;
 
+import java.util.Arrays;
+
 public class HeapSort {
     
-    public static int[] heapSort(int[] array) {
+    public static void heapSort(int[] array) {
         // 这里元素的索引是从0开始的,所以最后一个非叶子结点array.length/2 - 1
         for (int i = array.length / 2 - 1; i >= 0; i--) {
             adjustHeap(array, i, array.length); // 调整堆
@@ -19,7 +21,6 @@ public class HeapSort {
             // 而这里，实质上是自上而下，自左向右进行调整的
             adjustHeap(array, 0, j);
         }
-        return array;
     }
 
     /**
@@ -29,7 +30,7 @@ public class HeapSort {
      * @param i      起始结点
      * @param length 堆的长度
      */
-    public static void adjustHeap(int[] array, int i, int length) {
+    private static void adjustHeap(int[] array, int i, int length) {
         // 先把当前元素取出来，因为当前元素可能要一直移动
         int temp = array[i];
         for (int k = 2 * i + 1; k < length; k = 2 * k + 1) { // 2*i+1为左子树i的左子树(因为i是从0开始的),2*k+1为k的左子树
@@ -48,16 +49,18 @@ public class HeapSort {
         }
     }
 
-    /**
-     * 交换元素
-     * 
-     * @param arr
-     * @param a   元素的下标
-     * @param b   元素的下标
-     */
-    public static void swap(int[] arr, int a, int b) {
+    private static void swap(int[] arr, int a, int b) {
         int temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = { 49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 1 };
+        System.out.println("排序前:");
+        System.out.println(Arrays.toString(arr));
+        heapSort(arr);
+        System.out.println("排序后:");
+        System.out.println(Arrays.toString(arr));
     }
 }

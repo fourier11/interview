@@ -1,47 +1,71 @@
 package sort;
 
+import java.util.Arrays;
+
+/**
+ * 桶排序 参考：https://www.runoob.com/w3cnote/bucket-sort.html
+ */
 public class BucketSort {
-    public static void basket(int data[])// data为待排序数组
-    {
-        int n = data.length;
-        int bask[][] = new int[10][n];
-        int index[] = new int[10];
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < n; i++) {
-            max = max > (Integer.toString(data[i]).length()) ? max : (Integer.toString(data[i]).length());
+
+    /**
+     * 
+     * @param arr
+     * @param bucketSize 表示一个桶能容纳的元素个数
+     */
+    private static void bucketSort(int[] arr, int bucketSize) {
+        if (arr.length == 0) {
+            return;
         }
-        String str;
-        for (int i = max - 1; i >= 0; i--) {
-            for (int j = 0; j < n; j++) {
-                str = "";
-                if (Integer.toString(data[j]).length() < max) {
-                    for (int k = 0; k < max - Integer.toString(data[j]).length(); k++)
-                        str += "0";
-                }
-                str += Integer.toString(data[j]);
-                bask[str.charAt(i) - '0'][index[str.charAt(i) - '0']++] = data[j];
+
+        int minValue = arr[0];
+        int maxValue = arr[0];
+        for (int value : arr) {
+            if (value < minValue) {
+                minValue = value;
+            } else if (value > maxValue) {
+                maxValue = value;
             }
-            int pos = 0;
-            for (int j = 0; j < 10; j++) {
-                for (int k = 0; k < index[j]; k++) {
-                    data[pos++] = bask[j][k];
-                }
+        }
+
+        int bucketCount = (int) Math.floor((maxValue - minValue) / bucketSize) + 1;
+        // 行数表示桶的个数
+        int[][] buckets = new int[bucketCount][0];
+
+        // 利用映射函数将数据分配到各个桶中
+        for (int i = 0; i < arr.length; i++) {
+            int index = (int) Math.floor((arr[i] - minValue) / bucketSize);
+            // 往数组的末尾添加元素，稍微有些麻烦
+            buckets[index] = arrAppend(buckets[index], arr[i]);
+        }
+
+        int arrIndex = 0;
+        for (int[] bucket : buckets) {
+            if (bucket.length <= 0) {
+                continue;
             }
-            for (int x = 0; x < 10; x++)
-                index[x] = 0;
+            // 对每个桶进行排序，这里使用了插入排序
+            InsertSort.insertSort(bucket);
+            for (int value : bucket) {
+                arr[arrIndex++] = value;
+            }
         }
     }
 
+    /**
+     * 给数组扩容
+     */
+    private static int[] arrAppend(int[] arr, int value) {
+        arr = Arrays.copyOf(arr, arr.length + 1);
+        arr[arr.length - 1] = value;
+        return arr;
+    }
+
     public static void main(String[] args) {
-        int[] array = { 49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 1 };
+        int[] arr = { 49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 1 };
         System.out.println("排序之前：");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
-        basket(array);
+        System.out.println(Arrays.toString(arr));
+        bucketSort(arr, 5);
         System.out.println("排序之后：");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
+        System.out.println(Arrays.toString(arr));
     }
 }

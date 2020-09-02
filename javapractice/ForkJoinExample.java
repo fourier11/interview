@@ -9,6 +9,8 @@ import java.util.concurrent.RecursiveTask;
  * https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%B9%B6%E5%8F%91.md
  */
 public class ForkJoinExample extends RecursiveTask<Integer> {
+    
+    private static final long serialVersionUID = -7025145090218435112L;
     private final int threshold = 5;
     private int first;
     private int last;

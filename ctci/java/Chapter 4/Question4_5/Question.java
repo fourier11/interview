@@ -4,6 +4,7 @@ import CtCILibrary.TreeNode;
 
 /**
  * 实现一个函数，检查一棵二叉树是否为二叉查找树
+ * 这个解法跑不过leetcode用例
  */
 public class Question {
 	public static Integer last_printed = null;

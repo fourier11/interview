@@ -5,6 +5,13 @@ import java.io.IOException;
 import CtCILibrary.AssortedMethods;
 import CtCILibrary.TreeNode;
 
+/**
+ * 检查子树。
+ * 
+ * 你有两棵非常大的二叉树：T1，有几万个节点；T2，有几万个节点。设计一个算法，判断 T2 是否为 T1 的子树。
+ * 
+ * 如果 T1 有这么一个节点 n，其子树与 T2 一模一样，则 T2 为 T1 的子树，也就是说，从节点 n 处把树砍断，得到的树与 T2 完全相同。
+ */
 public class Question {
 
 	public static boolean containsTree(TreeNode t1, TreeNode t2) {
@@ -35,7 +42,7 @@ public class Question {
 		if (r1 == null || r2 == null) 
 			return false; //  big tree empty & subtree still not found
 		if (r1.data != r2.data) 
-			return false;  // data doesn�t match
+			return false;  // data doesn’t match
 		return (matchTree(r1.left, r2.left) && 
 				matchTree(r1.right, r2.right));
 	}

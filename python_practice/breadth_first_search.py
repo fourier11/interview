@@ -4,8 +4,6 @@ from collections import deque
 广度优先算法，判断你的朋友名字是否以m结尾
 广度优先算法可以用于找到最短路径
 '''
-def person_is_seller(name):
-    return name[-1] == 'm'
 
 graph = {}
 graph["you"] = ["alice", "bob", "claire"]
@@ -35,4 +33,8 @@ def search(name):
                 searched.append(person)
     return False
 
-search("you")
+def person_is_seller(name):
+    return name[-1] == 'm'
+
+if __name__ == "__main__":
+    search("you")

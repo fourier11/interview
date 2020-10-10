@@ -5,8 +5,7 @@ import java.util.Arrays;
 public class InsertSort {
 
     public static void insertSort(int[] arr) {
-        int N = arr.length;
-        for (int i = 1; i < N; i++) {
+        for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
                 swap(arr, j, j - 1);
             }
@@ -20,7 +19,7 @@ public class InsertSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = { 49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 1, 8 };
+        int[] arr = {49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 1, 8};
         System.out.println("排序前:");
         System.out.println(Arrays.toString(arr));
         insertSort(arr);

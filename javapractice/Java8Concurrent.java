@@ -11,17 +11,16 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.concurrent.locks.StampedLock;
-import java.util.stream.IntStream;
 
 public class Java8Concurrent {
     public static void main(String[] args) throws Exception {
-        // sleepTest();
-        // executorsPractice();
-        // callablePractice();
-        // invokeAllTest();
-        // scheduleTest();
-        // readWriteLockPractice();
-        // StampedLockPractice1();
+        sleepTest();
+        executorsPractice();
+        callablePractice();
+        invokeAllTest();
+        scheduleTest();
+        readWriteLockPractice();
+        StampedLockPractice1();
     }
 
     private static void sleepTest() {
@@ -29,7 +28,10 @@ public class Java8Concurrent {
             try {
                 String name = Thread.currentThread().getName();
                 System.out.println("Foo: " + name);
+                
+                // 新增的sleep API
                 TimeUnit.SECONDS.sleep(1);
+                
                 System.out.println("Bar: " + name);
             } catch (InterruptedException e) {
                 e.printStackTrace();

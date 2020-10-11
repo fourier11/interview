@@ -2,26 +2,6 @@
 # -*- coding: utf-8 -*-
 
 
-# 对字符串中的单词进行反转，但是字符不能反转
-def swap_words(text):
-    char_list = list(text)
-    char_list.reverse()
-    begin = 0
-    for i in range(len(char_list)):
-        if char_list[i] == ' ':
-            swap(char_list, begin, i-1)
-            begin = i + 1
-    swap(char_list, begin, len(char_list)-1)
-    print("".join(char_list))
-
-
-def swap(arry_list, begin, end):
-    while begin < end:
-        arry_list[begin], arry_list[end] = arry_list[end], arry_list[begin]
-        begin += 1
-        end -= 1
-
-
 def permutation(ss):
     """
     把字符串的每种排列展示出来,排列是有顺序的

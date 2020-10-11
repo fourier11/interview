@@ -95,8 +95,8 @@ public class ListNodePractice {
             return false;
         }
         ListNode slow = head;
-        // 注意这里，fast指针从下一个结点开始
-        // TODO:可以在leetcode上验证，从头开始是否有问题，个人认为没有问题
+        // 注意这里，fast指针必须从下一个结点开始
+        // 如果只有2个节点，slow和fast起点相同，无法进入循环，直接返回true。实际应该是false。
         ListNode fast = head.next;
         while (slow != fast) {
             if (fast == null || fast.next == null) {

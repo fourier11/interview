@@ -1,5 +1,6 @@
 
 /**
+ * 单词反转
  * 翻转单词顺序列 输入一个英文句子，翻转句子中单词的顺序，但单词内字符的顺序不变。为简单起见，标点符号和普通字母一样处理。例如输入字符串"I am a
  * student. "，则输出"student. a am I"。
  * 
@@ -11,8 +12,9 @@
  * 链接：https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof
  */
 public class Solution {
-    // 这种解法无法解决leetcode上的一些特殊要求，比如字符串的前后空格问题
+    // 这种解法无法解决leetcode上的一些特殊要求，"如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个"。
     public String ReverseSentence(String str) {
+        str = str.trim();
         int n = str.length();
         char[] chars = str.toCharArray();
         int i = 0, j = 0;
@@ -28,8 +30,9 @@ public class Solution {
     }
 
     private void reverse(char[] c, int i, int j) {
-        while (i < j)
+        while (i < j) {
             swap(c, i++, j--);
+        }
     }
 
     private void swap(char[] c, int i, int j) {
@@ -48,6 +51,7 @@ public class Solution {
             while (i >= 0 && s.charAt(i) != ' ') {
                 i--;
             }
+            // 注意substring是左闭区间，右开区间，一定要j+1
             res.append(s.substring(i + 1, j + 1) + " ");
             while (i >= 0 && s.charAt(i) == ' ') {
                 i--;

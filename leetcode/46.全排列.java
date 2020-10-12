@@ -12,11 +12,12 @@ import java.util.LinkedList;
 // @lc code=start
 class Solution {
     List<List<Integer>> res = new LinkedList<>();
-    // public List<List<Integer>> permute(int[] nums) {
-    //     LinkedList<Integer> track = new LinkedList<>();
-    //     backtrack(nums, track);
-    //     return res;
-    // }
+
+    public List<List<Integer>> permute(int[] nums) {
+        LinkedList<Integer> track = new LinkedList<>();
+        backtrack(nums, track);
+        return res;
+    }
 
     private void backtrack(int[] nums, LinkedList<Integer> track) {
         if (track.size() == nums.length) {
@@ -35,7 +36,8 @@ class Solution {
         }
     }
 
-    public List<List<Integer>> permute(int[] nums) {
+
+    public List<List<Integer>> permute2(int[] nums) {
         LinkedList<Integer> list = new LinkedList<>();
         if (nums == null || nums.length == 0) {
             return res;
@@ -45,7 +47,7 @@ class Solution {
     }
 
     // 优化解法，通过交换元素，降低了时间复杂度
-    void backtrack(int[] nums, int start, LinkedList<Integer> list) {
+    private void backtrack(int[] nums, int start, LinkedList<Integer> list) {
         if (list.size() == nums.length) {
             res.add(new LinkedList<>(list));
             return;
@@ -60,11 +62,10 @@ class Solution {
         }
     }
 
-    void swap(int[] nums, int left, int right) {
+    private void swap(int[] nums, int left, int right) {
         int temp = nums[left];
         nums[left] = nums[right];
         nums[right] = temp;
     }
 }
 // @lc code=end
-

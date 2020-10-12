@@ -4,8 +4,6 @@
 """
 链表相关简单习题
 """
-
-
 class ListNode:
     def __init__(self, x):
         self.val = x
@@ -23,8 +21,10 @@ def find_loop_entry(phead):
         fast = fast.next.next
         if slow == fast:
             break
+
     if slow == None or fast.next == None:
         return None
+
     ptr1 = phead
     ptr2 = slow
     while ptr1 != ptr2:
@@ -44,17 +44,6 @@ if __name__ == '__main__':
     node6 = ListNode(6)
     node4.next = node5
     node5.next = node6
-    # merged = merge_ordered_node(node1, node4)
-    # while merged:
-    #     print(merged.val, end=" |")
-    #     merged = merged.next
-    # print("\n" + str(get_list_length(node1)) + "\n")
-
-    # reversed_result = reverse_list_node2(node1)
-    # while reversed_result:
-    #     print(reversed_result.val, end=" |"),
-    #     reversed_result = reversed_result.next
     node3.next = node4
     node4.next = node2
-    print(has_loop(node1))
     print(find_loop_entry(node1).val)

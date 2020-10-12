@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-栈相关的练习题，十进制转二进制还是比较有意思的，
-其他就当了解一些概念
-"""
-
-
 class Stack(object):
     def __init__(self):
         self.items = []
@@ -26,18 +20,6 @@ class Stack(object):
     def size(self):
         return len(self.items)
 
-
-# 利用栈将字串的字符反转
-def reverse_str(mystr):
-    s = Stack()
-    output_str = ''
-    for c in mystr:
-        s.push(c)
-    while not s.is_empty():
-        output_str += s.pop()
-    return output_str
-
-
 # 利用栈将十进制整数转化为二进制整数
 def dec_to_bin(dec_number):
     s = Stack()
@@ -52,6 +34,4 @@ def dec_to_bin(dec_number):
 
 if __name__ == '__main__':
     test_str = "abcdefg"
-    print(reverse_str(test_str))
-
     print(dec_to_bin(64))

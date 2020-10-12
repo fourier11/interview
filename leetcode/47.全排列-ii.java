@@ -31,6 +31,7 @@ class Solution {
                 continue;
             }
             set.add(nums[i]);
+            
             swap(nums, i, start);
             tracker.add(nums[start]);
             backtrack(nums, start + 1, tracker);

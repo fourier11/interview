@@ -10,28 +10,6 @@ import javax.sound.midi.SysexMessage;
 
 // @lc code=start
 class Solution {
-    // 动态规划法，时间复杂仍然为O(N^2),没有完全理解
-    public String longestPalindrome2(String s) {
-        int n = s.length();
-        boolean[][] dp = new boolean[n][n];
-        String ans = "";
-        for (int l = 0; l < n; l++) {
-            for (int i = 0; i + l < n; i++) {
-                int j = i + l;
-                if (l == 0) {
-                    dp[i][j] = true;
-                } else if (l == 1) {
-                    dp[i][j] = (s.charAt(i) == s.charAt(j));
-                } else {
-                    dp[i][j] = (s.charAt(i)== s.charAt(j)) && dp[i + 1][j - 1];
-                }
-                if (dp[i][j] && l + 1 > ans.length()) {
-                    ans = s.substring(i, j+1);
-                }
-            }
-        }
-        return ans;
-    }
     // 中心扩散法
     public String longestPalindrome(String s) {
         String res = "";
@@ -44,17 +22,36 @@ class Solution {
         return res;
     }
 
-
     private String helper(String s, int l, int r) {
         while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
             l--;
             r++;
-            // 注意，这里的日志打印只能用于调试，如果submit，会导致超时问题
-            // System.out.println("l=" + l);
-            // System.out.println("r=" + r);
         }
-        // 注意，这里和 C 不同，substring的第二个参数是右侧开区间
+        // substring左闭右开
         return s.substring(l + 1, r);
+    }
+
+    // 动态规划法，时间复杂仍然为O(N^2)
+    public String longestPalindrome2(String s) {
+        int n = s.length();
+        boolean[][] dp = new boolean[n][n];
+        String ans = "";
+        for (int l = 0; l < n; l++) {
+            for (int i = 0; i + l < n; i++) {
+                int j = i + l;
+                if (l == 0) {
+                    dp[i][j] = true;
+                } else if (l == 1) {
+                    dp[i][j] = (s.charAt(i) == s.charAt(j));
+                } else {
+                    dp[i][j] = (s.charAt(i) == s.charAt(j)) && dp[i + 1][j - 1];
+                }
+                if (dp[i][j] && l + 1 > ans.length()) {
+                    ans = s.substring(i, j + 1);
+                }
+            }
+        }
+        return ans;
     }
 }
 // @lc code=end

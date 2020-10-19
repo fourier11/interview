@@ -10,38 +10,17 @@ class Solution {
         if (strs == null || strs.length == 0) {
             return "";
         }
-        if (strs.length == 1) {
-            return strs[0];
-        }
-        int strMinLength = Integer.MAX_VALUE;
-        for (String str : strs) {
-            strMinLength = Math.min(strMinLength, str.length());
-        }
-        int i = 0;
-        // 注意j在这里表示不是末尾的下标
-        int j = strMinLength;
-        while (i < j) {
-            // 计算中间值时，需要加1
-            int mid = i + (j - i + 1) / 2;
-            if (isCommonPrefix(strs, mid)) {
-                i = mid;
-            } else {
-                j = mid - 1;
+        int length = strs[0].length();
+        int count = strs.length;
+        for (int i = 0; i < length; i++) {
+            char c = strs[0].charAt(i);
+            for (int j = 1; j < count; j++) {
+                if (i == strs[j].length() || strs[j].charAt(i) != c) {
+                    return strs[0].substring(0, i);
+                }
             }
         }
-        return strs[0].substring(0, i);
-    }
-
-    private boolean isCommonPrefix(String[] strs, int length) {
-        String str0 = strs[0].substring(0, length);
-        int count = strs.length;
-        for (int i = 1; i < count; i++) {
-            String strTmp = strs[i].substring(0, length);
-            if (!str0.equals(strTmp)) {
-                return false;
-            } 
-        }
-        return true;
+        return strs[0];
     }
 }
 // @lc code=end

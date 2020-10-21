@@ -15,13 +15,16 @@ public class KMP {
         dp = new int[M][256];
 
         dp[0][pat.charAt(0)] = 1;
-        // X 代表上次回溯状态
+        // 影子状态 X 初始为 0
         int X = 0;
         for (int j = 1; j < M; j++) {
             for (int c = 0; c < 256; c++) {
+                // 状态回退，委托 X 计算重启位置
                 dp[j][c] = dp[X][c];
             }
+            // 状态推进，如果遇到的字符c和pat[j]匹配，状态就应该向前推进一个, 即 next = j + 1
             dp[j][pat.charAt(j)] = j + 1;
+            // 更新影子状态，注意，X总是落后j一个状态
             X = dp[X][pat.charAt(j)];
         }
     }
@@ -31,6 +34,7 @@ public class KMP {
         int N = txt.length();
         int j = 0;
         for (int i = 0; i < N; i++) {
+            // 当前状态是j，遇到字符txt[i],计算下一个状态
             j = dp[j][txt.charAt(i)];
             if (j == M) {
                 return i - M + 1;

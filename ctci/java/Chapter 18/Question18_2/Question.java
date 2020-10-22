@@ -41,7 +41,7 @@ public class Question {
 			int temp = cards[k];
 			cards[k] = cards[i];
 			cards[i] = temp;
-		} 
+		}
 	}
 	
 	public static void main(String[] args) {

@@ -133,9 +133,8 @@ public class ListNodePractice {
         ListNode res = mergListNode(node1, node4);
         printListNode(res);
 
-        ListNode res = findKthNode(node4, 2);
+        res = findKthNode(node4, 2);
         System.out.println("倒数第k个节点: " + res.val);
-
     }
 }
 

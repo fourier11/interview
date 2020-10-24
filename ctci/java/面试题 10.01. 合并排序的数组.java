@@ -7,21 +7,18 @@
  */
 class Solution {
     public void merge(int[] A, int m, int[] B, int n) {
-        int pa = m - 1;
-        int pb = n - 1;
-        int tail = m + n - 1;
-        int cur;
-        while (pa >= 0 || pb >= 0) {
-            if (pa == -1) {
-                cur = B[pb--];
-            } else if (pb == -1) {
-                cur = A[pa--];
-            } else if (A[pa] >= B[pb]) {
-                cur = A[pa--];
+        int indexMerged = m + n - 1;
+        int indexA = m - 1;
+        int indexB = n - 1;
+        while (indexB >= 0) {
+            if (indexA >= 0 && A[indexA] > B[indexB]) {
+                A[indexMerged] = A[indexA];
+                indexA--;
             } else {
-                cur = B[pb--];
+                A[indexMerged] = B[indexB];
+                indexB--;
             }
-            A[tail--] = cur;
+            indexMerged--;
         }
     }
 }

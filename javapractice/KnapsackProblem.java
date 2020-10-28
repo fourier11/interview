@@ -9,14 +9,6 @@
  * 参考wiki讲解： https://zh.wikipedia.org/wiki/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98
  */
 public class KnapsackProblem {
-    public static void main(String[] args) {
-        int[] w = { 2, 2, 6, 5, 4 }; // 物品重量
-        int[] v = { 6, 3, 5, 4, 6 }; // 物品价值
-        // 测试0-1背包问题模板
-        int res = knapsack(5, 10, w, v);
-        System.out.println("模板代码背包的最大价值为：" + res);
-    }
-
     /**
      * 0-1背包问题
      * @param N   物品的个数
@@ -31,7 +23,7 @@ public class KnapsackProblem {
         for (int i = 1; i <= N; i++) {
             for (int w = 1; w <= W; w++) {
                 if (w - wt[i - 1] < 0) {
-                    // 当前背包容量已经装不下了，只能选择不装入背包
+                    // 当前背包容量已经装不下了，只能选择不装入背包。这个判断仅用于减少计算量。
                     dp[i][w] = dp[i - 1][w];
                 } else {
                     dp[i][w] = Math.max(dp[i - 1][w - wt[i - 1]] + val[i - 1], dp[i - 1][w]);
@@ -39,5 +31,13 @@ public class KnapsackProblem {
             }
         }
         return dp[N][W];
+    }
+
+    public static void main(String[] args) {
+        int[] w = { 2, 2, 6, 5, 4 }; // 物品重量
+        int[] v = { 6, 3, 5, 4, 6 }; // 物品价值
+        // 测试0-1背包问题模板
+        int res = knapsack(5, 10, w, v);
+        System.out.println("背包的最大价值为：" + res);
     }
 }

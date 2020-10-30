@@ -1,10 +1,11 @@
 /**
- * Fibonacci 练习
+ * Fibonacci 斐波那契数
  */
 
 public class Fibonacci {
 
     /**
+     * 自底向上
      * 动态规划会把子问题的解缓存起来，从而避免重复求解子问题。
      */
     public int fibonacciDp(int n) {

@@ -13,6 +13,7 @@ class Solution {
     private List<List<String>> res = new ArrayList<>();
     private List<String> board = new ArrayList<>();
     private int n;
+
     public List<List<String>> solveNQueens(int n) {
         this.n = n;
         StringBuilder sb = new StringBuilder();
@@ -31,7 +32,7 @@ class Solution {
             res.add(new ArrayList<>(board));
             return;
         }
-        for(int col = 0; col < n; col++) {
+        for (int col = 0; col < n; col++) {
             if (!isValid(row, col)) {
                 continue;
             }
@@ -39,8 +40,6 @@ class Solution {
             backtrack(row + 1);
             setCharAt(row, col, '.');
         }
-
-
     }
 
     private boolean isValid(int row, int col) {
@@ -51,13 +50,13 @@ class Solution {
             }
         }
         // 检查右上角是否有冲突
-        for (int i = row - 1,j = col + 1; i >= 0 && j < n; i--, j++) {
+        for (int i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++) {
             if (board.get(i).charAt(j) == 'Q') {
                 return false;
             }
         }
         // 检查左上角是否有冲突
-        for (int i = row - 1, j = col - 1; i >=0 && j>=0; i--, j--) {
+        for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
             if (board.get(i).charAt(j) == 'Q') {
                 return false;
             }
@@ -72,4 +71,3 @@ class Solution {
     }
 }
 // @lc code=end
-

@@ -27,15 +27,14 @@ class Solution {
                 window[c]++;
                 if (window[c] <= need[c]) {
                     valid++;
-                    // System.out.println("valid:" + valid);
                 }
             }
-            // System.out.println("window left:" + left + " right:" + right);
-            while(valid == t.length()) {
+            // 如果符合要求，移动 left 缩小窗口
+            while (valid == t.length()) {
+                // 如果这个窗口的子串更短，则更新 res
                 if (right - left < len) {
                     start = left;
                     len = right - left;
-                    // System.out.println("len=" + len);
                 }
                 char d = s.charAt(left);
                 left++;
@@ -48,7 +47,6 @@ class Solution {
             }
         }
         return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
-    }    
+    }
 }
 // @lc code=end
-

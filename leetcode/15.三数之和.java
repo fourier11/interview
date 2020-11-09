@@ -3,6 +3,7 @@ import java.util.*;
 /*
  * @lc app=leetcode.cn id=15 lang=java
  *
+ * https://labuladong.gitbook.io/algo/di-ling-zhang-bi-du-xi-lie-qing-an-shun-xu-yue-du/nsum
  */
 
 // @lc code=start

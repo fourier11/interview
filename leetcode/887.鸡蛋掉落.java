@@ -7,6 +7,13 @@ import jdk.internal.util.xml.impl.Pair;
  *
  * [887] 鸡蛋掉落
  * 
+ * 你将获得 K 个鸡蛋，并可以使用一栋从 1 到 N  共有 N 层楼的建筑。
+ * 每个蛋的功能都是一样的，如果一个蛋碎了，你就不能再把它掉下去。
+ * 你知道存在楼层 F ，满足 0 <= F <= N 任何从高于 F 的楼层落下的鸡蛋都会碎，从 F 楼层或比它低的楼层落下的鸡蛋都不会破。
+ * 每次移动，你可以取一个鸡蛋（如果你有完整的鸡蛋）并把它从任一楼层 X 扔下（满足 1 <= X <= N）。
+ * 你的目标是确切地知道 F 的值是多少。
+ * 最坏情况下，你至少要扔几次鸡蛋，才能确定这个楼层F呢
+ * 
  * 参考文章：
  * https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484675&idx=1&sn=4a4ac1c0f1279530b42fedacc6cca6e6&chksm=9bd7fb0baca0721dda1eaa1d00b9a520672dc9d5c3be762eeca869be35d7ce232922ba8e928b&scene=21#wechat_redirect
  */

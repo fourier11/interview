@@ -43,7 +43,7 @@ public class ForkJoinExample extends RecursiveTask<Integer> {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ForkJoinExample example = new ForkJoinExample(1, 10000);
         ForkJoinPool forkJoinPool = new ForkJoinPool();
-        Future result = forkJoinPool.submit(example);
+        Future<Integer> result = forkJoinPool.submit(example);
         System.out.println(result.get());
     }
 }

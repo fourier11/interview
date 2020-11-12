@@ -1,4 +1,4 @@
-class LCS {
+class LcsDemo {
     /**
      * Function to find LCS of String X[0..m-1] and Y[0..n-1]
      * 只返回一种情况，最长子序列

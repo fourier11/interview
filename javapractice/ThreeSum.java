@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class ThreeSumTwoPointer {
+public class ThreeSum {
 
     /**
      * 统计数组中三个元素加和为0的情况，总共有多少种

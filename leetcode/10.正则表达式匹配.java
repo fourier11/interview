@@ -2,7 +2,10 @@
  * @lc app=leetcode.cn id=10 lang=java
  *
  * [10] 正则表达式匹配
- * 解法：需要用到动态规划
+ * 
+ * https://github.com/labuladong/fucking-algorithm/blob/master/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B3%BB%E5%88%97/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE.md
+ * 
+ * 动态规划
  */
 
 // @lc code=start
@@ -13,18 +16,18 @@ class Solution {
         }
         boolean[][] match = new boolean[s.length() + 1][p.length() + 1];
         match[0][0] = true;
-        for(int i = 1; i <= p.length(); i++) {
+        for (int i = 1; i <= p.length(); i++) {
             if (p.charAt(i - 1) == '*') {
                 match[0][i] = match[0][i - 2];
             }
         }
 
-        for(int si = 1; si <= s.length(); si++) {
-            for(int pi = 1; pi <= p.length(); pi++) {
-                if(p.charAt(pi - 1) == '.' || p.charAt(pi - 1) == s.charAt(si - 1)) {
+        for (int si = 1; si <= s.length(); si++) {
+            for (int pi = 1; pi <= p.length(); pi++) {
+                if (p.charAt(pi - 1) == '.' || p.charAt(pi - 1) == s.charAt(si - 1)) {
                     match[si][pi] = match[si - 1][pi - 1];
                 } else if (p.charAt(pi - 1) == '*') {
-                    if(p.charAt(pi - 2) == s.charAt(si - 1) || p.charAt(pi - 2) == '.') {
+                    if (p.charAt(pi - 2) == s.charAt(si - 1) || p.charAt(pi - 2) == '.') {
                         match[si][pi] = match[si][pi - 2] || match[si - 1][pi];
                     } else {
                         match[si][pi] = match[si][pi - 2];
@@ -36,4 +39,3 @@ class Solution {
     }
 }
 // @lc code=end
-

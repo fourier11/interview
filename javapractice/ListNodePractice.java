@@ -60,21 +60,21 @@ public class ListNodePractice {
         if (k < 0) {
             return null;
         }
-        ListNode p1 = head;
-        ListNode p2 = head;
+        ListNode fast = head;
+        ListNode slow = head;
         // 这里一定要注意边界，i < k-1,快指针在正数第k个节点的前一个节点结束循环
         for (int i = 0 ; i < k - 1; i++) {
-            p1 = p1.next;
+            fast = fast.next;
             // 这里的判空也很重要，可能出现链表非常短，小于k值
-            if (p1 == null) {
+            if (fast == null) {
                 return null;
             }
         }
-        while (p1.next != null) {
-            p1 = p1.next;
-            p2 = p2.next;
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
         }
-        return p2;
+        return slow;
     }
 
     /**

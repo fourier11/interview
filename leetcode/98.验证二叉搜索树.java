@@ -30,6 +30,7 @@ class Solution {
         if (upper != null && val >= upper) {
             return false;
         }
+        // root需要做的不只是和左右子节点比较，而是要整个左子树和右子树所有节点比较
         if (!helper(node.right, val, upper)) {
             return false;
         }

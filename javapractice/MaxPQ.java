@@ -42,7 +42,6 @@ public class MaxPQ<Key extends Comparable<Key>> {
             exch(parent(k), k);
             k = parent(k);
         }
-
     }
 
     /* 下沉第 k 个元素，以维护最大堆性质 */

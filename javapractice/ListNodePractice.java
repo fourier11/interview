@@ -90,25 +90,6 @@ public class ListNodePractice {
         return l1;
     }
 
-    public boolean hasCycle(ListNode head) {
-        if (head == null || head.next == null) {
-            return false;
-        }
-        ListNode slow = head;
-        // 注意这里，fast指针必须从下一个结点开始
-        // 如果只有2个节点，slow和fast起点相同，无法进入循环，直接返回true。实际应该是false。
-        ListNode fast = head.next;
-        while (slow != fast) {
-            if (fast == null || fast.next == null) {
-                return false;
-            }
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        return true;
-    }
-
-
     private static void printListNode(ListNode head) {
         while (head != null) {
             System.out.print(head.val + " ");

@@ -24,7 +24,7 @@ class Solution {
     }
 
     private void dfs(int n, int k, int start) {
-        if (k == path.size()) {
+        if (path.size() == k) {
             res.add(new ArrayList<>(path));
             return;
         }

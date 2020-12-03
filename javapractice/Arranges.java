@@ -7,7 +7,7 @@ public class Arranges {
         //左移n位，相当于1 * 2^n,总共有2^n - 1种方案，0是无效的
         int nbit = 1 << n;
         for (int i = 1; i < nbit; i++) {
-            System.out.println("组合数值" + i + "对应编码为：");
+            System.out.print("组合数值: " + i + ", 对应编码为: ");
             for (int j = 0; j < n; j++) {
                 int temp = 1 << j;
                 if ((temp & i) != 0) {

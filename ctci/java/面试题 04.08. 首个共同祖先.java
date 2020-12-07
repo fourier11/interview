@@ -1,11 +1,4 @@
 /**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
  * 首个公共祖先
  * 时间复杂度O(n),空间复杂度O(n)
  */

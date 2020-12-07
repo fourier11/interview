@@ -6,7 +6,6 @@
  * 请编写程序，用栈将所有盘子从第一根柱子移到最后一根柱子。
  * 
  * 你需要原地修改栈。
-
  * 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/hanota-lcci
  */
 class Solution {
@@ -15,7 +14,6 @@ class Solution {
     }
 
     /**
-     * 
      * @param num 表示要移动的盘子数量
      */
     private void helper(int num, List<Integer> A, List<Integer> B, List<Integer> C) {

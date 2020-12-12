@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 /**
  * 给定一个输入文件，包含40亿的非负整数，请设计一种算法，产生一个不在该文件中的整数。
- * TODO:解法没有真正理解
  */
 public class Question {
 	public static long numberOfInts = ((long) Integer.MAX_VALUE) + 1;

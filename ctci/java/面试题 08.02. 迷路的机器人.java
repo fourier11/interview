@@ -5,22 +5,24 @@
  * 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/robot-in-a-grid-lcci
  * 
  * 回溯法
+ * 注意，答案需要的只是其中一条路径。
  */
 class Solution {
-    List<List<Integer>> path = new LinkedList<>();
-    int r = 0;
-    int c = 0;
+    private List<List<Integer>> path = new LinkedList<>();
+    private int r = 0;
+    private int c = 0;
+
     public List<List<Integer>> pathWithObstacles(int[][] obstacleGrid) {
         r = obstacleGrid.length;
         if (r == 0) {
             return path;
         }
         c = obstacleGrid[0].length;
-        if (obstacleGrid[r-1][c-1] == 1) {
+        if (obstacleGrid[r - 1][c - 1] == 1) {
             return path;
         }
         boolean[][] visited = new boolean[r][c];
-        backtrack(obstacleGrid,0,0,visited);
+        backtrack(obstacleGrid, 0, 0, visited);
         return path;
     }
 
@@ -33,7 +35,7 @@ class Solution {
         if (x == r - 1 && y == c - 1) {
             return true;
         }
-        if (backtrack(obstacleGrid, x+1, y, visited) || backtrack(obstacleGrid, x, y+1, visited)) {
+        if (backtrack(obstacleGrid, x + 1, y, visited) || backtrack(obstacleGrid, x, y + 1, visited)) {
             return true;
         }
         path.remove(path.size() - 1);

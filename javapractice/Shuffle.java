@@ -1,7 +1,3 @@
-package Question18_2;
-
-import CtCILibrary.AssortedMethods;
-
 /**
  * 经典题目
  * 编写一个方法，洗一副牌。要求做到完美洗牌，换言之，这副牌的52!种排列组合出现的概率相同
@@ -10,7 +6,7 @@ import CtCILibrary.AssortedMethods;
  * 算法：
  * 先打乱前n-1个元素的次序，然后取出第n个元素，将它与数组中的元素随机交换
  */
-public class Question {
+public class Shuffle {
 
 	/* Random number between lower and higher, inclusive */
 	public static int rand(int lower, int higher) { 
@@ -44,11 +40,4 @@ public class Question {
 		}
 	}
 	
-	public static void main(String[] args) {
-		int[] cards = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-		System.out.println(AssortedMethods.arrayToString(cards));
-		shuffleArrayInteratively(cards);
-		System.out.println(AssortedMethods.arrayToString(cards));
-	}
-
 }

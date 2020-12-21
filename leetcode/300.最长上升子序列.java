@@ -10,7 +10,27 @@ import java.util.Arrays;
 
 // @lc code=start
 class Solution {
+    /**
+     * 二分查找+动态规划方法更好，效率更高
+     */
     public int lengthOfLIS(int[] nums) {
+        // 注意这里dp数组的含义，dp数组是单调递增的，dp[i]表示单调递增数组的最后一个元素
+        int[] dp = new int[nums.length];
+        int len = 0;
+        for (int num : nums) {
+            int i = Arrays.binarySearch(dp, 0, len, num);
+            if (i < 0) {
+                i = -(i + 1);
+            }
+            dp[i] = num;
+            if (i == len) {
+                len++;
+            }
+        }
+        return len;
+    }
+
+    public int lengthOfLIS2(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }

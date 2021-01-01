@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 /**
  * 快速排序
- * quickSort2 的 partition 思路更清晰
+ * quickSort2 的 partition 思路更清晰,优先考虑，而且可以用于计算最小k个数
  */
 public class QuickSort {
 
 	public static void quickSort1(int arr[], int left, int right) {
 		int index = partition(arr, left, right);
 		if (left < index - 1) { // Sort left half
-			quickSort1(arr, left, index - 1);
+			quickSort1(arr, left, index - 1); 
 		}
 		if (index < right) { // Sort right half
 			quickSort1(arr, index, right);
@@ -50,6 +50,7 @@ public class QuickSort {
 
 	public static void quickSort2(int arr[], int left, int right) {
 		int index = partition2(arr, left, right);
+		// index 已经放到正确位置
 		if (left < index - 1) {
 			quickSort2(arr, left, index - 1);
 		}

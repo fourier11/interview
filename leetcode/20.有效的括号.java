@@ -9,24 +9,22 @@ import java.util.HashMap;
 // @lc code=start
 class Solution {
     public boolean isValid(String s) {
-        HashMap<Character, Character> pairs = new HashMap<>();
-        pairs.put(')', '(');
-        pairs.put('}', '{');
-        pairs.put(']', '[');
         Stack<Character> stack = new Stack<>();
-        for(int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (pairs.containsKey(c)) {
-                char topElement = stack.isEmpty() ? '#' : stack.pop();
-                if (topElement != pairs.get(c)) {
-                    return false;
-                }
+            if (c == '(') {
+                stack.push(')');
+            } else if (c == '[') {
+                stack.push(']');
+            } else if (c == '{') {
+                stack.push('}');
+            } else if (!stack.isEmpty() && stack.peek() == c) {
+                stack.pop();
             } else {
-                stack.push(c);
+                return false;
             }
         }
         return stack.isEmpty();
     }
 }
 // @lc code=end
-

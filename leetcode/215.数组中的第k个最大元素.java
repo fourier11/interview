@@ -8,7 +8,22 @@
 
 // @lc code=start
 class Solution {
+
+    /**
+     *  大顶堆解法
+     */
     public int findKthLargest(int[] nums, int k) {
+        final PriorityQueue<Integer> queue = new PriorityQueue<>();
+        for (int val : nums) {
+            queue.add(val);
+            if (queue.size() > k)
+                queue.poll();
+        }
+        return queue.peek();
+    }
+
+
+    public int findKthLargest2(int[] nums, int k) {
         k = nums.length - k;
         int l = 0;
         int h = nums.length - 1;

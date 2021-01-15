@@ -3,6 +3,11 @@
  *
  * [10] 正则表达式匹配
  * 
+ * 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
+ * '.' 匹配任意单个字符
+ * '*' 匹配零个或多个前面的那一个元素
+ * 所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
+ * 
  * https://github.com/labuladong/fucking-algorithm/blob/master/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B3%BB%E5%88%97/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B9%8B%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE.md
  * 
  * 动态规划
@@ -14,28 +19,30 @@ class Solution {
         if (s == null || p == null) {
             return false;
         }
-        boolean[][] match = new boolean[s.length() + 1][p.length() + 1];
-        match[0][0] = true;
-        for (int i = 1; i <= p.length(); i++) {
+        int m = s.length();
+        int n = p.length();
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        dp[0][0] = true;
+        for (int i = 1; i <= n; i++) {
             if (p.charAt(i - 1) == '*') {
-                match[0][i] = match[0][i - 2];
+                dp[0][i] = dp[0][i - 2];
             }
         }
 
-        for (int si = 1; si <= s.length(); si++) {
-            for (int pi = 1; pi <= p.length(); pi++) {
-                if (p.charAt(pi - 1) == '.' || p.charAt(pi - 1) == s.charAt(si - 1)) {
-                    match[si][pi] = match[si - 1][pi - 1];
-                } else if (p.charAt(pi - 1) == '*') {
-                    if (p.charAt(pi - 2) == s.charAt(si - 1) || p.charAt(pi - 2) == '.') {
-                        match[si][pi] = match[si][pi - 2] || match[si - 1][pi];
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else if (p.charAt(j - 1) == '*') {
+                    if (p.charAt(j - 2) == s.charAt(i - 1) || p.charAt(j - 2) == '.') {
+                        dp[i][j] = dp[i][j - 2] || dp[i - 1][j];
                     } else {
-                        match[si][pi] = match[si][pi - 2];
+                        dp[i][j] = dp[i][j - 2];
                     }
                 }
             }
         }
-        return match[s.length()][p.length()];
+        return dp[m][n];
     }
 }
 // @lc code=end

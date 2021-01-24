@@ -5,18 +5,11 @@ import java.util.ArrayList;
  * @lc app=leetcode.cn id=113 lang=java
  *
  * [113] 路径总和 II
+ * 
+ * 给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。
+ * 说明: 叶子节点是指没有子节点的节点。
  */
 
-// @lc code=start
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
 class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> res = new ArrayList<>();

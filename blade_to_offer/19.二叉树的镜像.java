@@ -6,6 +6,7 @@
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
+ * 二叉树的镜像
  */
 class Solution {
     public TreeNode mirrorTree(TreeNode root) {

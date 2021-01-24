@@ -6,6 +6,9 @@ import java.util.List;
  *
  * [51] N皇后（经典八皇后问题）
  * 回溯算法：https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484709&idx=1&sn=1c24a5c41a5a255000532e83f38f2ce4&chksm=9bd7fb2daca0723be888b30345e2c5e64649fc31a00b05c27a0843f349e2dd9363338d0dac61&scene=21#wechat_redirect
+ * 
+ * 给定一个整数 n，返回所有不同的 n 皇后问题的解决方案。
+ * 每一种解法包含一个明确的 n 皇后问题的棋子放置方案，该方案中 'Q' 和 '.' 分别代表了皇后和空位。
  */
 
 // @lc code=start
@@ -65,6 +68,7 @@ class Solution {
     }
 
     private void setCharAt(int row, int col, char c) {
+        // String 转 StringBuilder
         StringBuilder sb = new StringBuilder(board.get(row));
         sb.setCharAt(col, c);
         board.set(row, sb.toString());

@@ -8,6 +8,8 @@ import java.util.List;
  * 参考：https://mp.weixin.qq.com/s/XVnoX-lBzColVvVXNkGc5g
  * 性质：1.一个「合法」括号组合的左括号数量一定等于右括号数量
  *      2.对于一个「合法」的括号字符串组合p，必然对于任何 0 <= i < len(p)都有：子串p[0..i]中左括号的数量都大于或等于右括号的数量。
+ * 
+ * 时间复杂度 O(2^n)
  */
 
 // @lc code=start
@@ -26,7 +28,7 @@ class Solution {
         if (left == n && right == n) {
             res.add(curString);
         }
-
+        // 任意情况下，left都要比right多。否则出现  )))(((
         if (left < right) {
             return;
         }

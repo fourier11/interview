@@ -13,21 +13,21 @@ import java.util.ArrayList;
 
 // @lc code=start
 class Solution {
-    private List<Integer> tmp = new ArrayList<>();
+    private List<Integer> path = new ArrayList<>();
     private List<List<Integer>> ans = new ArrayList<>();
 
     public List<List<Integer>> subsets(int[] nums) {
-        dfs(0, nums);
+        dfs(nums, 0);
         return ans;
     }
 
-    private void dfs(int cur, int[] nums) {
-        ans.add(new ArrayList<>(tmp));
+    private void dfs(int[] nums, int begin) {
+        ans.add(new ArrayList<>(path));
         // 注意j的起始点
-        for (int j = cur; j < nums.length; j++) {
-            tmp.add(nums[j]);
-            dfs(j + 1, nums);
-            tmp.remove(tmp.size() - 1);
+        for (int j = begin; j < nums.length; j++) {
+            path.add(nums[j]);
+            dfs(nums, j + 1);
+            path.remove(path.size() - 1);
         }
     }
 }

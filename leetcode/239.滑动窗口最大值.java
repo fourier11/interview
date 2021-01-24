@@ -15,7 +15,33 @@ import java.util.ArrayDeque;
 
 // @lc code=start
 class Solution {
+
+    /**
+     * 暴力解法 
+     * 时间复杂度O(n^2),Time Limit Exceeded
+     */
     public int[] maxSlidingWindow(int[] nums, int k) {
+        if (k == 0) {
+            return new int[0];
+        }
+        int[] res = new int[nums.length - k + 1];
+        for (int i = k - 1; i < nums.length; i++) {
+            int maxNum = nums[i];
+            for (int j = 1; j < k; j++) {
+                if (nums[i - j] > maxNum) {
+                    maxNum = nums[i - j];
+                }
+            }
+            res[i - k + 1] = maxNum;
+        }
+        return res;
+    }
+
+
+    /**
+     * 单调队列解法 时间复杂度O(n)
+     */
+    public int[] maxSlidingWindow2(int[] nums, int k) {
         if (nums == null || nums.length < 2) {
             return nums;
         }
@@ -30,6 +56,7 @@ class Solution {
             if (deque.peekFirst() <= i - k) {
                 deque.pollFirst();
             }
+            // 最开始阶段，i没有达到k的长度
             if (i + 1 >= k) {
                 res[i + 1 - k] = nums[deque.peekFirst()];
             }

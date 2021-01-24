@@ -37,6 +37,7 @@ class Solution {
             if (target - candidates[i] < 0) {
                 break;
             }
+            // 注意这里判断条件，i > begin
             if (i > begin && candidates[i] == candidates[i - 1]) {
                 continue;
             }

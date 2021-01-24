@@ -28,6 +28,7 @@ class Solution {
     private void backtrack(int[] nums, int begin) {
         res.add(new ArrayList(path));
         for (int i = begin; i < nums.length; i++) {
+            // 注意判断 i > begin,因为i是从begin开始的
             if (i > begin && nums[i] == nums[i - 1]) {
                 continue;
             }

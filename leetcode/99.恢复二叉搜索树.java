@@ -2,24 +2,11 @@
  * @lc app=leetcode.cn id=99 lang=java
  *
  * [99] 恢复二叉搜索树
+ * 二叉搜索树中的两个节点被错误地交换。
+ * 请在不改变其结构的情况下，恢复这棵树。
  */
 
 // @lc code=start
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
     TreeNode x , y, pred = null;
     public void recoverTree(TreeNode root) {

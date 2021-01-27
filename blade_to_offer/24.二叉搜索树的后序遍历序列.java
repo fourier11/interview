@@ -8,7 +8,6 @@ class Solution {
             return true;
         }
         return recur(postorder, 0, postorder.length - 1);
-
     }
 
     private boolean recur(int[] postorder, int i, int j) {
@@ -16,10 +15,12 @@ class Solution {
             return true;
         }
         int p = i;
+        //左子树的任意节点小于根节点
         while (postorder[p] < postorder[j]) {
             p++;
         }
         int m = p;
+        // 右子树的任意节点大于根节点
         while (postorder[p] > postorder[j]) {
             p++;
         }

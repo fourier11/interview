@@ -13,11 +13,11 @@ class Solution {
             int size = queue.size();
             // 这里比较巧妙，设置一个空的头结点
             ListNode head = new ListNode(0);
-            ListNode n = head;
+            ListNode cur = head;
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
-                n.next = new ListNode(node.val);
-                n = n.next;
+                cur.next = new ListNode(node.val);
+                cur = cur.next;
                 if (node.left != null) {
                     queue.add(node.left);
                 }

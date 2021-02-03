@@ -6,6 +6,7 @@
  * 
  * 回溯法
  * 注意，答案需要的只是其中一条路径。
+ * 二维数组的值为1，表示有障碍物。
  */
 class Solution {
     private List<List<Integer>> path = new LinkedList<>();

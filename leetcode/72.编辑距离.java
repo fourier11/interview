@@ -2,6 +2,10 @@
  * @lc app=leetcode.cn id=72 lang=java
  *
  * [72] 编辑距离
+ * 给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。你可以对一个单词进行如下三种操作：
+ * 插入一个字符
+ * 删除一个字符
+ * 替换一个字符
  * 
  * https://github.com/labuladong/fucking-algorithm/blob/master/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B3%BB%E5%88%97/%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB.md
  */

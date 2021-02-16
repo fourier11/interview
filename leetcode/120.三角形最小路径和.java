@@ -17,20 +17,20 @@ import java.util.List;
 // @lc code=start
 class Solution {
 
-    public int minimumTotal2(List<List<Integer>> triangle) {
-        if (triangle == null || triangle.size() == 0) {
-            return 0;
-        }
-        int n = triangle.size();
-        int[][] dp = new int[n + 1][n + 1];
-        for (int i = n - 1; i >= 0; i--) {
-            List<Integer> rows = triangle.get(i);
-            for (int j = 0; j < rows.size(); j++) {
-                dp[i][j] = Math.min(dp[i + 1][j], dp[i + 1][j + 1]) + rows.get(j);
-            }
-        }
-        return dp[0][0];
-    }
+    // public int minimumTotal2(List<List<Integer>> triangle) {
+    // if (triangle == null || triangle.size() == 0) {
+    // return 0;
+    // }
+    // int n = triangle.size();
+    // int[][] dp = new int[n + 1][n + 1];
+    // for (int i = n - 1; i >= 0; i--) {
+    // List<Integer> rows = triangle.get(i);
+    // for (int j = 0; j < rows.size(); j++) {
+    // dp[i][j] = Math.min(dp[i + 1][j], dp[i + 1][j + 1]) + rows.get(j);
+    // }
+    // }
+    // return dp[0][0];
+    // }
 
     /**
      * 这个方法更容易理解一些
@@ -52,13 +52,14 @@ class Solution {
                 }
                 if (j == 1) {
                     dp[i][j] += dp[i - 1][j];
-                } else if (i == 1 && j == 1) {
+                } else if (j == i) {
                     dp[i][j] += dp[i - 1][j - 1];
                 } else {
                     dp[i][j] += Math.min(dp[i - 1][j - 1], dp[i - 1][j]);
                 }
             }
         }
+
         int res = Integer.MAX_VALUE;
         for (int i = 1; i <= n; i++) {
             res = Math.min(res, dp[n][i]);

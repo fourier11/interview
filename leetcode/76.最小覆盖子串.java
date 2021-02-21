@@ -5,6 +5,13 @@
  * 
  * 给你一个字符串 S、一个字符串 T，请在字符串 S 里面找出：包含 T 所有字符的最小子串。
  * 
+ * 输入: S = "ADOBECODEBANC", T = "ABC"
+ * 输出: "BANC"
+ * 
+ * 说明：
+ * 如果 S 中不存这样的子串，则返回空字符串 ""。
+ * 如果 S 中存在这样的子串，我们保证它是唯一的答案
+ * 
  * 滑动窗口问题
  * https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485141&idx=1&sn=0e4583ad935e76e9a3f6793792e60734&chksm=9bd7f8ddaca071cbb7570b2433290e5e2628d20473022a5517271de6d6e50783961bebc3dd3b&scene=21#wechat_redirect
  */

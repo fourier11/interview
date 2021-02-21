@@ -21,11 +21,10 @@ class Solution {
             if (left != right) {
                 return false;
             }
-            num = (num - left*div) / 10;
+            num = (num - left * div) / 10;
             div /= 100;
         }
         return true;
     }
 }
 // @lc code=end
-

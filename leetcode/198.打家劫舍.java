@@ -16,6 +16,7 @@ class Solution {
             return 0;
         }
         int len = nums.length;
+        // dp[i] 表示前i个房子，能达到的最大值。i从1开始算起，第i个房子偷或者不偷，两个选择，取较大值
         int[] dp = new int[len + 1];
         dp[0] = 0;
         dp[1] = nums[0];

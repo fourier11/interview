@@ -1,7 +1,7 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
- * 7. 字串查找，正则模糊匹配，输出找到字串的位置。
+ * 字串查找，正则模糊匹配，输出找到字串的位置。
  * 
  * 给出一个字符串，给出一个正则白表达式子串，找出可以找到子串的第一个位置。
  * 

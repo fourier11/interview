@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 /**
  * 兔子繁殖
@@ -9,10 +8,12 @@ import java.util.Scanner;
  */
 public class Rabbit {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int res = fib(n);
-        System.err.println(res);
+        System.out.println("第1个月:" + fib(1));
+        System.out.println("第2个月:" + fib(2));
+        System.out.println("第3个月:" + fib(3));
+        System.out.println("第4个月:" + fib(4));
+        System.out.println("第5个月:" + fib(5));
+        System.out.println("第1000个月:" + fib(1000));
     }
 
     public static int fib(int n) {

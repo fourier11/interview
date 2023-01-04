@@ -18,5 +18,6 @@ class JumpNumber {
             index++;
         }
         System.out.println("index: " + index);
+        sc.close();
     }
 }

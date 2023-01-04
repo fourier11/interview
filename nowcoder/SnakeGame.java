@@ -72,7 +72,6 @@ public class SnakeGame {
             return ++eat;
         }
         Position tail = snake.getLast();
-        //TODO:board的作用？？？
         board.remove(tail.toString());
         snake.removeLast();
         if (board.contains(ns))

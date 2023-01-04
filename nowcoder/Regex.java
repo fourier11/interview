@@ -18,9 +18,9 @@ public class Regex {
 
         while (m.find()) {
             count++;
-            // System.out.println("Match number "+count);
+            System.out.println("Match number "+count);
             System.out.println(/* "start(): " */m.start() + 1);
-            // System.out.println("end(): "+m.end());
+            System.out.println("end(): "+m.end());
         }
     }
 }

@@ -1,15 +1,11 @@
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 /**
  * 连续数列
  * 
- *  输入描述:
+ * 输入描述:
  * 
  * 输入包含两个参数，1）连续正整数数列和S，2）数列里数的个数N。
  * 
@@ -43,8 +39,10 @@ public class ContinuousSequence {
                 }
             }
         }
-        if (!matching_flag)
+        if (!matching_flag) {
             System.out.println(-1);
+        }
+        in.close();
     }
 
     public static int[][] findContinuousSequence(int target) {

@@ -1,10 +1,6 @@
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.LinkedBlockingDeque;
-
-import com.apple.laf.AquaTabbedPaneCopyFromBasicUI.TabSelectionHandler;
-
-import sun.misc.Queue;
+import java.util.ArrayList;
 
 /*
  * @lc app=leetcode.cn id=102 lang=java
@@ -24,23 +20,24 @@ import sun.misc.Queue;
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
+        LinkedList<TreeNode> queue = new LinkedList<>();
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
-        queue.add(root);
+        queue.addLast(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
             LinkedList<Integer> levels = new LinkedList<>();
             for (int i = 0; i < size; i++) {
-                TreeNode node = queue.poll();
+                TreeNode node = queue.getFirst();
+                queue.removeFirst();
                 levels.add(node.val);
                 if (node.left != null) {
-                    queue.add(node.left);
+                    queue.addLast(node.left);
                 }
                 if (node.right != null) {
-                    queue.add(node.right);
+                    queue.addLast(node.right);
                 }
             }
             result.add(levels);

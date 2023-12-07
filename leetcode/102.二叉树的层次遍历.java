@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.ArrayList;
 
 /*
@@ -20,24 +21,23 @@ import java.util.ArrayList;
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        LinkedList<TreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
-        queue.addLast(root);
+        queue.offer(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
             LinkedList<Integer> levels = new LinkedList<>();
             for (int i = 0; i < size; i++) {
-                TreeNode node = queue.getFirst();
-                queue.removeFirst();
+                TreeNode node = queue.poll();
                 levels.add(node.val);
                 if (node.left != null) {
-                    queue.addLast(node.left);
+                    queue.offer(node.left);
                 }
                 if (node.right != null) {
-                    queue.addLast(node.right);
+                    queue.offer(node.right);
                 }
             }
             result.add(levels);

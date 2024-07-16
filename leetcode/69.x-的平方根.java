@@ -2,6 +2,8 @@
  * @lc app=leetcode.cn id=69 lang=java
  *
  * [69] x的平方根
+ * 
+ * 二分查找衍生题
  */
 
 // @lc code=start
@@ -23,6 +25,7 @@ class Solution {
                 l = mid + 1;
             }
         }
+        // 注意，8的平方根是2.***,相当于要返回左边界，这里 h<l,h正是左边界
         return h;
     }
 }

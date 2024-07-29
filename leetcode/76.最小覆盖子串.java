@@ -17,29 +17,37 @@
  */
 
 // @lc code=start
+
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
     public String minWindow(String s, String t) {
-        int[] need = new int[255];
-        int[] window = new int[255];
+        Map<Character, Integer> need = new HashMap<>();
+        Map<Character, Integer> window = new HashMap<>();
         for (char c : t.toCharArray()) {
-            need[c]++;
+            // 需要凑齐的字符
+            need.put(c,need.getOrDefault(c, 0) + 1);
         }
         int left = 0;
         int right = 0;
+        // 最小覆盖子串的起始索引
         int start = 0;
         int valid = 0;
+        // 最小覆盖子串的长度
         int len = Integer.MAX_VALUE;
         while (right < s.length()) {
             char c = s.charAt(right);
             right++;
-            if (need[c] != 0) {
-                window[c]++;
-                if (window[c] <= need[c]) {
+            // 进行窗口内数据的一系列更新
+            if (need.containsKey(c)) {
+                window.put(c, window.getOrDefault(c,0) + 1);
+                if (window.get(c).equals(need.get(c))) {
                     valid++;
                 }
             }
             // 如果符合要求，移动 left 缩小窗口
-            while (valid == t.length()) {
+            while (valid == need.size()) {
                 // 如果这个窗口的子串更短，则更新 res
                 if (right - left < len) {
                     start = left;
@@ -47,11 +55,11 @@ class Solution {
                 }
                 char d = s.charAt(left);
                 left++;
-                if (need[d] != 0) {
-                    if (window[d] <= need[d]) {
+                if (need.containsKey(d)) {
+                    if (window.get(d).equals(need.get(d))) {
                         valid--;
                     }
-                    window[d]--;
+                    window.put(d, window.get(d) - 1);
                 }
             }
         }

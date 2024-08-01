@@ -2,20 +2,25 @@
  * @lc app=leetcode.cn id=283 lang=java
  *
  * [283] 移动零
+ * 
+ * 快慢指针题型
  */
 
 // @lc code=start
 class Solution {
     public void moveZeroes(int[] nums) {
-        int i = 0;
-        int j = 0;
-        for (i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
-                nums[j++] = nums[i];
+        int slow = 0;
+        int fast = 0;
+        while (fast < nums.length) {
+            if (nums[fast] != 0) {
+                nums[slow] = nums[fast];
+                slow++;
             }
+            fast++;
         }
-        while (j < nums.length) {
-            nums[j++] = 0;
+        while (slow < nums.length) {
+            nums[slow] = 0;
+            slow++;
         }
     }
 }

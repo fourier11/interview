@@ -10,14 +10,16 @@ class Solution {
         if (nums.length == 0) {
             return 0;
         }
-        int index = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != val) {
-                nums[index] = nums[i];
-                index++;
+        int fast = 0;
+        int slow = 0;
+        while (fast < nums.length) {
+            if (nums[fast] != val) {
+                nums[slow] = nums[fast];
+                slow++;
             }
+            fast++;
         }
-        return index;
+        return slow;
     }
 }
 // @lc code=end

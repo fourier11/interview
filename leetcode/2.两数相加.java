@@ -7,7 +7,8 @@
 // @lc code=start
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode res = new ListNode(0);
+        // 虚拟头节点
+        ListNode res = new ListNode(-1);
         ListNode cur = res;
         int carry = 0;
         while (l1 != null || l2 != null) {

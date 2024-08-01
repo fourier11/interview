@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.List;
 
 /*
  * @lc app=leetcode.cn id=46 lang=java
@@ -15,57 +16,31 @@ class Solution {
 
     public List<List<Integer>> permute(int[] nums) {
         LinkedList<Integer> track = new LinkedList<>();
-        backtrack(nums, track);
+        // 「路径」中的元素会被标记为 true，避免重复使用
+        boolean[] used = new boolean[nums.length];
+
+        backtrack(nums, track, used);
         return res;
     }
 
-    private void backtrack(int[] nums, LinkedList<Integer> track) {
+    private void backtrack(int[] nums, LinkedList<Integer> track, boolean[] used) {
         if (track.size() == nums.length) {
             res.add(new LinkedList<>(track));
             return;
         }
 
         for (int i = 0; i < nums.length; i++) {
-            // 因为对链表使用contains方法需要 O(N) 的时间复杂度,后面的解法二降低了时间复杂度
-            if (track.contains(nums[i])) {
+            // 排除不合法的选择
+            if (used[i]) {
+                // nums[i] 已经在 track 中，跳过
                 continue;
             }
             track.add(nums[i]);
-            backtrack(nums, track);
+            used[i] = true;
+            backtrack(nums, track, used);
             track.removeLast();
+            used[i] = false;
         }
-    }
-
-
-    public List<List<Integer>> permute2(int[] nums) {
-        LinkedList<Integer> list = new LinkedList<>();
-        if (nums == null || nums.length == 0) {
-            return res;
-        }
-        backtrack(nums, 0, list);
-        return res;
-    }
-
-    // 优化解法，通过交换元素，降低了时间复杂度
-    private void backtrack(int[] nums, int start, LinkedList<Integer> list) {
-        if (list.size() == nums.length) {
-            res.add(new LinkedList<>(list));
-            return;
-        }
-
-        for (int i = start; i < nums.length; i++) {
-            swap(nums, start, i);
-            list.add(nums[start]);
-            backtrack(nums, start + 1, list);
-            swap(nums, start, i);
-            list.removeLast();
-        }
-    }
-
-    private void swap(int[] nums, int left, int right) {
-        int temp = nums[left];
-        nums[left] = nums[right];
-        nums[right] = temp;
     }
 }
 // @lc code=end

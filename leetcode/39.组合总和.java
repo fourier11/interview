@@ -1,6 +1,7 @@
-import java.awt.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 /*
  * @lc app=leetcode.cn id=39 lang=java
@@ -22,32 +23,41 @@ import java.util.Arrays;
 // @lc code=start
 class Solution {
     private List<List<Integer>> res = new ArrayList<>();
+    // 方法二的记录回溯路径
     private List<Integer> path = new ArrayList<>();
+    // 记录回溯的路径
+    private LinkedList<Integer> track = new LinkedList<>();
 
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        dfs2(0, target, candidates);
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        if (candidates.length == 0) {
+            return res;
+        }
+        backtrack(candidates, 0, target, 0);
         return res;
     }
 
-    private void dfs2(int begin, int target, int[] candidates) {
-        if (begin == candidates.length) {
+    private void backtrack(int[] candidates, int start, int target, int sum) {
+        if (target == sum) {
+            res.add(new LinkedList<>(track));
             return;
         }
-        if (target == 0) {
-            res.add(new ArrayList<>(path));
+        if (sum > target) {
+            // 超过目标和，直接结束
             return;
         }
-        // 跳过当前元素
-        dfs2(begin + 1, target, candidates);
-        // 选择当前元素
-        if (target - candidates[begin] >= 0) {
-            path.add(candidates[begin]);
-            dfs2(begin, target - candidates[begin], candidates);
-            path.remove(path.size() - 1);
+
+        for (int i = start; i < candidates.length; i++) {
+            // 选择 candidates[i]
+            track.add(candidates[i]);
+            sum += candidates[i];
+            backtrack(candidates, i, target, sum);
+            // 撤销选择 candidates[i]
+            sum -= candidates[i];
+            track.removeLast();
         }
     }
 
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
         dfs(candidates, target, 0);
         return res;

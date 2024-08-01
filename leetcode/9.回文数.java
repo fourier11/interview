@@ -10,21 +10,16 @@ class Solution {
         if (x < 0) {
             return false;
         }
-        int div = 1;
-        int num = x;
-        while (num / div >= 10) {
-            div *= 10;
+        int temp = x;
+        // y是x翻转后的数字
+        int y = 0;
+        while (temp > 0) {
+            int last_num = temp % 10;
+            temp = temp / 10;
+            // 高位生成数字
+            y = y * 10 + last_num;
         }
-        while (num != 0) {
-            int left = num / div;
-            int right = num % 10;
-            if (left != right) {
-                return false;
-            }
-            num = (num - left * div) / 10;
-            div /= 100;
-        }
-        return true;
+        return y == x;
     }
 }
 // @lc code=end

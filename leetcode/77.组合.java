@@ -7,7 +7,7 @@ import java.util.List;
  * [77] 组合
  * 给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
  * 
- * 回溯算法模板
+ * 回溯算法题型
  */
 
 // @lc code=start
@@ -24,6 +24,7 @@ class Solution {
     }
 
     private void dfs(int n, int k, int start) {
+        // 到达树的底部
         if (path.size() == k) {
             res.add(new ArrayList<>(path));
             return;

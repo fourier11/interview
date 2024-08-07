@@ -27,4 +27,16 @@ public class LruCache<K, V> extends LinkedHashMap<K, V> {
         return this.size() >= maxCacheSize + 1;
     }
 
+    /**
+     * 如果需要支持线程安全，加上下面的锁。如果不需要线程安全，可以不用
+     * 
+     * 另一种方法，初始化的时候：
+     * Map<String, String> cache = Collections.synchronizedMap(new LruCache<String, String>(3));
+     */
+    @Override
+    public V put(K key, V value) {
+        synchronized {
+            return super.put(key, value);
+        }
+    }
 }

@@ -2,6 +2,7 @@
  * 链表相关的经典简单题型整理
  */
 public class ListNodePractice {
+    
     /**
      * 反转单链表,迭代解法
      */
@@ -14,6 +15,23 @@ public class ListNodePractice {
 
             pre = curr;
             curr = nextTmp;
+        }
+        return pre;
+    }
+
+    /**
+     * 链表中a和b之间进行反转，注意区间是左闭右开
+     */
+    public static ListNode reverseFromAToB(ListNode a, ListNode b) {
+        ListNode pre = null;
+        ListNode cur = a;
+        ListNode next = a;
+        while (cur != b) {
+            next = cur.next;
+            cur.next = pre;
+
+            pre = cur;
+            cur = next;
         }
         return pre;
     }

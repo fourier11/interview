@@ -1,87 +1,133 @@
+import java.util.HashMap;
 import java.util.Map;
 
 /*
  * @lc app=leetcode.cn id=146 lang=java
  *
- * [146] LRU缓存机制
+ * [146] LRU缓存机制, 直接实现底层双向链表
  */
 
 // @lc code=start
 class LRUCache {
-    class DLinkedNode {
-        int key;
-        int value;
-        DLinkedNode prev;
-        DLinkedNode next;
-        public DLinkedNode () {}
-        public DLinkedNode (int key, int value) {
-            this.key = key;
-            this.value = value;
-        }
-    }
-    private int size;
-    private int capacity;
-    private DLinkedNode head;
-    private DLinkedNode tail;
-    private Map<Integer, DLinkedNode> cache = new HashMap<Integer, DLinkedNode>();
+
+    private HashMap<Integer, Node> map;
+    private DoublieList cache;
+    private int cap;
+
 
     public LRUCache(int capacity) {
-        this.size = 0;
-        this.capacity = capacity;
-        head = new DLinkedNode();
-        tail = new DLinkedNode();
-        head.next = tail;
-        tail.prev = head;
+        this.cap = capacity;
+        map = new HashMap<>();
+        cache = new DoublieList();
     }
     
     public int get(int key) {
-        DLinkedNode node = cache.get(key);
-        if (node == null) {
+        if (!map.containsKey(key)) {
             return -1;
         }
-        moveToHead(node);
-        return node.value;
+        makeRecently(key);
+        return map.get(key).value;
     }
     
     public void put(int key, int value) {
-        DLinkedNode node = cache.get(key);
-        if (node == null) {
-            DLinkedNode newNode = new DLinkedNode(key, value);
-            cache.put(key, newNode);
-            addToHead(newNode);
+        if (map.containsKey(key)) {
+            deleteKey(key);
+            addRecently(key, value);
+            return;
+        }
+        if (cap == cache.size()) {
+            removeLeastRecently();
+        }
+        addRecently(key, value);
+    }
+
+    private void makeRecently(int key) {
+        Node x = map.get(key);
+        cache.remove(x);
+        cache.addLast(x);
+    }
+
+    private void addRecently(int key, int value) {
+        Node x = new Node(key, value);
+        cache.addLast(x);
+        map.put(key, x);
+    }
+
+    private void deleteKey(int key) {
+        Node x = map.get(key);
+        cache.remove(x);
+        map.remove(key);
+    }
+    /**
+     * 删除最久未使用
+     */
+    private void removeLeastRecently() {
+        Node deleteNode = cache.removeFirst();
+        int deletedKey = deleteNode.key;
+        map.remove(deletedKey);
+    }
+
+
+
+
+    /**
+     * 双向链表 
+     */
+    class DoublieList {
+        // 虚拟头节点
+        private Node head;
+        // 虚拟尾节点
+        private Node tail;
+        // 链表元素个数
+        private int size;
+        
+        public DoublieList() {
+            head = new Node(0, 0);
+            tail = new Node(0, 0);
+            head.next = tail;
+            tail.prev = head;
+            size = 0;
+        }
+
+        public void addLast(Node x) {
+            x.prev = tail.prev;
+            x.next = tail;
+            tail.prev.next = x;
+            tail.prev = x;
             size++;
-            if (size > capacity) {
-                DLinkedNode tail = removeTail();
-                cache.remove(tail.key);
-                size--;
+        }
+
+        public void remove(Node x) {
+            x.prev.next = x.next;
+            x.next.prev = x.prev;
+            size--;
+        }
+
+        public Node removeFirst() {
+            if (head.next == tail) {
+                return null;
             }
-        } else {
-            node.value = value;
-            moveToHead(node);
+            Node first = head.next;
+            remove(first);
+            return first;
+        }
+
+        public int size() {
+            return size;
         }
     }
 
-    private void addToHead(DLinkedNode node) {
-        node.prev = head;
-        node.next = head.next;
-        head.next.prev = node;
-        head.next = node;
-    }
 
-    private void removeNode(DLinkedNode node) {
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
-    }
+    class Node {
+        public int key;
+        public int value;
+        public Node next;
+        public Node prev;
 
-    private void moveToHead(DLinkedNode node) {
-        removeNode(node);
-        addToHead(node);
-    }
-
-    private DLinkedNode removeTail() {
-        DLinkedNode res = tail.prev;
-        removeNode(tail.prev);
-        return res;
+        public Node(int k, int v) {
+            this.key = k;
+            this.value = v;
+        }
     }
 }
 

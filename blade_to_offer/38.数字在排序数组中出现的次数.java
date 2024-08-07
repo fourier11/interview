@@ -1,6 +1,8 @@
 
 /**
  * 统计一个数字在排序数组中出现的次数。
+ * 
+ * 二分查找左右边界问题
  */
 class Solution {
     public int search(int[] nums, int target) {

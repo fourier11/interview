@@ -1,3 +1,8 @@
+import java.util.PriorityQueue;
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+
 /**
  * 输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4。
  * 利用了快排的partition算法
@@ -43,5 +48,37 @@ class Solution {
         }
         nums[l] = pivot;
         return l;
+    }
+
+    /**
+     * 大顶堆解法
+     */
+    public static List<Integer> findMinKNumbers(int[] nums, int k) {
+        if (nums == null || nums.length == 0 || k <= 0) {
+            return new ArrayList<>();
+        }
+
+        // 创建一个大小为 K 的优先队列（大顶堆）
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(k, Collections.reverseOrder());
+
+        for (int num : nums) {
+            if (maxHeap.size() < k) {
+                maxHeap.offer(num);
+            } else if (num < maxHeap.peek()) {
+                maxHeap.poll();
+                maxHeap.offer(num);
+            }
+        }
+
+        // 将优先队列中的元素存入结果列表
+        List<Integer> result = new ArrayList<>(maxHeap);
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = { 4, 5, 1, 6, 2, 7, 3, 8 };
+        int k = 4;
+        List<Integer> result = findMinKNumbers(nums, k);
+        System.out.println("The smallest " + k + " numbers are: " + result);
     }
 }

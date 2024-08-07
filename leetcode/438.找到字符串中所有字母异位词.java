@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /*
  * @lc app=leetcode.cn id=438 lang=java
@@ -12,36 +15,37 @@ import java.util.ArrayList;
 // @lc code=start
 class Solution {
     public List<Integer> findAnagrams(String s, String t) {
-        int[] need = new int[255];
-        int[] window = new int[255];
+        Map<Character, Integer> need = new HashMap<>();
+        Map<Character, Integer> window = new HashMap<>();
         for (char c : t.toCharArray()) {
-            need[c]++;
+            // 需要凑齐的字符
+            need.put(c, need.getOrDefault(c, 0) + 1);
         }
         int left = 0;
         int right = 0;
         int valid = 0;
         List<Integer> res = new ArrayList<>();
         while (right < s.length()) {
-            int c = s.charAt(right);
+            char c = s.charAt(right);
             right++;
-            if (need[c] != 0) {
-                window[c]++;
-                if (window[c] <= need[c]) {
+            if (need.containsKey(c)) {
+                window.put(c, window.getOrDefault(c, 0) + 1);
+                if (window.get(c).equals(need.get(c))) {
                     valid++;
                 }
             }
 
             while (right - left >= t.length()) {
-                if (valid == t.length()) {
+                if (valid == need.size()) {
                     res.add(left);
                 }
                 char d = s.charAt(left);
                 left++;
-                if (need[d] != 0) {
-                    if (window[d] <= need[d]) {
+                if (need.containsKey(d)) {
+                    if (window.get(d).equals(need.get(d))) {
                         valid--;
                     }
-                    window[d]--;
+                    window.put(d, window.get(d)-1);
                 }
             }
         }

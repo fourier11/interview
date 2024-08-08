@@ -1,4 +1,7 @@
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /*
  * @lc app=leetcode.cn id=239 lang=java
@@ -20,7 +23,7 @@ class Solution {
      * 暴力解法 
      * 时间复杂度O(n^2),Time Limit Exceeded
      */
-    public int[] maxSlidingWindow(int[] nums, int k) {
+    public int[] maxSlidingWindow2(int[] nums, int k) {
         if (k == 0) {
             return new int[0];
         }
@@ -41,28 +44,57 @@ class Solution {
     /**
      * 单调队列解法 时间复杂度O(n)
      */
-    public int[] maxSlidingWindow2(int[] nums, int k) {
-        if (nums == null || nums.length < 2) {
-            return nums;
-        }
-        ArrayDeque<Integer> deque = new ArrayDeque<>();
-        int[] res = new int[nums.length - k + 1];
-        for (int i = 0; i < nums.length; i++) {
-            while(!deque.isEmpty() && nums[deque.peekLast()] <= nums[i]) {
-                deque.pollLast();
-            }
-            deque.offerLast(i);
-            // 判断当前队列的头部是否已经超出滑动窗口
-            if (deque.peekFirst() <= i - k) {
-                deque.pollFirst();
-            }
-            // 最开始阶段，i没有达到k的长度
-            if (i + 1 >= k) {
-                res[i + 1 - k] = nums[deque.peekFirst()];
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        MonotonicQueue window = new MonotonicQueue();
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i <nums.length; i++) {
+            if (i < k - 1) {
+                // 先填满窗口
+                window.push(nums[i]);
+            } else {
+                // 窗口向前滑动，加入新数字
+                window.push(nums[i]);
+                // 记录当前窗口的最大值
+                res.add(window.max());
+                // 移出旧数字
+                window.pop(nums[i-k+1]);
             }
         }
-        return res;
+        int[] arr = new int[res.size()];
+        for (int i = 0; i< res.size(); i++) {
+            arr[i] = res.get(i);
+        }
+        return arr;
     }
+
+    /**
+     * 单调队列实现
+     */
+    class MonotonicQueue {
+        LinkedList<Integer> maxq = new LinkedList<>();
+        
+        public void push(int n) {
+            while (!maxq.isEmpty() && maxq.peekLast() < n) {
+                maxq.pollLast();
+            }
+            maxq.addLast(n);
+        }
+
+        public int max() {
+            return maxq.getFirst();
+        }
+
+        /**
+         * 之所以要判断 n == maxq.getFirst()，是因为我们想删除的队头元素 n 可能已经被「压扁」了，可能已经不存在了，所以这时候就不用删除了 
+        */        
+        public void pop(int n) {
+            if (n == maxq.getFirst()) {
+                maxq.pollFirst();
+            }
+        }
+    }
+
+
 }
 // @lc code=end
 

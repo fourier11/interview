@@ -39,6 +39,9 @@ class Solution {
         return root;
     }
 
+    /**
+     * 抽象成三叉树来进行遍历
+    */
     private void helper(Node node1, Node node2) {
         if (node1 == null || node2 == null) {
             return;

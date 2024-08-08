@@ -13,6 +13,8 @@
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
+ * 
+ * 二叉树构造类题型
  */
 class Solution {
     public TreeNode constructMaximumBinaryTree(int[] nums) {
@@ -20,6 +22,7 @@ class Solution {
     }
 
     private TreeNode helper(int[] nums, int start, int end) {
+        // base case
         if (start > end) {
             return null;
         }

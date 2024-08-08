@@ -13,6 +13,8 @@
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
+ * 
+ * 构造二叉树题型
  */
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
@@ -21,6 +23,7 @@ class Solution {
     }
 
     private TreeNode helper(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd) {
+        // base case
         if (preStart > preEnd || inStart > inEnd) {
             return null;
         }

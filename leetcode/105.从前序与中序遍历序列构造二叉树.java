@@ -30,6 +30,7 @@ class Solution {
         TreeNode root = new TreeNode(preorder[preStart]);
         for (int i = inStart; i <= inEnd; i++) {
             if (inorder[i] == root.val) {
+                // 这里通过画图就能很容易看出各个参数如何写
                 root.left = helper(preorder, preStart + 1, preStart + i - inStart, inorder, inStart, i - 1);
                 root.right = helper(preorder, preStart + i - inStart + 1, preEnd, inorder, i + 1, inEnd);
                 break;

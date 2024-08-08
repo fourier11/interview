@@ -27,6 +27,7 @@ class Solution {
         TreeNode root = new TreeNode(postorder[postEnd]);
         for (int i = inStart; i <= inEnd; i++) {
             if (inorder[i] == root.val) {
+                // 画图能更清楚各个参数值
                 root.left = helper(inorder, inStart, i - 1, postorder, postStart, postStart + i - inStart - 1);
                 root.right = helper(inorder, i + 1, inEnd, postorder, postStart + i - inStart, postEnd - 1);
                 break;

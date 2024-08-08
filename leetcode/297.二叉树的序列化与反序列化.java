@@ -18,54 +18,49 @@ import java.util.Queue;
  * }
  */
 public class Codec {
+    private static final String SEP = ",";
+    private static final String NULL = "#";
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
+        traverse(root, sb);
+        return sb.toString();
+    }
+
+    private void traverse(TreeNode root, StringBuilder sb) {
         if (root == null) {
-            return "[]";
+            sb.append(NULL).append(SEP);
+            return;
         }
-        StringBuilder res = new StringBuilder("[");
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while(!queue.isEmpty()){
-            TreeNode node = queue.poll();
-            if (node != null) {
-                res.append(node.val + ",");
-                queue.add(node.left);
-                queue.add(node.right);
-            } else {
-                res.append("null,");
-            }
-        }
-        // 用于删除最后一个节点后面多余的","
-        res.deleteCharAt(res.length() - 1);
-        res.append("]");
-        return res.toString();
+        //前序遍历
+        sb.append(root.val).append(SEP);
+        traverse(root.left, sb);
+        traverse(root.right, sb);
     }
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        if ("[]".equals(data)) {
+        LinkedList<String> nodes = new LinkedList<>();
+        for (String s : data.split(SEP)) {
+            nodes.add(s);
+        }
+        return helper(nodes);
+    }
+
+    private TreeNode helper(LinkedList<String> nodes) {
+        if (nodes.isEmpty()) {
             return null;
         }
-        String[] vals = data.substring(1, data.length() - 1).split(",");
-        TreeNode root = new TreeNode(Integer.parseInt(vals[0]));
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        int i = 1;
-        while(!queue.isEmpty()) {
-            TreeNode node = queue.poll();
-            if (!"null".equals(vals[i])) {
-                node.left = new TreeNode(Integer.parseInt(vals[i]));
-                queue.add(node.left);
-            }
-            i++;
-            if (!"null".equals(vals[i])) {
-                node.right = new TreeNode(Integer.parseInt(vals[i]));
-                queue.add(node.right);
-            }
-            i++;
+
+        String first = nodes.removeFirst();
+        if (first.equals(NULL)) {
+            return null;
         }
+        TreeNode root = new TreeNode(Integer.parseInt(first));
+        
+        root.left = helper(nodes);
+        root.right = helper(nodes);
         return root;
     }
 }

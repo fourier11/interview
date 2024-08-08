@@ -13,11 +13,15 @@ import java.util.Stack;
 
 // @lc code=start
 class Solution {
+    /**
+     * 逆向放入单调栈
+     */
     public int[] nextGreaterElements2(int[] nums) {
         int n = nums.length;
         int[] res = new int[n];
         // stack 存放的是索引，而不是对应nums的值
         Stack<Integer> stack = new Stack<>();
+        // 数组长度加倍模拟环形数组
         for (int i = 2 * n - 1; i >= 0; i--) {
             while (!stack.isEmpty() && nums[stack.peek()] <= nums[i % n]) {
                 stack.pop();
@@ -28,6 +32,9 @@ class Solution {
         return res;
     }
 
+    /**
+     * 正向放入单调栈
+     */
     public int[] nextGreaterElements(int[] nums) {
         int n = nums.length;
         int[] res = new int[n];

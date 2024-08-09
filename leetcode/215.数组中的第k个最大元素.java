@@ -2,20 +2,26 @@
  * @lc app=leetcode.cn id=215 lang=java
  *
  * [215] 数组中的第K个最大元素
+ * 
+ * 题目意思：降序排列后第k个元素
+ * 
  * 解法：
- * 采用快排思路
+ * 采用快排算法在leetcode上，最后一个case会出现概率性超时
+ * 小顶堆方案不会
  */
 
 // @lc code=start
 class Solution {
 
     /**
-     *  大顶堆解法
+     *  小顶堆解法
      */
-    public int findKthLargest(int[] nums, int k) {
+    public int findKthLargest2(int[] nums, int k) {
+        // 堆顶事最小元素
         final PriorityQueue<Integer> queue = new PriorityQueue<>();
         for (int val : nums) {
             queue.add(val);
+            // 堆中元素多于k个，删除堆顶元素
             if (queue.size() > k)
                 queue.poll();
         }
@@ -23,7 +29,8 @@ class Solution {
     }
 
 
-    public int findKthLargest2(int[] nums, int k) {
+    public int findKthLargest(int[] nums, int k) {
+        // 转化为排名第k个元素
         k = nums.length - k;
         int l = 0;
         int h = nums.length - 1;
@@ -40,20 +47,20 @@ class Solution {
         return nums[k];
     }
 
-    private int partition(int[] a, int l, int h) {
-        int i = l;
-        int j = h + 1;
-        while(true) {
-            // 把首个元素作为pivot
-            while(a[++i] < a[l] && i < h);
-            while(a[--j] > a[l] && j > l);
-            if (i >= j) {
-                break;
+    private int partition(int[] arr, int left, int right) {
+        int pivot = arr[left];
+        while (left < right) {
+            while (left < right && arr[right] >= pivot) {
+                right--;
             }
-            swap(a, i, j);
+            arr[left] = arr[right];
+            while (left < right && arr[left] <= pivot) {
+                left++;
+            }
+            arr[right] = arr[left];
         }
-        swap(a, l, j);
-        return j;
+        arr[left] = pivot;
+        return left;
     }
 
     private void swap(int[] a, int i, int j) {

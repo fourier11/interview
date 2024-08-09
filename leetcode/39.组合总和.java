@@ -23,60 +23,37 @@ import java.util.List;
 // @lc code=start
 class Solution {
     private List<List<Integer>> res = new ArrayList<>();
-    // 方法二的记录回溯路径
-    private List<Integer> path = new ArrayList<>();
     // 记录回溯的路径
-    private LinkedList<Integer> track = new LinkedList<>();
+    private LinkedList<Integer> path = new LinkedList<>();
+
+    private int trackSum = 0;
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         if (candidates.length == 0) {
             return res;
         }
-        backtrack(candidates, 0, target, 0);
+        backtrack(candidates, 0, target);
         return res;
     }
 
-    private void backtrack(int[] candidates, int start, int target, int sum) {
-        if (target == sum) {
-            res.add(new LinkedList<>(track));
+    private void backtrack(int[] candidates, int start, int target) {
+        if (target == trackSum) {
+            res.add(new LinkedList<>(path));
             return;
         }
-        if (sum > target) {
-            // 超过目标和，直接结束
+        if (trackSum > target) {
+            // 剪枝，提高效率
             return;
         }
 
         for (int i = start; i < candidates.length; i++) {
             // 选择 candidates[i]
-            track.add(candidates[i]);
-            sum += candidates[i];
-            backtrack(candidates, i, target, sum);
-            // 撤销选择 candidates[i]
-            sum -= candidates[i];
-            track.removeLast();
-        }
-    }
-
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        Arrays.sort(candidates);
-        dfs(candidates, target, 0);
-        return res;
-    }
-
-    private void dfs(int[] candidates, int target, int begin) {
-        if (target == 0) {
-            res.add(new ArrayList<>(path));
-            return;
-        }
-        for (int i = begin; i < candidates.length; i++) {
-            // 这里candidates数组排序了，这种剪枝能减少不必要的运算
-            if (candidates[i] > target) {
-                break;
-            }
             path.add(candidates[i]);
-            // 由于可以重复选择candidates的元素，递归的时候不能选择前面的元素，可以从i开始，不用是i+1
-            dfs(candidates, target - candidates[i], i);
-            path.remove(path.size() - 1);
+            trackSum += candidates[i];
+            backtrack(candidates, i, target);
+            // 撤销选择 candidates[i]
+            trackSum -= candidates[i];
+            path.removeLast();
         }
     }
 }

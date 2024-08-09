@@ -13,46 +13,33 @@ public class MergeSort {
 	}
 
 	private static void mergesort(int[] array, int[] helper, int low, int high) {
-		if (low < high) {
-			int middle = (low + high) / 2;
-			mergesort(array, helper, low, middle); // Sort left half
-			mergesort(array, helper, middle + 1, high); // Sort right half
-			merge(array, helper, low, middle, high); // Merge them
+		if (low == high) {
+			return;
 		}
+		int middle = low + (high - low) / 2;
+		mergesort(array, helper, low, middle); // Sort left half
+		mergesort(array, helper, middle + 1, high); // Sort right half
+		merge(array, helper, low, middle, high); // Merge them
 	}
 
 	private static void merge(int[] array, int[] helper, int low, int middle, int high) {
-		/* Copy both halves into a helper array */
+		// 先把low~high的值放入辅助数组，以便合并的值直接放入array
 		for (int i = low; i <= high; i++) {
 			helper[i] = array[i];
 		}
 
-		int helperLeft = low;
-		int helperRight = middle + 1;
-		int current = low;
-
-		/*
-		 * Iterate through helper array. Compare the left and right half, copying back
-		 * the smaller element from the two halves into the original array.
-		 */
-		while (helperLeft <= middle && helperRight <= high) {
-			if (helper[helperLeft] <= helper[helperRight]) {
-				array[current] = helper[helperLeft];
-				helperLeft++;
-			} else { // If right element is smaller than left element
-				array[current] = helper[helperRight];
-				helperRight++;
+		int i = low;
+		int j = middle + 1;
+		for (int p = low; p <= high; p++) {
+			if (i == middle + 1) {
+				array[p] = helper[j++];
+			} else if (j == high + 1) {
+				array[p] = helper[i++];
+			} else if (helper[i] > helper[j]) {
+				array[p] = helper[j++];
+			} else {
+				array[p] = helper[i++];
 			}
-			current++;
-		}
-
-		/*
-		 * Copy the rest of the left side of the array into the target array
-		 * 右半部分的剩余元素不需要复制，因为在array[]中已经包含了右半部分
-		 */
-		int remaining = middle - helperLeft;
-		for (int i = 0; i <= remaining; i++) {
-			array[current + i] = helper[helperLeft + i];
 		}
 	}
 

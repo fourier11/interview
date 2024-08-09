@@ -20,15 +20,18 @@ class Solution {
         if (nums == null || nums.length == 0) {
             return res;
         }
+        // 先排序，让相同的元素靠在一起
         Arrays.sort(nums);
         backtrack(nums, 0);
         return res;
     }
 
     private void backtrack(int[] nums, int begin) {
+        // 前序位置，每个节点都是一个子集
         res.add(new ArrayList(path));
+        
         for (int i = begin; i < nums.length; i++) {
-            // 注意判断 i > begin,因为i是从begin开始的
+            // 剪枝逻辑，值相同的相邻树枝，只遍历一条
             if (i > begin && nums[i] == nums[i - 1]) {
                 continue;
             }

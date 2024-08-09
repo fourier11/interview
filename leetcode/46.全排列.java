@@ -13,17 +13,17 @@ import java.util.List;
 // @lc code=start
 class Solution {
     List<List<Integer>> res = new LinkedList<>();
+    LinkedList<Integer> track = new LinkedList<>();
+    boolean[] used;
 
     public List<List<Integer>> permute(int[] nums) {
-        LinkedList<Integer> track = new LinkedList<>();
         // 「路径」中的元素会被标记为 true，避免重复使用
-        boolean[] used = new boolean[nums.length];
-
-        backtrack(nums, track, used);
+        used = new boolean[nums.length];
+        backtrack(nums);
         return res;
     }
 
-    private void backtrack(int[] nums, LinkedList<Integer> track, boolean[] used) {
+    private void backtrack(int[] nums) {
         if (track.size() == nums.length) {
             res.add(new LinkedList<>(track));
             return;
@@ -35,9 +35,9 @@ class Solution {
                 // nums[i] 已经在 track 中，跳过
                 continue;
             }
-            track.add(nums[i]);
+            track.addLast(nums[i]);
             used[i] = true;
-            backtrack(nums, track, used);
+            backtrack(nums);
             track.removeLast();
             used[i] = false;
         }

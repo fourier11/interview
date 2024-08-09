@@ -19,20 +19,21 @@ class Solution {
         if (k <= 0 || n <= 0) {
             return res;
         }
-        dfs(n, k, 1);
+        backtrack(n, k, 1);
         return res;
     }
 
-    private void dfs(int n, int k, int start) {
-        // 到达树的底部
+    private void backtrack(int n, int k, int start) {
+        // base case
         if (path.size() == k) {
             res.add(new ArrayList<>(path));
             return;
         }
-        // 注意i从start开始，避免重复
+
         for (int i = start; i <= n; i++) {
             path.add(i);
-            dfs(n, k, i + 1);
+            // 通过start参数，控制树枝的遍历，避免产生重复子集
+            backtrack(n, k, i + 1);
             path.remove(path.size() - 1);
         }
     }

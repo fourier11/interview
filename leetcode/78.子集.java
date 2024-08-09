@@ -14,19 +14,24 @@ import java.util.ArrayList;
 // @lc code=start
 class Solution {
     private List<Integer> path = new ArrayList<>();
-    private List<List<Integer>> ans = new ArrayList<>();
+    private List<List<Integer>> res = new ArrayList<>();
 
     public List<List<Integer>> subsets(int[] nums) {
-        dfs(nums, 0);
-        return ans;
+        backtrack(nums, 0);
+        return res;
     }
 
-    private void dfs(int[] nums, int begin) {
-        ans.add(new ArrayList<>(path));
+    private void backtrack(int[] nums, int begin) {
+        // 前序位置，每个节点的值都是一个子集
+        res.add(new ArrayList<>(path));
+        
         // 注意j的起始点
         for (int j = begin; j < nums.length; j++) {
+            // 做选择
             path.add(nums[j]);
-            dfs(nums, j + 1);
+            // 通过begin参数，控制剪枝
+            backtrack(nums, j + 1);
+            // 撤销选择
             path.remove(path.size() - 1);
         }
     }

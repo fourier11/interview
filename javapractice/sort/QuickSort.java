@@ -1,63 +1,68 @@
 package sort;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * 快速排序
- * quickSort2 的 partition 思路更清晰,优先考虑，而且可以用于计算最小k个数
  */
 public class QuickSort {
 
-	public static void quickSort1(int arr[], int left, int right) {
-		int index = partition(arr, left, right);
-		if (left < index - 1) { // Sort left half
-			quickSort1(arr, left, index - 1); 
-		}
-		if (index < right) { // Sort right half
-			quickSort1(arr, index, right);
-		}
+	public static void quickSort(int[] nums) {
+		shuffle(nums);
+		sort(nums, 0, nums.length - 1);
 	}
 
-	private static int partition(int arr[], int left, int right) {
-		int pivot = arr[(left + right) / 2]; // Pick a pivot point. Can be an element.
-
-		while (left <= right) { // Until we've gone through the whole array
-			// Find element on left that should be on right
-			while (arr[left] < pivot) {
-				left++;
-			}
-
-			// Find element on right that should be on left
-			while (arr[right] > pivot) {
-				right--;
-			}
-
-			// Swap elements, and move left and right indices
-			if (left <= right) {
-				swap(arr, left, right);
-				left++;
-				right--;
-			}
+	public static void sort(int[] nums, int lo, int hi) {
+		if (lo >= hi) {
+			return;
 		}
-		return left;
+		int p = partition2(nums, lo, hi);
+		sort(nums, lo, p - 1);
+		sort(nums, p + 1, hi);
+	}
+
+	public static int partition(int[] nums, int lo, int hi) {
+		int pivot = nums[lo];
+		// 这里边界定义为开区间，[lo, i) <= pivot (j, hi] > pivot
+		int i = lo + 1;
+		int j = hi;
+		while (i <= j) {
+			while (i < hi && nums[i] <= pivot) {
+				i++;
+				// 当while结束时，nums[i] > pivot
+			}
+			while (j > lo && nums[j] > pivot) {
+				j--;
+				// 当while结束时，nums[j] <= pivot
+			}
+			if (i >= j) {
+				break;
+			}
+			// 交换前 [lo, i) <= pivot (j, hi] > pivot
+			swap(nums, i, j);
+			// 交换后 [lo, i] <= pivot [j, hi] > pivot
+		}
+		swap(nums, lo, j);
+		return j;
+	}
+
+	/**
+	 * 洗牌算法，有利于快排
+	 */
+	private static void shuffle(int[] nums) {
+		Random rand = new Random();
+		int n = nums.length;
+		for (int i = 0; i < n; i++) {
+			int r = i + rand.nextInt(n-i);
+			swap(nums, i, r);
+		}
 	}
 
 	private static void swap(int[] array, int i, int j) {
 		int tmp = array[i];
 		array[i] = array[j];
 		array[j] = tmp;
-	}
-
-	public static void quickSort2(int arr[], int left, int right) {
-		int index = partition2(arr, left, right);
-		// index 已经放到正确位置
-		if (left < index - 1) {
-			quickSort2(arr, left, index - 1);
-		}
-		if (index + 1 < right) { 
-			// 注意index+1，如果不+1会导致无限递归，栈溢出
-			quickSort2(arr, index + 1, right);
-		}
 	}
 
 	private static int partition2(int arr[], int left, int right) {
@@ -80,13 +85,8 @@ public class QuickSort {
 		int[] arr = new int[] { 1, 4, 8, 2, 55, 3, 4, 8, 6, 4, 0, 11, 34, 90, 23, 54, 77, 9, 2, 9, 4, 10 };
 		System.out.println("排序前:");
 		System.out.println(Arrays.toString(arr));
-		quickSort1(arr, 0, arr.length - 1);
+		quickSort(arr);
 		System.out.println("quickSort1排序后:");
 		System.out.println(Arrays.toString(arr));
-
-		int[] arr2 = new int[] { 1, 4, 8, 2, 55, 3, 4, 8, 6, 4, 0, 11, 34, 90, 23, 54, 77, 9, 2, 9, 4, 10 };
-		quickSort2(arr2, 0, arr2.length - 1);
-		System.out.println("quickSort2排序后:");
-		System.out.println(Arrays.toString(arr2));
 	}
 }

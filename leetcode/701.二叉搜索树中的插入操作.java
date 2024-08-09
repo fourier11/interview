@@ -23,8 +23,10 @@
 class Solution {
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) {
+            // 找到空位置插入节点
             return new TreeNode(val);
         }
+        // BST中不会插入已经存在的数
         if (root.val < val) {
             root.right = insertIntoBST(root.right, val);
         }

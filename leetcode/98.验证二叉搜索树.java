@@ -12,23 +12,27 @@
 // @lc code=start
 class Solution {
     private TreeNode pre;
-    public boolean isValidBST2(TreeNode root) {
+
+    public boolean isValidBST(TreeNode root) {
         return helper(root, null, null);
     }
 
     private boolean helper(TreeNode node, Integer lower, Integer upper) {
+        // base case
         if (node == null) {
             return true;
         }
         int val = node.val;
+        // 如果val不符合lower和upper限制，说明不是合法BST
         if ((lower != null && val <= lower) || (upper != null && val >= upper)) {
             return false;
         }
+        // 左子树和右子树递归确认所有子树符合逻辑
         return helper(node.left, lower, val) && helper(node.right, val, upper);
     }
 
 
-    public boolean isValidBST(TreeNode root) {
+    public boolean isValidBST2(TreeNode root) {
         pre = null;
         return inOrder(root);
     }

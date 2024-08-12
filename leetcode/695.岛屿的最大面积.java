@@ -18,18 +18,23 @@ class Solution {
         return res;
     }
 
-    //DFS,深度优先遍历，沉岛思想
     private int dfs(int i, int j, int[][] grid) {
-        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0) {
+        int m = grid.length;
+        int n = grid[0].length;
+        if (i < 0 || j < 0 || i >= m || j >= n) {
             return 0;
         }
+        // 1是土地，0是海水
+        if (grid[i][j] == 0) {
+            return 0;
+        }
+        // 变成海水
         grid[i][j] = 0;
-        int num = 1;
-        num += dfs(i+1, j, grid);
-        num += dfs(i-1, j, grid);
-        num += dfs(i, j+1, grid);
-        num += dfs(i, j-1, grid);
-        return num;
+        return dfs(i + 1, j, grid) 
+        + dfs(i - 1, j, grid) 
+        + dfs(i, j + 1, grid) 
+        + dfs(i, j - 1, grid) 
+        + 1;
     }
 }
 // @lc code=end

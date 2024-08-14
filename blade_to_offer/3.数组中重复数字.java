@@ -24,6 +24,20 @@ class Solution {
         return -1;
     }
 
+    /**
+     * 方案二：时间复杂度O(N),空间复杂度O(N)
+     */
+    public int findRepeatDocument(int[] documents) {
+        Set<Integer> hmap = new HashSet<>();
+        for (int doc : documents) {
+            if (hmap.contains(doc))
+                return doc;
+            hmap.add(doc);
+        }
+        return -1;
+    }
+
+
     private void swap(int[] nums, int i, int j) {
         int tmp = nums[i];
         nums[i] = nums[j];

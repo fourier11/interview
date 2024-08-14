@@ -10,6 +10,9 @@
  * 如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。
  * 
  * 链接：https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof
+ * 
+ * 更简洁的解法：
+ * leetcode  151.反转字符串中的单词
  */
 public class Solution {
     // 这种解法无法解决leetcode上的一些特殊要求，"如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个"。

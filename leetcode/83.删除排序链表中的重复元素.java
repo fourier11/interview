@@ -28,7 +28,6 @@ class Solution {
                 slow = slow.next;
             }
             fast =fast.next;
-            
         }
         slow.next = null;
         return head;

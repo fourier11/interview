@@ -12,7 +12,11 @@
  * 如果 S 中不存这样的子串，则返回空字符串 ""。
  * 如果 S 中存在这样的子串，我们保证它是唯一的答案
  * 
- * 滑动窗口题型
+ * 限定条件；
+ * 对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t 中该字符数量。
+ * 如果 s 中存在这样的子串，我们保证它是唯一的答案。
+ * 
+ * 滑动窗口题型 （困难）
  * https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485141&idx=1&sn=0e4583ad935e76e9a3f6793792e60734&chksm=9bd7f8ddaca071cbb7570b2433290e5e2628d20473022a5517271de6d6e50783961bebc3dd3b&scene=21#wechat_redirect
  */
 
@@ -26,7 +30,7 @@ class Solution {
         Map<Character, Integer> need = new HashMap<>();
         Map<Character, Integer> window = new HashMap<>();
         for (char c : t.toCharArray()) {
-            // 需要凑齐的字符
+            // 需要凑齐的字符，可能存在重复字符
             need.put(c,need.getOrDefault(c, 0) + 1);
         }
         int left = 0;
@@ -43,6 +47,7 @@ class Solution {
             if (need.containsKey(c)) {
                 window.put(c, window.getOrDefault(c,0) + 1);
                 if (window.get(c).equals(need.get(c))) {
+                    // 符合要求的字符数
                     valid++;
                 }
             }

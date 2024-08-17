@@ -20,7 +20,8 @@ class Solution {
         while (right < s.length()) {
             char c = s.charAt(right);
             right++;
-            window.put(c,window.getOrDefault(c, 0) + 1);            // 判断左侧是否需要收缩，大于1表示已经有重复字符了
+            window.put(c,window.getOrDefault(c, 0) + 1);
+            // 判断左侧是否需要收缩，大于1表示已经有重复字符了
             while (window.get(c) > 1) {
                 char d = s.charAt(left);
                 left++;

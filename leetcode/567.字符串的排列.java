@@ -34,7 +34,9 @@ class Solution {
                     valid++;
                 }
             }
+            // 判断左窗口是否需要收缩
             while (right - left >= t.length()) {
+                // 判断是否找到了合法子串
                 if (valid == need.size()) {
                     return true;
                 }

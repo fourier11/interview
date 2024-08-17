@@ -118,6 +118,7 @@ public class ListNodePractice {
                 return null;
             }
         }
+        // 这里也要注意，结束的地方是快指针已经到了最后一个节点
         while (fast.next != null) {
             fast = fast.next;
             slow = slow.next;

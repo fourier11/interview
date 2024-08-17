@@ -36,6 +36,7 @@ class Solution {
             }
 
             while (right - left >= t.length()) {
+                // 窗口符合条件，就把起始索引left放入res
                 if (valid == need.size()) {
                     res.add(left);
                 }

@@ -37,7 +37,7 @@ class Solution {
             fast = fast.next;
             slow = slow.next;
         }
-        // slow 的下一个节点就是倒数第n个节点
+        // slow 是倒数第n+1个节点
         slow.next = slow.next.next;
         return head;
     }

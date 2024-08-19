@@ -5,6 +5,10 @@ import java.util.Map;
  * @lc app=leetcode.cn id=146 lang=java
  *
  * [146] LRU缓存机制, 直接实现底层双向链表
+ * 
+ * 双向链表写法在面试过程中不建议，建议优先考虑LinkedHashMap
+ * 
+ * 参考 LRUCache2.java
  */
 
 // @lc code=start

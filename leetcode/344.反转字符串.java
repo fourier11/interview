@@ -19,18 +19,6 @@ class Solution {
             left++;
             right--;
         }
-
-        // helper(s, 0, s.length - 1);
-    }
-    // 递归解法
-    public void helper(char[] s, int start, int end) {
-        if (start >= end) {
-            return;
-        }
-        char tmp = s[start];
-        s[start++] = s[end];
-        s[end--] = tmp;
-        helper(s, start, end);
     }
 }
 // @lc code=end

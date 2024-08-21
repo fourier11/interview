@@ -2,6 +2,8 @@
  * @lc app=leetcode.cn id=25 lang=java
  *
  * [25] K 个一组翻转链表
+ * 
+ * 反转链表题型
  */
 
 // @lc code=start

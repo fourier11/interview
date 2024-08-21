@@ -26,6 +26,7 @@ class Solution {
         if (start > end) {
             return null;
         }
+        // 找到数组最大值
         int max = Integer.MIN_VALUE;
         int index = 0;
         for (int i = start; i <= end; i++) {

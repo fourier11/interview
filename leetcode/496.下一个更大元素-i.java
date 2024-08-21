@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Stack;
 
 /*
  * @lc app=leetcode.cn id=496 lang=java
@@ -12,7 +13,6 @@ import java.util.HashMap;
  * 
  * 暴力解时间复杂度是 O(n^2)
  * 
- * 
  * 解法：
  * 单调栈,时间复杂度O(n)
  */
@@ -20,22 +20,31 @@ import java.util.HashMap;
 // @lc code=start
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        Stack<Integer> stack = new Stack<>();
-        // 映射：元素x -> x的下一个更大元素
-        HashMap<Integer, Integer> map = new HashMap<>();
-        int[] res = new int[nums1.length];
+        int[] greator = nextGreater(nums2);
+        HashMap<Integer, Integer> greaterMap = new HashMap<>();
         for (int i = 0; i < nums2.length; i++) {
-            while (!stack.isEmpty() && stack.peek() < nums2[i]) {
-                map.put(stack.pop(), nums2[i]);
-            }
-            stack.push(nums2[i]);
+            greaterMap.put(nums2[i], greator[i]);
         }
-        while (!stack.isEmpty()) {
-            map.put(stack.pop(), -1);
-        }
+        int[] res = new int[nums1.length];
         for (int i = 0; i < nums1.length; i++) {
-            // nums1 是 nums2 的子集
-            res[i] = map.get(nums1[i]);
+            // 由于nums1是nums2的子集，这里肯定能拿到元素
+            res[i] = greaterMap.get(nums1[i]);
+        }
+        return res;
+    }
+
+    private int[] nextGreater(int[] nums) {
+        int n = nums.length;
+        // 存放答案的数组
+        int[] res = new int[n];
+        Stack<Integer> stack = new Stack<>();
+        for (int i = n - 1; i>=0 ; i--) {
+            // 判定个子高矮
+            while (!stack.isEmpty() && stack.peek() <= nums[i]) {
+                stack.pop();
+            }
+            res[i] = stack.isEmpty() ? -1 : stack.peek();
+            stack.push(nums[i]);
         }
         return res;
     }

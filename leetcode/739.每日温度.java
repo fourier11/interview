@@ -25,27 +25,10 @@ class Solution {
             }
             // 得到索引间距
             res[i] = stack.isEmpty() ? 0: (stack.peek() - i);
+            // 将索引入栈，而不是元素
             stack.push(i);
         }
         return res;
-    }
-
-    /**
-     * 正向放入栈写法
-     */
-    public int[] dailyTemperatures2(int[] T) {
-        int len = T.length;
-        int[] ans = new int[T.length];
-        Stack<Integer> stack = new Stack();
-        for (int i = 0; i < len; i++) {
-            int temperature = T[i];
-            while (!stack.isEmpty() && T[stack.peek()] < temperature) {
-                int preIndex = stack.pop();
-                ans[preIndex] = i - preIndex;
-            }
-            stack.push(i);
-        }
-        return ans;
     }
 }
 // @lc code=end

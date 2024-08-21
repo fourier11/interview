@@ -6,11 +6,13 @@ import sun.misc.Queue;
  * @lc app=leetcode.cn id=200 lang=java
  *
  * [200] 岛屿数量
+ * 
+ * 岛屿题型
+ * DFS
  */
 
 // @lc code=start
 class Solution {
-
 
     /**
      * DFS

@@ -2,6 +2,8 @@
  * @lc app=leetcode.cn id=698 lang=java
  *
  * [698] 划分为k个相等的子集
+ * 
+ * 暂时跳过
  */
 
 // @lc code=start

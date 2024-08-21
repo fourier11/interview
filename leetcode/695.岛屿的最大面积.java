@@ -2,6 +2,9 @@
  * @lc app=leetcode.cn id=695 lang=java
  *
  * [695] 岛屿的最大面积
+ * 
+ * 岛屿题型
+ * DFS
  */
 
 // @lc code=start
@@ -18,6 +21,9 @@ class Solution {
         return res;
     }
 
+    /**
+     * 返回的是岛屿的面积
+     */
     private int dfs(int i, int j, int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;

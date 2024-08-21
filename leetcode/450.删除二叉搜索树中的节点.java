@@ -21,6 +21,8 @@
  *         this.right = right;
  *     }
  * }
+ * 
+ * 暂时跳过
  */
 class Solution {
     public TreeNode deleteNode(TreeNode root, int key) {

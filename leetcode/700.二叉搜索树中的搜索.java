@@ -13,6 +13,8 @@
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
+ * 
+ * 类似二分搜索
  */
 class Solution {
     public TreeNode searchBST(TreeNode root, int val) {

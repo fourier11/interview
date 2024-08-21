@@ -21,6 +21,12 @@
  * }
  */
 class Solution {
+    /**
+     * 
+     * @param root
+     * @param val
+     * @return 返回根节点
+     */
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) {
             // 找到空位置插入节点

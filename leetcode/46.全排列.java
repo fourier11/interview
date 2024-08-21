@@ -38,8 +38,8 @@ class Solution {
             track.addLast(nums[i]);
             used[i] = true;
             backtrack(nums);
-            track.removeLast();
             used[i] = false;
+            track.removeLast();
         }
     }
 }

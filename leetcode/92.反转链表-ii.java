@@ -11,23 +11,23 @@ class Solution {
     private ListNode successor;
 
     public ListNode reverseBetween(ListNode head, int m, int n) {
-        if (m == 1) {
-            return reverseN(head, n);
+        ListNode dummyNode = new ListNode(-1);
+        dummyNode.next = head;
+        ListNode pre = dummyNode;
+        for (int i = 0; i < m - 1; i++) {
+            pre = pre.next;
         }
-        // 注意这里参数是head.next,而不是head
-        head.next = reverseBetween(head.next, m - 1, n - 1);
-        return head;
+        ListNode cur = pre.next;
+        ListNode next;
+        // 头插法，需要结合图形总结规律
+        for (int i = 0; i < n - m; i++) {
+            next = cur.next;
+            cur.next = next.next;
+            next.next = pre.next;
+            pre.next = next;
+        }
+        return dummyNode.next;
     }
 
-    private ListNode reverseN(ListNode head, int n) {
-        if (n == 1) {
-            successor = head.next;
-            return head;
-        }
-        ListNode last = reverseN(head.next, n - 1);
-        head.next.next = head;
-        head.next = successor;
-        return last;
-    }
 }
 // @lc code=end

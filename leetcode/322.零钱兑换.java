@@ -63,6 +63,7 @@ class Solution {
                 dp[i] = Math.min(dp[i], dp[i - coin] + 1);
             }
         }
+        // 如果硬币都是1元，最多也就达到amount，不可能达到amount+1，所以判断是-1
         return dp[amount] == amount + 1 ? -1 : dp[amount];
     }
 }

@@ -35,6 +35,7 @@ class Solution {
 
     /**
      * dp 数组的转移只和 dp[i][..] 和 dp[i-1][..] 有关，所以可以压缩状态
+     * 自下而上DP
      */
     public int change(int amount, int[] coins) {
         int n = coins.length;

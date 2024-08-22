@@ -48,7 +48,7 @@ class Solution {
 
     /**
      * 自底而上动态规划，类似于0-1背包问题，逐步提升背包容量
-     * 性能相对更好，也不需要mem，空间复杂度也更好，空间复杂度为O(N)
+     * 性能相对更好，也不需要mem，空间复杂度为O(N)
      */
     public int coinChange(int[] coins, int amount) {
         // dp 数组的定义：当目标金额为 i 时，至少需要 dp[i] 枚硬币凑出。

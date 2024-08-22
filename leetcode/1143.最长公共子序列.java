@@ -9,28 +9,35 @@
  * 若这两个字符串没有公共子序列，则返回 0
  * 
  * https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484486&amp;idx=1&amp;sn=0bdcb94c6390307ea32427757ec0072c&source=41#wechat_redirect
+ * 
+ * 动态规划题型  
  */
 
 // @lc code=start
 class Solution {
+
+    /**
+     * 自底向上动态规划
+     */
     public int longestCommonSubsequence(String text1, String text2) {
-        char[] char1 = text1.toCharArray();
-        char[] char2 = text2.toCharArray();
-        int l1 = char1.length;
-        int l2 = char2.length;
-        // dp[i][j]的含义是：对于s1[1..i]和s2[1..j]，它们的 LCS 长度是dp[i][j]
-        int[][] dp = new int[l1 + 1][l2 + 1];
+        int m = text1.length();
+        int n = text2.length();
+        // dp[i][j]的含义是：对于s1[0..i-1]和s2[0..j-1]它们的 LCS 长度是dp[i][j]
+        int[][] dp = new int[m + 1][n + 1];
         // 索引为 0 的行和列表示空串, dp[0][..] = dp[..][0] = 0
-        for (int i = 1; i < l1 + 1; i++) {
-            for (int j = 1; j < l2 + 1; j++) {
-                if (char1[i - 1] == char2[j - 1]) {
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                // 现在i和j从1开始，所以要减1
+                if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
+                    // s1[i-1]和s2[j-1]必然在lcs中
                     dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
+                    // s1[i-1]和s2[j-1]至少有一个不在lcs中
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
                 }
             }
         }
-        return dp[l1][l2];
+        return dp[m][n];
     }
 }
 // @lc code=end

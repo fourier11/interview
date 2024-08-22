@@ -21,6 +21,7 @@ class Solution {
         for (int i = 0; i < n; i++) {
             Arrays.fill(memo[i], 66666);
         }
+        // 终点在matrix[n-1]的任意一列
         for (int j = 0; j < n; j++) {
             res = Math.min(res, dp(matrix, n-1, j));
         }

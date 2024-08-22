@@ -19,7 +19,7 @@ class Solution {
      * 
      * Patience sorting
      */
-    public int lengthOfLIS(int[] nums) {
+    public int lengthOfLIS2(int[] nums) {
         // dp数组是单调递增的，所以可以二分查找。dp[i]表示单调递增子序列当它的长度是i+1，最小的尾数。对于相同的长度，它是不断变小。dp初始值为0
         int[] dp = new int[nums.length];
         // 表示dp数组实际有效长度
@@ -39,9 +39,10 @@ class Solution {
     }
 
     /**
-     * 时间复杂度是O(n^2)
+     * 时间复杂度是O(n^2)，可读性更好
+     * 自底向上
      */
-    public int lengthOfLIS2(int[] nums) {
+    public int lengthOfLIS(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }

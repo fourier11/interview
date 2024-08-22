@@ -6,6 +6,8 @@ import java.util.HashMap;
  * [322] 零钱兑换,凑硬币
  * 
  * 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
+ * 
+ * 每种硬币的数量是无限的
  */
 
 // @lc code=start
@@ -46,6 +48,7 @@ class Solution {
 
     /**
      * 自底而上动态规划，类似于0-1背包问题，逐步提升背包容量
+     * 性能相对更好，也不需要mem，空间复杂度也更好，空间复杂度为O(N)
      */
     public int coinChange(int[] coins, int amount) {
         // dp 数组的定义：当目标金额为 i 时，至少需要 dp[i] 枚硬币凑出。

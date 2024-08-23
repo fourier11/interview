@@ -5,6 +5,8 @@
  * 
  * 给定不同面额的硬币和一个总金额。写出函数来计算可以凑成总金额的硬币组合数。假设每一种面额的硬币有无限个。 
  * https://labuladong.gitbook.io/algo/di-ling-zhang-bi-du-xi-lie-qing-an-shun-xu-yue-du/bei-bao-ling-qian
+ * 
+ * 动态规划题型
  */
 
 // @lc code=start
@@ -15,7 +17,7 @@ class Solution {
      */
     public int change2(int amount, int[] coins) {
         int n = coins.length;
-        // dp[i][j]表示前i个硬币凑出j值有多少种凑法
+        // 定义：dp[i][j]表示前i个硬币凑出j值有多少种凑法
         int[][] dp = new int[n + 1][amount + 1];
         // base case
         for (int i = 0; i <= n; i++) {
@@ -34,6 +36,7 @@ class Solution {
     }
 
     /**
+     * 空间压缩后的解法
      * dp 数组的转移只和 dp[i][..] 和 dp[i-1][..] 有关，所以可以压缩状态
      * 自下而上DP
      */

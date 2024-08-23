@@ -19,6 +19,7 @@ public class KnapsackProblem {
      */
     private static int knapsack(int N, int W, int[] wt, int[] val) {
         int[][] dp = new int[N + 1][W + 1];
+        // base case 已初始化
         // 注意：对于dp数组而言，i是从1开始的，w也是从1开始，所以wt和val取值要是i-1
         for (int i = 1; i <= N; i++) {
             for (int w = 1; w <= W; w++) {

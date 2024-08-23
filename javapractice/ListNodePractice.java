@@ -20,6 +20,41 @@ public class ListNodePractice {
     }
 
     /**
+     * 后驱节点
+     */
+    private static ListNode successor = null;
+
+    /**
+     * 反转前N个节点
+     */
+    public static ListNode reverseN(ListNode head, int n) {
+        // base case
+        if (n == 1) {
+            successor = head.next;
+            return head;
+        }
+
+        ListNode last = reverseN(head.next, n - 1);
+        head.next.next = head;
+        // 让反转后的链表和后面的节点连到一起
+        head.next = successor;
+        return last;
+    }
+
+    /**
+     * 反转m到n个节点
+     */
+    public static ListNode reverseBetween(ListNode head, int m, int n) {
+        // base case
+        if (m == 1) {
+            return reverseN(head, n);
+        }
+        // 前进到反转的起点触发 base case
+        head.next = reverseBetween(head.next, m - 1, n - 1);
+        return head;
+    }
+
+    /**
      * 链表中a和b之间进行反转，注意区间是左闭右开
      */
     public static ListNode reverseFromAToB(ListNode a, ListNode b) {

@@ -16,6 +16,8 @@ import jdk.internal.util.xml.impl.Pair;
  * 
  * 参考文章：
  * https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484675&idx=1&sn=4a4ac1c0f1279530b42fedacc6cca6e6&chksm=9bd7fb0baca0721dda1eaa1d00b9a520672dc9d5c3be762eeca869be35d7ce232922ba8e928b&scene=21#wechat_redirect
+ * 
+ * 动态规划题型
  */
 
 // @lc code=start
@@ -41,6 +43,7 @@ class Solution {
         }
         int res = Integer.MAX_VALUE;
         for (int i = 1; i <= N; i++) {
+            // 在所有楼层进行尝试，取最小扔鸡蛋次数
             res = Math.min(res, Math.max(helper(K, N - i, dp), helper(K - 1, i - 1, dp)) + 1);
         }
         dp[K][N] = res;

@@ -30,13 +30,14 @@ public class ListNodePractice {
     public static ListNode reverseN(ListNode head, int n) {
         // base case
         if (n == 1) {
+            // 记录第n+1个节点
             successor = head.next;
             return head;
         }
-
+        // 以head.next为起点，需要反转前 n - 1 个节点
         ListNode last = reverseN(head.next, n - 1);
         head.next.next = head;
-        // 让反转后的链表和后面的节点连到一起
+        // 让反转之后的head节点和后面的节点连起来
         head.next = successor;
         return last;
     }
@@ -83,7 +84,7 @@ public class ListNodePractice {
         head.next = null;
         return p;
     }
-
+ 
     /**
      * 合并两个有序链表
      * 最好用迭代解法。

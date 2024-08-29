@@ -1,17 +1,16 @@
 /*
- * @lc app=leetcode.cn id=316 lang=java
+ * @lc app=leetcode.cn id=1081 lang=java
  *
- * [316] 去除重复字母
+ * [1081] 不同字符的最小子序列
+ * 
+ * 同316题
  * 
  * 单调栈题型
  */
 
 // @lc code=start
-
-import java.util.Deque;
-
 class Solution {
-    public String removeDuplicateLetters(String s) {
+    public String smallestSubsequence(String s) {
         int len = s.length();
         char[] charArray = s.toCharArray();
         // 只有小写字母,表示每个字符最后出现的下标

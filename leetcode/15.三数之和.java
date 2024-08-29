@@ -19,9 +19,11 @@ class Solution {
         }
         Arrays.sort(nums);
         for (int i = 0; i < len; i++) {
+            // 要求三数加和为0，如果第一个数大于0，后面不可能加和为0
             if (nums[i] > 0) {
                 break;
             }
+            // 题目要求，答案中不可以包含重复的三元组
             if (i > 0 && nums[i] == nums[i-1]) {
                 continue;
             }
@@ -31,6 +33,7 @@ class Solution {
                 int sum = nums[i] + nums[L] + nums[R];
                 if (sum == 0) {
                     ans.add(Arrays.asList(nums[i], nums[L], nums[R]));
+                    // 挪动指针，如果后一个值等于当前值，多挪动
                     while (L < R && nums[L + 1] == nums[L]) {
                         L++;
                     }

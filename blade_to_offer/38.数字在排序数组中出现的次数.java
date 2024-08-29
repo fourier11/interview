@@ -14,37 +14,48 @@ class Solution {
         return right - left + 1;
     }
 
+    
     private int leftBound(int[] nums, int target) {
+        if (nums.length == 0) {
+            return -1;
+        }
         int left = 0;
-        int right = nums.length - 1;
-        while (left <= right) {
+        // right 不包含进去，所以不能是nums.length - 1
+        int right = nums.length;
+        // 左闭右开写法
+        while (left < right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] < target) {
                 left = mid + 1;
-            } else if (nums[mid] >= target) {
-                right = mid - 1;
+            } else if (nums[mid] > target) {
+                right = mid;
+            } else if (nums[mid] == target) {
+                right = mid;
             }
         }
-        if ((left < nums.length && nums[left] != target) || left >= nums.length) {
+        if (left == nums.length) {
             return -1;
         }
-        return left;
+        return nums[left] == target ? left : -1;
     }
 
     private int rightBound(int[] nums, int target) {
         int left = 0;
-        int right = nums.length - 1;
-        while (left <= right) {
+        int right = nums.length;
+        // 左闭右开写法
+        while (left < right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] <= target) {
+            if (nums[mid] == target) {
+                left = mid + 1;
+            } else if (nums[mid] < target) {
                 left = mid + 1;
             } else if (nums[mid] > target) {
-                right = mid - 1;
+                right = mid;
             }
         }
-        if ((right >= 0 && nums[right] != target) || right < 0) {
+        if (left == 0) {
             return -1;
         }
-        return right;
+        return nums[left - 1] == target ? left - 1: -1;
     }
 }

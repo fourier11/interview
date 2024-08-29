@@ -54,8 +54,6 @@ class Solution {
 
     /**
      * 双指针解法
-     * @param height
-     * @return
      */
     public int trap(int[] height) {
         int left = 0;
@@ -75,11 +73,7 @@ class Solution {
             }  
         }
         return res;
-    }
-
-
-
-    
+    }    
 }
 // @lc code=end
 

@@ -114,3 +114,6 @@ venv.bak/
 
 # Java
 *.class
+
+# leetcode
+.lcpr_data/

@@ -16,11 +16,7 @@ class Solution {
     }
 
     private TreeNode find(TreeNode root, int val1, int val2) {
-        if (root == null) {
-            return null;
-        }
-        // 前序位置
-        if (root.val == val1 || root.val == val2) {
+        if (root == null || root.val == val1 || root.val == val2) {
             return root;
         }
         TreeNode left = find(root.left, val1, val2);
@@ -30,7 +26,6 @@ class Solution {
             return root;
         }
         return left != null ? left : right;
-
     }
 }
 // @lc code=end
